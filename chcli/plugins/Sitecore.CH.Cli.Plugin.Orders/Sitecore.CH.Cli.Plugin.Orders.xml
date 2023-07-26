@@ -1,0 +1,399 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Sitecore.CH.Cli.Plugin.Orders</name>
+    </assembly>
+    <members>
+        <member name="T:Sitecore.CH.Cli.Plugin.Orders.CommandHandlers.DeleteCommandHandler">
+            <summary>
+            The <see cref="T:System.CommandLine.Invocation.ICommandHandler"/> to process <see cref="T:Sitecore.CH.Cli.Plugin.Orders.Commands.DeleteCommand"/>.
+            </summary>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Orders.CommandHandlers.DeleteCommandHandler.#ctor(System.Lazy{Stylelabs.M.Sdk.WebClient.IWebMClient},Sitecore.CH.Cli.Core.Abstractions.Rendering.IOutputRenderer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.CH.Cli.Plugin.Orders.CommandHandlers.DeleteCommandHandler"/> class.
+            </summary>
+            <param name="client">The web sdk client.</param>
+            <param name="renderer">The <see cref="T:Sitecore.CH.Cli.Core.Abstractions.Rendering.IOutputRenderer"/> to output information to the user.</param>
+            <exception cref="T:System.ArgumentNullException">
+                <paramref name="client"/> or <paramref name="renderer"/> is <see langword="null"/>.
+            </exception>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Orders.CommandHandlers.DeleteCommandHandler.Id">
+            <summary>
+            Gets or sets the id of order.
+            </summary>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Orders.CommandHandlers.DeleteCommandHandler.InvokeAsync(System.CommandLine.Invocation.InvocationContext)">
+            <summary>
+            Asynchronously invokes handler.
+            </summary>
+            <param name="context">The context of current execution.</param>
+            <returns>The exit code of the command execution.</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+               Order is invalid.
+            </exception>
+            <exception cref="T:Stylelabs.M.Sdk.Exceptions.NotFoundException">
+               Order was not found or is an entity of a different type.
+            </exception>
+            <exception cref="T:Sitecore.CH.Cli.Core.Exceptions.CliException">
+               Order has not reached the final state yet.
+            </exception>
+        </member>
+        <member name="T:Sitecore.CH.Cli.Plugin.Orders.CommandHandlers.FetchCommandHandler">
+            <summary>
+            The <see cref="T:System.CommandLine.Invocation.ICommandHandler"/> to process <see cref="T:Sitecore.CH.Cli.Plugin.Orders.Commands.FetchCommand"/>.
+            </summary>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Orders.CommandHandlers.FetchCommandHandler.#ctor(System.Lazy{Stylelabs.M.Sdk.WebClient.IWebMClient},Sitecore.CH.Cli.Core.Abstractions.IO.IFileProvider,Sitecore.CH.Cli.Core.Abstractions.Rendering.IOutputRenderer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.CH.Cli.Plugin.Orders.CommandHandlers.FetchCommandHandler"/> class.
+            </summary>
+            <param name="client">The <see cref="T:Stylelabs.M.Sdk.WebClient.IWebMClient"/> to retrieve orders information.</param>
+            <param name="fileProvider">The <see cref="T:Sitecore.CH.Cli.Core.Abstractions.IO.IFileProvider"/>.</param>
+            <param name="renderer">The <see cref="T:Sitecore.CH.Cli.Core.Abstractions.Rendering.IOutputRenderer"/> to output information to the user.</param>
+            <exception cref="T:System.ArgumentNullException">
+                <paramref name="client"/>, <paramref name="fileProvider"/>, or <paramref name="renderer"/> is <see langword="null"/>.
+            </exception>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Orders.CommandHandlers.FetchCommandHandler.Id">
+            <summary>
+            Gets or sets the id of the order.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Orders.CommandHandlers.FetchCommandHandler.Wait">
+            <summary>
+            Gets or sets a value indicating whether to wait for the order to be ready, or not.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Orders.CommandHandlers.FetchCommandHandler.Out">
+            <summary>
+            Gets or sets the path to download the order to.
+            </summary>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Orders.CommandHandlers.FetchCommandHandler.InvokeAsync(System.CommandLine.Invocation.InvocationContext)">
+            <summary>
+             Asynchronously invokes handler.
+            </summary>
+            <param name="context">The context of current execution.</param>
+            <returns>The exit code of the command execution.</returns>
+            <exception cref="T:System.ArgumentException">
+               Order was not found.
+            </exception>
+        </member>
+        <member name="T:Sitecore.CH.Cli.Plugin.Orders.CommandHandlers.ListCommandHandler">
+            <summary>
+             The <see cref="T:System.CommandLine.Invocation.ICommandHandler"/> to process <see cref="T:Sitecore.CH.Cli.Plugin.Orders.Commands.ListCommand"/>.
+            </summary>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Orders.CommandHandlers.ListCommandHandler.#ctor(System.Lazy{Stylelabs.M.Sdk.WebClient.IWebMClient},Sitecore.CH.Cli.Core.Abstractions.Rendering.IOutputRenderer,Microsoft.Extensions.Options.IOptions{Sitecore.CH.Cli.Core.Models.FilteredListParameters})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.CH.Cli.Plugin.Orders.CommandHandlers.ListCommandHandler"/> class.
+            </summary>
+            <param name="client">The <see cref="T:Stylelabs.M.Sdk.WebClient.IWebMClient"/> to retrieve orders information.</param>
+            <param name="renderer">The <see cref="T:Sitecore.CH.Cli.Core.Abstractions.Rendering.IOutputRenderer"/> to output information to the user.</param>
+            <param name="parameters">The command parameters.</param>
+            <exception cref="T:System.ArgumentNullException">
+                <paramref name="client"/> or <paramref name="renderer"/> is <see langword="null"/>.
+            </exception>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Orders.CommandHandlers.ListCommandHandler.InvokeAsync(System.CommandLine.Invocation.InvocationContext)">
+            <inheritdoc />
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Orders.CommandHandlers.ListCommandHandler.BuildIterator">
+            <inheritdoc />
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Orders.CommandHandlers.ListCommandHandler.BuildQuery">
+            <inheritdoc />
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Orders.CommandHandlers.ListCommandHandler.BuildList(System.Collections.Generic.IList{Stylelabs.M.Sdk.Contracts.Base.IEntity})">
+            <inheritdoc />
+        </member>
+        <member name="T:Sitecore.CH.Cli.Plugin.Orders.CommandHandlers.StatusCommandHandler">
+            <summary>
+            The <see cref="T:System.CommandLine.Invocation.ICommandHandler"/> to process <see cref="T:Sitecore.CH.Cli.Plugin.Orders.Commands.StatusCommand"/>.
+            </summary>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Orders.CommandHandlers.StatusCommandHandler.#ctor(System.Lazy{Stylelabs.M.Sdk.WebClient.IWebMClient},Sitecore.CH.Cli.Core.Abstractions.Rendering.IOutputRenderer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.CH.Cli.Plugin.Orders.CommandHandlers.StatusCommandHandler"/> class.
+            </summary>
+            <param name="client">The web sdk client.</param>
+            <param name="renderer">The <see cref="T:Sitecore.CH.Cli.Core.Abstractions.Rendering.IOutputRenderer"/> to output information to the user.</param>
+            <exception cref="T:System.ArgumentNullException">
+                <paramref name="client"/> or <paramref name="renderer"/> is <see langword="null"/>.
+            </exception>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Orders.CommandHandlers.StatusCommandHandler.Id">
+            <summary>
+            Gets or sets the id of order.
+            </summary>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Orders.CommandHandlers.StatusCommandHandler.InvokeAsync(System.CommandLine.Invocation.InvocationContext)">
+            <summary>
+            Asynchronously invokes handler.
+            </summary>
+            <param name="context">The context of current execution.</param>
+            <returns>The exit code of the command execution.</returns>
+            <exception cref="T:System.ArgumentException">
+               Order was not found.
+            </exception>
+        </member>
+        <member name="T:Sitecore.CH.Cli.Plugin.Orders.Commands.DeleteCommand">
+             <summary>
+             Deletes a download order.
+             </summary>
+             <example>
+                 <code>ch-cli orders delete --id "&lt;order id&gt;"</code>
+             </example>
+             <remarks>
+                 <strong>Required parameters</strong>
+                 <list type="bullet">
+                     <item>
+                         <term><c>--id</c></term>
+                         <description> Specifies the order id</description>
+                     </item>
+                 </list>
+            
+                 <strong>Optional parameters</strong>
+                 <list type="bullet">
+                     <item>
+                         <term><c>--endpoint -e</c></term>
+                         <description> Specifies an alternative endpoint name for the execution of this command.</description>
+                     </item>
+                 </list>
+            
+                 <strong>Global parameters</strong>
+                 <list type="bullet">
+                     <item>
+                         <term><c>-? --help -h</c></term>
+                         <description> Show this help message and exit.</description>
+                     </item>
+                     <item>
+                         <term><c>-v --verbosity</c></term>
+                         <description> Enables verbose logging.</description>
+                     </item>
+                 </list>
+             </remarks>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Orders.Commands.DeleteCommand.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.CH.Cli.Plugin.Orders.Commands.DeleteCommand"/> class.
+            </summary>
+        </member>
+        <member name="T:Sitecore.CH.Cli.Plugin.Orders.Commands.FetchCommand">
+             <summary>
+             Fetch an order.
+             </summary>
+             <example>
+                 Outputs the order's download url if the order is ready for download.
+                 <code>ch-cli orders fetch --id "&lt;order id&gt;"</code>
+                 With wait option, outputs the order's download url.
+                 <code>ch-cli orders fetch --id "&lt;order id&gt;" --wait</code>
+                 With out option, downloads the order to the specific location.
+                 <code>ch-cli orders fetch --id "&lt;order id&gt;" --out</code>
+                 With wait and out option, downloads the order to the specific location.
+                 <code>ch-cli orders fetch --id "&lt;order id&gt;" --wait --out</code>
+             </example>
+             <remarks>
+                 <strong>Required parameters</strong>
+                 <list type="bullet">
+                     <item>
+                         <term><c>--id</c></term>
+                         <description> Specifies the order id</description>
+                     </item>
+                 </list>
+            
+                 <strong>Optional parameters</strong>
+                 <list type="bullet">
+                     <item>
+                         <term><c>--wait -w</c></term>
+                         <description> Waits until the order is ready for download.</description>
+                     </item>
+                     <item>
+                         <term><c>--out -o</c></term>
+                         <description> Waits until the order is ready for download and stores the file on disk in the specified location.</description>
+                     </item>
+                     <item>
+                         <term><c>--endpoint -e</c></term>
+                         <description> Specifies an alternative endpoint name for the execution of this command.</description>
+                     </item>
+                 </list>
+            
+                 <strong>Global parameters</strong>
+                 <list type="bullet">
+                     <item>
+                         <term><c>-? --help -h</c></term>
+                         <description> Show this help message and exit.</description>
+                     </item>
+                     <item>
+                         <term><c>-v --verbosity</c></term>
+                         <description> Enables verbose logging.</description>
+                     </item>
+                 </list>
+             </remarks>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Orders.Commands.FetchCommand.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.CH.Cli.Plugin.Orders.Commands.FetchCommand"/> class.
+            </summary>
+        </member>
+        <member name="T:Sitecore.CH.Cli.Plugin.Orders.Commands.ListCommand">
+             <summary>
+             List orders.
+             </summary>
+             <example>
+                 With filters:
+                 <code>ch-cli orders list -f "&lt;value&gt;"</code>
+                 If filter value is an integer the results are filter by 'Number of targets', otherwise
+                 the results are filtered by Condition or State or Type that contains the entered value.
+                 With sorting:
+                 <code>ch-cli orders list -o "&lt;property name&gt;"</code>
+             </example>
+             <remarks>
+                 <strong>Optional parameters</strong>
+                 <list type="bullet">
+                     <item>
+                         <term><c>--filter -f</c></term>
+                         <description> Refines the list of results.</description>
+                     </item>
+                     <item>
+                         <term><c>--sort -s</c></term>
+                         <description> Sorts the list of results.</description>
+                     </item>
+                     <item>
+                         <term><c>--order -o</c></term>
+                         <description> Defines the sort order. Default value is Desc.</description>
+                     </item>
+                     <item>
+                         <term><c>--output</c></term>
+                         <description> Specifies the output format. Allowed values: Table, Json</description>
+                     </item>
+                     <item>
+                         <term><c>--endpoint -e</c></term>
+                         <description> Specifies an alternative endpoint name for the execution of this command.</description>
+                     </item>
+                 </list>
+            
+                 <strong>Global parameters</strong>
+                 <list type="bullet">
+                     <item>
+                         <term><c>-? --help -h</c></term>
+                         <description> Show this help message and exit.</description>
+                     </item>
+                     <item>
+                         <term><c>-v --verbosity</c></term>
+                         <description> Enables verbose logging.</description>
+                     </item>
+                 </list>
+             </remarks>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Orders.Commands.ListCommand.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.CH.Cli.Plugin.Orders.Commands.ListCommand"/> class.
+            </summary>
+        </member>
+        <member name="T:Sitecore.CH.Cli.Plugin.Orders.Commands.StatusCommand">
+             <summary>
+             Gets the status for an order.
+             </summary>
+             <example>
+                 <code>ch-cli orders status --id "&lt;order id&gt;"</code>
+             </example>
+             <remarks>
+                 <strong>Required parameters</strong>
+                 <list type="bullet">
+                     <item>
+                         <term><c>--id</c></term>
+                         <description> Specifies the order id</description>
+                     </item>
+                 </list>
+            
+                 <strong>Optional parameters</strong>
+                 <list type="bullet">
+                     <item>
+                         <term><c>--endpoint -e</c></term>
+                         <description> Specifies an alternative endpoint name for the execution of this command.</description>
+                     </item>
+                 </list>
+            
+                 <strong>Global parameters</strong>
+                 <list type="bullet">
+                     <item>
+                         <term><c>-? --help -h</c></term>
+                         <description> Show this help message and exit.</description>
+                     </item>
+                     <item>
+                         <term><c>-v --verbosity</c></term>
+                         <description> Enables verbose logging.</description>
+                     </item>
+                 </list>
+             </remarks>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Orders.Commands.StatusCommand.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.CH.Cli.Plugin.Orders.Commands.StatusCommand"/> class.
+            </summary>
+        </member>
+        <member name="T:Sitecore.CH.Cli.Plugin.Orders.OrdersMessages">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Orders.OrdersMessages.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Orders.OrdersMessages.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Orders.OrdersMessages.CommandDescriptionDelete">
+            <summary>
+              Looks up a localized string similar to Deletes the specified order.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Orders.OrdersMessages.CommandDescriptionFetch">
+            <summary>
+              Looks up a localized string similar to Fetches the specified order.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Orders.OrdersMessages.CommandDescriptionList">
+            <summary>
+              Looks up a localized string similar to List orders.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Orders.OrdersMessages.CommandDescriptionStatus">
+            <summary>
+              Looks up a localized string similar to Retrieves the status for the specified order.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Orders.OrdersMessages.CommandGroupOrders">
+            <summary>
+              Looks up a localized string similar to Orders command allows the user to manage the orders on a Content Hub server, by fetching an order, querying an orders&apos; status, deleting and order and listing all orders..
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Orders.OrdersMessages.FormatOrderDeleted">
+            <summary>
+              Looks up a localized string similar to Order with ID {0} has been deleted..
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Orders.OrdersMessages.FormatOrderNotCompleted">
+            <summary>
+              Looks up a localized string similar to Order with ID {0} is not yet completed. Current status: {1}.
+            </summary>
+        </member>
+        <member name="T:Sitecore.CH.Cli.Plugin.Orders.OrdersPlugin">
+            <inheritdoc />
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Orders.OrdersPlugin.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <inheritdoc />
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Orders.OrdersPlugin.RegisterCommands(Sitecore.CH.Cli.Core.Abstractions.Infrastructure.ICommandRegistry)">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>

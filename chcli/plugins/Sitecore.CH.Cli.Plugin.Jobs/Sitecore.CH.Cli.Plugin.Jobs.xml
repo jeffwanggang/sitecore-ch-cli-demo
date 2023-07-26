@@ -1,0 +1,389 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Sitecore.CH.Cli.Plugin.Jobs</name>
+    </assembly>
+    <members>
+        <member name="T:Sitecore.CH.Cli.Plugin.Jobs.CommandHandlers.ListCommandHandler">
+            <summary>
+            The <see cref="T:System.CommandLine.Invocation.ICommandHandler"/> to process <see cref="T:Sitecore.CH.Cli.Plugin.Jobs.Commands.ListCommand"/>.
+            </summary>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Jobs.CommandHandlers.ListCommandHandler.#ctor(System.Lazy{Stylelabs.M.Sdk.WebClient.IWebMClient},Sitecore.CH.Cli.Core.Abstractions.Rendering.IOutputRenderer,Microsoft.Extensions.Options.IOptions{Sitecore.CH.Cli.Core.Models.FilteredListParameters})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.CH.Cli.Plugin.Jobs.CommandHandlers.ListCommandHandler"/> class.
+            </summary>
+            <param name="client">The web sdk client.</param>
+            <param name="renderer">The <see cref="T:Sitecore.CH.Cli.Core.Abstractions.Rendering.IOutputRenderer"/> to output information to the user.</param>
+            <param name="parameters">The command parameters.</param>
+            <exception cref="T:System.ArgumentNullException">
+                <paramref name="client"/> or <paramref name="renderer"/> is <see langword="null"/>.
+            </exception>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Jobs.CommandHandlers.ListCommandHandler.InvokeAsync(System.CommandLine.Invocation.InvocationContext)">
+            <inheritdoc />
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Jobs.CommandHandlers.ListCommandHandler.BuildQuery">
+            <inheritdoc />
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Jobs.CommandHandlers.ListCommandHandler.BuildIterator">
+            <inheritdoc />
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Jobs.CommandHandlers.ListCommandHandler.BuildList(System.Collections.Generic.IList{Stylelabs.M.Sdk.Contracts.Base.IEntity})">
+            <inheritdoc />
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Jobs.CommandHandlers.ListCommandHandler.GetEntities(System.CommandLine.Invocation.InvocationContext,Stylelabs.M.Sdk.Contracts.Querying.IEntityIterator)">
+            <inheritdoc />
+        </member>
+        <member name="T:Sitecore.CH.Cli.Plugin.Jobs.CommandHandlers.ReportCommandHandler">
+            <summary>
+            The <see cref="T:System.CommandLine.Invocation.ICommandHandler"/> to process <see cref="T:Sitecore.CH.Cli.Plugin.Jobs.Commands.ReportCommand"/>.
+            </summary>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Jobs.CommandHandlers.ReportCommandHandler.#ctor(System.Lazy{Stylelabs.M.Sdk.WebClient.IWebMClient},Sitecore.CH.Cli.Core.Abstractions.Rendering.IOutputRenderer,Microsoft.Extensions.Options.IOptions{Sitecore.CH.Cli.Plugin.Jobs.Models.JobParameters})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.CH.Cli.Plugin.Jobs.CommandHandlers.ReportCommandHandler"/> class.
+            </summary>
+            <param name="client">The web sdk client.</param>
+            <param name="renderer">The <see cref="T:Sitecore.CH.Cli.Core.Abstractions.Rendering.IOutputRenderer"/> to output information to the user.</param>
+            <param name="parameters">The command parameters.</param>
+            <exception cref="T:System.ArgumentNullException">
+                <paramref name="client"/> or <paramref name="renderer"/> is <see langword="null"/>.
+            </exception>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Jobs.CommandHandlers.ReportCommandHandler.Id">
+            <summary>
+            Gets or sets the id of the job.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Jobs.CommandHandlers.ReportCommandHandler.Parameters">
+            <summary>
+            Gets or sets the parameters.
+            </summary>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Jobs.CommandHandlers.ReportCommandHandler.InvokeAsync(System.CommandLine.Invocation.InvocationContext)">
+            <summary>
+            Asynchronously invokes handler.
+            </summary>
+            <param name="context">The context of current execution.</param>
+            <returns>The exit code of the command execution.</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+               Job id is invalid.
+            </exception>
+            <exception cref="T:Stylelabs.M.Sdk.Exceptions.NotFoundException">
+               Job was not found or is an entity of a different type.
+            </exception>
+        </member>
+        <member name="T:Sitecore.CH.Cli.Plugin.Jobs.CommandHandlers.StatusCommandHandler">
+            <summary>
+            The <see cref="T:System.CommandLine.Invocation.ICommandHandler"/> to process <see cref="T:Sitecore.CH.Cli.Plugin.Jobs.Commands.StatusCommand"/>.
+            </summary>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Jobs.CommandHandlers.StatusCommandHandler.#ctor(System.Lazy{Stylelabs.M.Sdk.WebClient.IWebMClient},Sitecore.CH.Cli.Core.Abstractions.Rendering.IOutputRenderer,Microsoft.Extensions.Options.IOptions{Sitecore.CH.Cli.Plugin.Jobs.Models.JobParameters})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.CH.Cli.Plugin.Jobs.CommandHandlers.StatusCommandHandler"/> class.
+            </summary>
+            <param name="client">The web sdk client.</param>
+            <param name="renderer">The <see cref="T:Sitecore.CH.Cli.Core.Abstractions.Rendering.IOutputRenderer"/> to output information to the user.</param>
+            <param name="parameters">The command parameters.</param>
+            <exception cref="T:System.ArgumentNullException">
+                <paramref name="client"/> or <paramref name="renderer"/> is <see langword="null"/>.
+            </exception>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Jobs.CommandHandlers.StatusCommandHandler.Id">
+            <summary>
+            Gets or sets the id of the job.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Jobs.CommandHandlers.StatusCommandHandler.Parameters">
+            <summary>
+            Gets or sets the parameters.
+            </summary>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Jobs.CommandHandlers.StatusCommandHandler.InvokeAsync(System.CommandLine.Invocation.InvocationContext)">
+            <summary>
+            Asynchronously invokes handler.
+            </summary>
+            <param name="context">The context of current execution.</param>
+            <returns>The exit code of the command execution.</returns>
+            <exception cref="T:Stylelabs.M.Sdk.Exceptions.NotFoundException">
+               Job was not found or is an entity of a different type.
+            </exception>
+        </member>
+        <member name="T:Sitecore.CH.Cli.Plugin.Jobs.CommandHandlers.SummaryCommandHandler">
+            <summary>
+            The <see cref="T:System.CommandLine.Invocation.ICommandHandler"/> to process <see cref="T:Sitecore.CH.Cli.Plugin.Jobs.Commands.SummaryCommand"/>.
+            </summary>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Jobs.CommandHandlers.SummaryCommandHandler.#ctor(System.Lazy{Stylelabs.M.Sdk.WebClient.IWebMClient},Sitecore.CH.Cli.Core.Abstractions.Rendering.IOutputRenderer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.CH.Cli.Plugin.Jobs.CommandHandlers.SummaryCommandHandler"/> class.
+            </summary>
+            <param name="client">The web sdk client.</param>
+            <param name="renderer">The <see cref="T:Sitecore.CH.Cli.Core.Abstractions.Rendering.IOutputRenderer"/> to output information to the user.</param>
+            <exception cref="T:System.ArgumentNullException">
+               <paramref name="client"/> or <paramref name="renderer"/> is <see langword="null"/>.
+            </exception>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Jobs.CommandHandlers.SummaryCommandHandler.InvokeAsync(System.CommandLine.Invocation.InvocationContext)">
+            <summary>
+            Asynchronously invokes handler.
+            </summary>
+            <param name="context">The context of current execution.</param>
+            <returns>The exit code of the command execution.</returns>
+        </member>
+        <member name="T:Sitecore.CH.Cli.Plugin.Jobs.Commands.ListCommand">
+             <summary>
+             List orders.
+             </summary>
+             <example>
+                 With filters:
+                 <code>ch-cli jobs list -f "&lt;value&gt;"</code>
+                 If filter value is an integer the results are filter by 'Number of targets', otherwise
+                 the results are filtered by Condition or State or Type that contains the entered value.
+                 With sorting:
+                 <code>ch-cli jobs list -o "&lt;property name&gt;"</code>
+             </example>
+             <remarks>
+                 <strong>Optional parameters</strong>
+                 <list type="bullet">
+                     <item>
+                         <term><c>--filter -f</c></term>
+                         <description> Refines the list of results.</description>
+                     </item>
+                     <item>
+                         <term><c>--sort -s</c></term>
+                         <description> Sorts the list of results.</description>
+                     </item>
+                     <item>
+                         <term><c>--order -o</c></term>
+                         <description> Defines the sort order. Default value is Desc.</description>
+                     </item>
+                     <item>
+                         <term><c>--output</c></term>
+                         <description> Specifies the output format. Allowed values: Table, Json</description>
+                     </item>
+                     <item>
+                         <term><c>--endpoint -e</c></term>
+                         <description> Specifies an alternative endpoint name for the execution of this command.</description>
+                     </item>
+                 </list>
+            
+                 <strong>Global parameters</strong>
+                 <list type="bullet">
+                     <item>
+                         <term><c>-? --help -h</c></term>
+                         <description> Show this help message and exit.</description>
+                     </item>
+                     <item>
+                         <term><c>-v --verbosity</c></term>
+                         <description> Enables verbose logging.</description>
+                     </item>
+                 </list>
+             </remarks>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Jobs.Commands.ListCommand.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.CH.Cli.Plugin.Jobs.Commands.ListCommand"/> class.
+            </summary>
+        </member>
+        <member name="T:Sitecore.CH.Cli.Plugin.Jobs.Commands.ReportCommand">
+             <summary>
+             Gets the report for a job.
+             </summary>
+             <example>
+                 <code>ch-cli jobs report --id "&lt;job id&gt;"</code>
+             </example>
+             <remarks>
+                 <strong>Required parameters</strong>
+                 <list type="bullet">
+                     <item>
+                         <term><c>--id</c></term>
+                         <description> Specifies the job id</description>
+                     </item>
+                 </list>
+            
+                 <strong>Optional parameters</strong>
+                 <list type="bullet">
+                     <item>
+                         <term><c>--endpoint -e</c></term>
+                         <description> Specifies an alternative endpoint name for the execution of this command.</description>
+                     </item>
+                 </list>
+            
+                 <strong>Global parameters</strong>
+                 <list type="bullet">
+                     <item>
+                         <term><c>-? --help -h</c></term>
+                         <description> Show this help message and exit.</description>
+                     </item>
+                     <item>
+                         <term><c>-v --verbosity</c></term>
+                         <description> Enables verbose logging.</description>
+                     </item>
+                 </list>
+             </remarks>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Jobs.Commands.ReportCommand.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.CH.Cli.Plugin.Jobs.Commands.ReportCommand"/> class.
+            </summary>
+        </member>
+        <member name="T:Sitecore.CH.Cli.Plugin.Jobs.Commands.StatusCommand">
+             <summary>
+             Gets condition for a job.
+             </summary>
+             <example>
+                 <code>ch-cli jobs status --id "&lt;job id&gt;"</code>
+             </example>
+             <remarks>
+                 <strong>Required parameters</strong>
+                 <list type="bullet">
+                     <item>
+                         <term><c>--id</c></term>
+                         <description> Specifies the job id</description>
+                     </item>
+                 </list>
+            
+                 <strong>Optional parameters</strong>
+                 <list type="bullet">
+                     <item>
+                         <term><c>--endpoint -e</c></term>
+                         <description> Specifies an alternative endpoint name for the execution of this command.</description>
+                     </item>
+                 </list>
+            
+                 <strong>Global parameters</strong>
+                 <list type="bullet">
+                     <item>
+                         <term><c>-? --help -h</c></term>
+                         <description> Show this help message and exit.</description>
+                     </item>
+                     <item>
+                         <term><c>-v --verbosity</c></term>
+                         <description> Enables verbose logging.</description>
+                     </item>
+                 </list>
+             </remarks>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Jobs.Commands.StatusCommand.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.CH.Cli.Plugin.Jobs.Commands.StatusCommand"/> class.
+            </summary>
+        </member>
+        <member name="T:Sitecore.CH.Cli.Plugin.Jobs.Commands.SummaryCommand">
+             <summary>
+             Gets jobs statistics for the active endpoint.
+             </summary>
+             <example>
+                 <code>ch-cli jobs summary</code>
+             </example>
+             <remarks>
+                 <strong>Optional parameters</strong>
+                 <list type="bullet">
+                     <item>
+                         <term><c>--endpoint -e</c></term>
+                         <description> Specifies an alternative endpoint name for the execution of this command.</description>
+                     </item>
+                 </list>
+            
+                 <strong>Global parameters</strong>
+                 <list type="bullet">
+                     <item>
+                         <term><c>-? --help -h</c></term>
+                         <description> Show this help message and exit.</description>
+                     </item>
+                     <item>
+                         <term><c>-v --verbosity</c></term>
+                         <description> Enables verbose logging.</description>
+                     </item>
+                 </list>
+             </remarks>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Jobs.Commands.SummaryCommand.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.CH.Cli.Plugin.Jobs.Commands.SummaryCommand"/> class.
+            </summary>
+        </member>
+        <member name="T:Sitecore.CH.Cli.Plugin.Jobs.JobsMessages">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Jobs.JobsMessages.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Jobs.JobsMessages.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Jobs.JobsMessages.CommandDescriptionList">
+            <summary>
+              Looks up a localized string similar to Displays a list of jobs.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Jobs.JobsMessages.CommandDescriptionStatus">
+            <summary>
+              Looks up a localized string similar to Retrieves the status for a specific job.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Jobs.JobsMessages.CommandDescriptionSummary">
+            <summary>
+              Looks up a localized string similar to Provides a high-level summary of the job categories.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Jobs.JobsMessages.CommandGroupJobs">
+            <summary>
+              Looks up a localized string similar to Jobs command allows the user to monitor jobs in a Content Hub server, by querying for a job’s status, viewing a job’s reports, showing jobs statistics and listing all jobs..
+            </summary>
+        </member>
+        <member name="T:Sitecore.CH.Cli.Plugin.Jobs.JobsPlugin">
+            <inheritdoc />
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Jobs.JobsPlugin.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <inheritdoc />
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Jobs.JobsPlugin.RegisterCommands(Sitecore.CH.Cli.Core.Abstractions.Infrastructure.ICommandRegistry)">
+            <inheritdoc />
+        </member>
+        <member name="T:Sitecore.CH.Cli.Plugin.Jobs.Models.JobParameters">
+            <summary>
+            Defines the job parameters.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Jobs.Models.JobParameters.Id">
+            <summary>
+            Gets or sets the id.
+            </summary>
+        </member>
+        <member name="T:Sitecore.CH.Cli.Plugin.Jobs.Models.JobStatusResource">
+            <summary>
+            Job status resource.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Jobs.Models.JobStatusResource.Type">
+            <summary>
+            Gets or sets job type.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Jobs.Models.JobStatusResource.Total">
+            <summary>
+            Gets or sets total of jobs.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Jobs.Models.JobStatusResource.Condition">
+            <summary>
+            Gets or sets job conditions.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Jobs.Models.JobStatusResource.AveragePickUpTimeSeconds">
+            <summary>
+            Gets or sets average pickup time of the last hour in seconds.
+            </summary>
+        </member>
+    </members>
+</doc>

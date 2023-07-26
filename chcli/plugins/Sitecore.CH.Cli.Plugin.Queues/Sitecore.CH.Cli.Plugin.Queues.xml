@@ -1,0 +1,175 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Sitecore.CH.Cli.Plugin.Queues</name>
+    </assembly>
+    <members>
+        <member name="T:Sitecore.CH.Cli.Plugin.Queues.CommandHandlers.ListCommandHandler">
+            <summary>
+            The <see cref="T:System.CommandLine.Invocation.ICommandHandler"/> to process <see cref="T:Sitecore.CH.Cli.Plugin.Queues.Commands.ListCommand"/>.
+            </summary>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Queues.CommandHandlers.ListCommandHandler.#ctor(System.Lazy{Stylelabs.M.Sdk.WebClient.IWebMClient},Sitecore.CH.Cli.Core.Abstractions.Rendering.IOutputRenderer,Microsoft.Extensions.Options.IOptions{Sitecore.CH.Cli.Plugin.Queues.Models.QueueListParameters})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.CH.Cli.Plugin.Queues.CommandHandlers.ListCommandHandler"/> class.
+            </summary>
+            <param name="client">The web sdk client.</param>
+            <param name="renderer">The <see cref="T:Sitecore.CH.Cli.Core.Abstractions.Rendering.IOutputRenderer"/> to output information to the user.</param>
+            <param name="parameters">The parameters.</param>
+            <exception cref="T:System.ArgumentNullException">
+                <paramref name="client"/> or <paramref name="renderer"/> is <see langword="null"/>.
+            </exception>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Queues.CommandHandlers.ListCommandHandler.Parameters">
+            <summary>
+            Gets or sets the command parameters.
+            </summary>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Queues.CommandHandlers.ListCommandHandler.InvokeAsync(System.CommandLine.Invocation.InvocationContext)">
+            <inheritdoc />
+        </member>
+        <member name="T:Sitecore.CH.Cli.Plugin.Queues.Commands.ListCommand">
+             <summary>
+             List queues.
+             </summary>
+             <example>
+                 With filters:
+                 <code>ch-cli queues list -f "&lt;value&gt;"</code>
+                 With sorting:
+                 <code>ch-cli queues list -o "&lt;property name&gt;"</code>
+             </example>
+             <remarks>
+                 <strong>Optional parameters</strong>
+                 <list type="bullet">
+                     <item>
+                         <term><c>--filter -f</c></term>
+                         <description> Refines the list of results and returns queues that contain filter in their names.</description>
+                     </item>
+                     <item>
+                         <term><c>--sort -s</c></term>
+                         <description> Sorts the list of results.</description>
+                     </item>
+                     <item>
+                         <term><c>--order -o</c></term>
+                         <description> Defines the sort order. Default value is Desc.</description>
+                     </item>
+                     <item>
+                         <term><c>--output</c></term>
+                         <description> Specifies the output format. Allowed values: Table, Json</description>
+                     </item>
+                     <item>
+                         <term><c>--endpoint -e</c></term>
+                         <description> Specifies an alternative endpoint name for the execution of this command.</description>
+                     </item>
+                 </list>
+            
+                 <strong>Global parameters</strong>
+                 <list type="bullet">
+                     <item>
+                         <term><c>-? --help -h</c></term>
+                         <description> Show this help message and exit.</description>
+                     </item>
+                     <item>
+                         <term><c>-v --verbosity</c></term>
+                         <description> Enables verbose logging.</description>
+                     </item>
+                 </list>
+             </remarks>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Queues.Commands.ListCommand.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.CH.Cli.Plugin.Queues.Commands.ListCommand"/> class.
+            </summary>
+        </member>
+        <member name="T:Sitecore.CH.Cli.Plugin.Queues.Models.QueueInfo">
+            <summary>
+            Represents information about one Queue.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Queues.Models.QueueInfo.Name">
+            <summary>
+            Gets or sets the name of the queue.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Queues.Models.QueueInfo.In">
+            <summary>
+            Gets or sets amount of messages to be processed.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Queues.Models.QueueInfo.Wip">
+            <summary>
+            Gets or sets amount of messages in progress.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Queues.Models.QueueInfo.Complete">
+            <summary>
+            Gets or sets amount of completed messages.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Queues.Models.QueueInfo.Dead">
+            <summary>
+            Gets or sets amount of dead messages.
+            </summary>
+        </member>
+        <member name="T:Sitecore.CH.Cli.Plugin.Queues.Models.QueueListParameters">
+            <summary>
+            The input parameters for <see cref="T:Sitecore.CH.Cli.Plugin.Queues.Commands.ListCommand"/>.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Queues.Models.QueueListParameters.Filter">
+            <summary>
+            Gets or sets the filter for <see cref="T:Sitecore.CH.Cli.Plugin.Queues.Commands.ListCommand"/>.
+            </summary>
+        </member>
+        <member name="T:Sitecore.CH.Cli.Plugin.Queues.Models.QueuesStatistics">
+            <summary>
+            Contains information about Queues.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Queues.Models.QueuesStatistics.Queues">
+            <summary>
+            Gets or sets the list of queues.
+            </summary>
+        </member>
+        <member name="T:Sitecore.CH.Cli.Plugin.Queues.QueuesMessages">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Queues.QueuesMessages.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Queues.QueuesMessages.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Queues.QueuesMessages.CommandDescriptionList">
+            <summary>
+              Looks up a localized string similar to List Queues.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Queues.QueuesMessages.CommandGroupQueues">
+            <summary>
+              Looks up a localized string similar to Queues command allows the user to monitor the various queues in a Content Hub server..
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Queues.QueuesMessages.CommandOptionFilter">
+            <summary>
+              Looks up a localized string similar to Refines the list of results to return only queues that contain provided value in their names.
+            </summary>
+        </member>
+        <member name="T:Sitecore.CH.Cli.Plugin.Queues.QueuesPlugin">
+            <inheritdoc />
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Queues.QueuesPlugin.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <inheritdoc />
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Queues.QueuesPlugin.RegisterCommands(Sitecore.CH.Cli.Core.Abstractions.Infrastructure.ICommandRegistry)">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>

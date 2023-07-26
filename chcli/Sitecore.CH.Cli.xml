@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ch-cli</name>
+    </assembly>
+    <members>
+        <member name="T:Sitecore.CH.Cli.Program">
+            <summary>
+            Defines the program class.
+            </summary>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Program.Main(System.String[])">
+            <summary>
+            Application entry point.
+            </summary>
+            <param name="args">Command line arguments.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/> representing the asynchronous operation.</returns>
+        </member>
+    </members>
+</doc>

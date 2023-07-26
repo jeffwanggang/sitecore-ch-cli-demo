@@ -1,0 +1,370 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Sitecore.CH.Cli.Plugin.Audit</name>
+    </assembly>
+    <members>
+        <member name="T:Sitecore.CH.Cli.Plugin.Audit.AuditMessages">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Audit.AuditMessages.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Audit.AuditMessages.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Audit.AuditMessages.CommandDescriptionExport">
+            <summary>
+              Looks up a localized string similar to Exports audit info from Content Hub instance.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Audit.AuditMessages.CommandDescriptionTail">
+            <summary>
+              Looks up a localized string similar to Tails the specified audit log.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Audit.AuditMessages.CommandGroupAudit">
+            <summary>
+              Looks up a localized string similar to Audit commands allow some basic querying options to retrieve and/or download audit logs from specific sources and over a specific time span. Also, allows an interactive mode where the current audit logs are spooled to the console as new audit entries are generated on the server..
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Audit.AuditMessages.CommandOptionAuditSource">
+            <summary>
+              Looks up a localized string similar to Specifies the source audit log.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Audit.AuditMessages.CommandOptionSpan">
+            <summary>
+              Looks up a localized string similar to Defines the time span.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Audit.AuditMessages.CommandOptionStartTime">
+            <summary>
+              Looks up a localized string similar to Specifies the start time.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Audit.AuditMessages.TailListening">
+            <summary>
+              Looks up a localized string similar to Listening to the &quot;{0}&quot; audit log....
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Audit.AuditMessages.UnsupportedExportFormat">
+            <summary>
+              Looks up a localized string similar to  &apos;{0}&apos; is not supported for this log source.
+            </summary>
+        </member>
+        <member name="T:Sitecore.CH.Cli.Plugin.Audit.AuditPlugin">
+            <inheritdoc />
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Audit.AuditPlugin.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <inheritdoc />
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Audit.AuditPlugin.RegisterCommands(Sitecore.CH.Cli.Core.Abstractions.Infrastructure.ICommandRegistry)">
+            <inheritdoc />
+        </member>
+        <member name="T:Sitecore.CH.Cli.Plugin.Audit.CommandHandlers.ExportCommandHandler">
+            <summary>
+            The <see cref="T:System.CommandLine.Invocation.ICommandHandler"/> to process the <see cref="T:Sitecore.CH.Cli.Plugin.Audit.Commands.ExportCommand"/>.
+            </summary>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Audit.CommandHandlers.ExportCommandHandler.#ctor(System.Lazy{Stylelabs.M.Sdk.WebClient.IWebMClient},Sitecore.CH.Cli.Core.Abstractions.IO.IFileProvider,Sitecore.CH.Cli.Core.Abstractions.Rendering.IOutputRenderer,Microsoft.Extensions.Options.IOptions{Sitecore.CH.Cli.Plugin.Audit.Models.ExportParameters})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.CH.Cli.Plugin.Audit.CommandHandlers.ExportCommandHandler"/> class.
+            </summary>
+            <param name="client">The <see cref="T:Stylelabs.M.Sdk.WebClient.IWebMClient"/> instance.</param>
+            <param name="fileProvider">The <see cref="T:Sitecore.CH.Cli.Core.Abstractions.IO.IFileProvider"/> instance.</param>
+            <param name="renderer">The <see cref="T:Sitecore.CH.Cli.Core.Abstractions.Rendering.IOutputRenderer"/> to output information to the user.</param>
+            <param name="parameters">The command parameters.</param>
+            <exception cref="T:System.ArgumentNullException">
+                <paramref name="client"/>, <paramref name="fileProvider"/>, or <paramref name="renderer"/> is <see langword="null"/>.
+            </exception>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Audit.CommandHandlers.ExportCommandHandler.Parameters">
+            <summary>
+            Gets or sets the parameters.
+            </summary>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Audit.CommandHandlers.ExportCommandHandler.InvokeAsync(System.CommandLine.Invocation.InvocationContext)">
+            <inheritdoc />
+        </member>
+        <member name="T:Sitecore.CH.Cli.Plugin.Audit.CommandHandlers.TailCommandHandler">
+            <summary>
+            The <see cref="T:System.CommandLine.Invocation.ICommandHandler"/> to process the <see cref="T:Sitecore.CH.Cli.Plugin.Audit.Commands.TailCommand"/>.
+            </summary>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Audit.CommandHandlers.TailCommandHandler.#ctor(System.Lazy{Stylelabs.M.Sdk.WebClient.IWebMClient},Sitecore.CH.Cli.Core.Abstractions.Rendering.IOutputRenderer,Microsoft.Extensions.Options.IOptions{Sitecore.CH.Cli.Plugin.Audit.Models.TailParameters})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.CH.Cli.Plugin.Audit.CommandHandlers.TailCommandHandler"/> class.
+            </summary>
+            <param name="client">The <see cref="T:Stylelabs.M.Sdk.WebClient.IWebMClient"/> instance.</param>
+            <param name="renderer">The <see cref="T:Sitecore.CH.Cli.Core.Abstractions.Rendering.IOutputRenderer"/> to output information to the user.</param>
+            <param name="parameters">The command parameters.</param>
+            <exception cref="T:System.ArgumentNullException">
+                <paramref name="client"/> or <paramref name="renderer"/> is <see langword="null"/>.
+            </exception>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Audit.CommandHandlers.TailCommandHandler.Parameters">
+            <summary>
+            Gets or sets the parameters.
+            </summary>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Audit.CommandHandlers.TailCommandHandler.InvokeAsync(System.CommandLine.Invocation.InvocationContext)">
+            <inheritdoc />
+        </member>
+        <member name="T:Sitecore.CH.Cli.Plugin.Audit.Commands.ExportCommand">
+             <summary>
+             Exports the audit log from the selected Content Hub instance.
+             </summary>
+             <example>
+                 Export a log using the default parameters:
+                 <code>ch-cli audit export --source Raw --wait</code>
+                 Queue an export job and retrieve the raw job id:
+                 <code>ch-cli audit export --source Raw --order-id</code>
+                 Export a log using a customized date range:
+                 <code>ch-cli audit export --source User --format Csv --start-time "2020-11-01 00:00:00" --span 06:00:00 --wait</code>
+                 Export a log and save the resulting package:
+                 <code>ch-cli audit export --source User --out "&lt;local path&gt;"</code>
+             </example>
+             <remarks>
+                 <strong>Required parameters</strong>
+                 <list type="bullet">
+                     <item>
+                         <term><c>--source -s</c></term>
+                         <description> Specifies the source audit log. Possible values: Action, Business, Raw, Reporting, Scripting, Trigger, User</description>
+                     </item>
+                 </list>
+            
+                 <strong>Optional parameters</strong>
+                 <list type="bullet">
+                     <item>
+                         <term><c>--format -f</c></term>
+                         <description> Defines the output format. Default value: JSON</description>
+                     </item>
+                     <item>
+                         <term><c>--start-time -t</c></term>
+                         <description> Defines the start date and time for the log export. Default value: &lt;now&gt; - 1 hour</description>
+                     </item>
+                     <item>
+                         <term><c>--span -sp</c></term>
+                         <description> Specifies the time span for the export. Default value: 1 hour</description>
+                     </item>
+                     <item>
+                         <term><c>--wait -w</c></term>
+                         <description> Determines whether to wait for the export to complete or not.</description>
+                     </item>
+                     <item>
+                         <term><c>--out -o</c></term>
+                         <description> Specifies the output file name.</description>
+                     </item>
+                     <item>
+                         <term><c>--order-id</c></term>
+                         <description> Specifies whether the raw order id returned or not.</description>
+                     </item>
+                     <item>
+                         <term><c>--endpoint -e</c></term>
+                         <description> Specifies an alternative endpoint name for the execution of this command.</description>
+                     </item>
+                 </list>
+            
+                 <strong>Global parameters</strong>
+                 <list type="bullet">
+                     <item>
+                         <term><c>-? --help -h</c></term>
+                         <description> Show this help message and exit.</description>
+                     </item>
+                     <item>
+                         <term><c>-v --verbosity</c></term>
+                         <description> Enables verbose logging.</description>
+                     </item>
+                 </list>
+             </remarks>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Audit.Commands.ExportCommand.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.CH.Cli.Plugin.Audit.Commands.ExportCommand"/> class.
+            </summary>
+        </member>
+        <member name="T:Sitecore.CH.Cli.Plugin.Audit.Commands.TailCommand">
+             <summary>
+             Tails the specified audit log from the selected Content Hub instance.
+             </summary>
+             <example>
+                 Tail a log:
+                 <code>ch-cli audit tail --source Raw</code>
+                 Tail a log with filer:
+                 <code>ch-cli audit tail --source User --filter success</code>
+                 Change the polling interval to 30 seconds:
+                 <code>ch-cli audit tail --source User --polling-interval 00:00:30</code>
+             </example>
+             <remarks>
+                 <strong>Required parameters</strong>
+                 <list type="bullet">
+                     <item>
+                         <term><c>--source -s</c></term>
+                         <description> Specifies the source audit log. Possible values: Action, Business, Raw, Reporting, Scripting, Trigger, User</description>
+                     </item>
+                 </list>
+            
+                 <strong>Optional parameters</strong>
+                 <list type="bullet">
+                     <item>
+                         <term><c>--filter -f</c></term>
+                         <description> Defines a filter value to reduce the output in the log stream.</description>
+                     </item>
+                     <item>
+                         <term><c>--poll-interval -p</c></term>
+                         <description> Defines the poll interval. Default value: 1 second</description>
+                     </item>
+                     <item>
+                         <term><c>--endpoint -e</c></term>
+                         <description> Specifies an alternative endpoint name for the execution of this command.</description>
+                     </item>
+                 </list>
+            
+                 <strong>Global parameters</strong>
+                 <list type="bullet">
+                     <item>
+                         <term><c>-? --help -h</c></term>
+                         <description> Show this help message and exit.</description>
+                     </item>
+                     <item>
+                         <term><c>-v --verbosity</c></term>
+                         <description> Enables verbose logging.</description>
+                     </item>
+                 </list>
+             </remarks>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Audit.Commands.TailCommand.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.CH.Cli.Plugin.Audit.Commands.TailCommand"/> class.
+            </summary>
+        </member>
+        <member name="T:Sitecore.CH.Cli.Plugin.Audit.Models.AuditSource">
+            <summary>
+            Audit log source.
+            </summary>
+        </member>
+        <member name="F:Sitecore.CH.Cli.Plugin.Audit.Models.AuditSource.Action">
+            <summary>
+            Action audit log
+            </summary>
+        </member>
+        <member name="F:Sitecore.CH.Cli.Plugin.Audit.Models.AuditSource.Business">
+            <summary>
+            Business audit log
+            </summary>
+        </member>
+        <member name="F:Sitecore.CH.Cli.Plugin.Audit.Models.AuditSource.Raw">
+            <summary>
+            Raw audit log
+            </summary>
+        </member>
+        <member name="F:Sitecore.CH.Cli.Plugin.Audit.Models.AuditSource.Reporting">
+            <summary>
+            Reporting audit log
+            </summary>
+        </member>
+        <member name="F:Sitecore.CH.Cli.Plugin.Audit.Models.AuditSource.Scripting">
+            <summary>
+            Scripting audit log
+            </summary>
+        </member>
+        <member name="F:Sitecore.CH.Cli.Plugin.Audit.Models.AuditSource.Trigger">
+            <summary>
+            Trigger audit log
+            </summary>
+        </member>
+        <member name="F:Sitecore.CH.Cli.Plugin.Audit.Models.AuditSource.User">
+            <summary>
+            User audit log
+            </summary>
+        </member>
+        <member name="T:Sitecore.CH.Cli.Plugin.Audit.Models.ExportFormat">
+            <summary>
+            Exports formats.
+            </summary>
+        </member>
+        <member name="F:Sitecore.CH.Cli.Plugin.Audit.Models.ExportFormat.Json">
+            <summary>
+            JSON format
+            </summary>
+        </member>
+        <member name="F:Sitecore.CH.Cli.Plugin.Audit.Models.ExportFormat.Csv">
+            <summary>
+            CSV format
+            </summary>
+        </member>
+        <member name="T:Sitecore.CH.Cli.Plugin.Audit.Models.ExportParameters">
+            <summary>
+            Defines the audit export parameters.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Audit.Models.ExportParameters.Source">
+            <summary>
+            Gets or sets the source.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Audit.Models.ExportParameters.Format">
+            <summary>
+            Gets or sets the format.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Audit.Models.ExportParameters.StartTime">
+            <summary>
+            Gets or sets the start time.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Audit.Models.ExportParameters.Span">
+            <summary>
+            Gets or sets the span to calculate the end date.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Audit.Models.ExportParameters.Wait">
+            <summary>
+             Gets or sets a value indicating whether to wait or not.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Audit.Models.ExportParameters.Out">
+            <summary>
+            Gets or sets the output file.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Audit.Models.ExportParameters.OrderId">
+            <summary>
+            Gets or sets a value indicating whether the plain order id will be returned.
+            </summary>
+        </member>
+        <member name="T:Sitecore.CH.Cli.Plugin.Audit.Models.TailParameters">
+            <summary>
+            Defines an export audit.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Audit.Models.TailParameters.Source">
+            <summary>
+            Gets or sets the source.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Audit.Models.TailParameters.Filter">
+            <summary>
+            Gets or sets the filter.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Audit.Models.TailParameters.PollInterval">
+            <summary>
+            Gets or sets the poll interval.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Audit.Models.TailParameters.CancellationToken">
+            <summary>
+            Gets or sets the cancellation token.
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,1328 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Sitecore.CH.Cli.Plugin.Scripting</name>
+    </assembly>
+    <members>
+        <member name="T:Sitecore.CH.Cli.Plugin.Scripting.CommandHandlers.CancelDebugCommandHandler">
+            <summary>
+            The <see cref="T:System.CommandLine.Invocation.ICommandHandler"/> to process <see cref="T:Sitecore.CH.Cli.Plugin.Scripting.Commands.CancelDebugCommand"/>.
+            </summary>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Scripting.CommandHandlers.CancelDebugCommandHandler.#ctor(System.Lazy{Stylelabs.M.Sdk.WebClient.IWebMClient},Sitecore.CH.Cli.Core.Abstractions.Rendering.IOutputRenderer,Sitecore.CH.Cli.Scripting.Debugging.IDebugService,Microsoft.Extensions.Options.IOptions{Sitecore.CH.Cli.Plugin.Scripting.Models.DebugParameters})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.CH.Cli.Plugin.Scripting.CommandHandlers.CancelDebugCommandHandler"/> class.
+            </summary>
+            <param name="client">The web sdk client.</param>
+            <param name="renderer">The <see cref="T:Sitecore.CH.Cli.Core.Abstractions.Rendering.IOutputRenderer"/> to output information to the user.</param>
+            <param name="debugService">The <see cref="T:Sitecore.CH.Cli.Scripting.Debugging.IDebugService"/> instance.</param>
+            <param name="parameters">The parameters.</param>
+            <exception cref="T:System.ArgumentNullException">
+                <paramref name="debugService"/>, <paramref name="client"/> or <paramref name="renderer"/> is <see langword="null"/>.
+            </exception>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Scripting.CommandHandlers.CancelDebugCommandHandler.Parameters">
+            <summary>
+            Gets or sets the debug parameters.
+            </summary>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Scripting.CommandHandlers.CancelDebugCommandHandler.InvokeAsync(System.CommandLine.Invocation.InvocationContext)">
+            <summary>
+            Asynchronously invokes handler.
+            </summary>
+            <param name="context">The context of current execution.</param>
+            <returns>The exit code of the command execution.</returns>
+        </member>
+        <member name="T:Sitecore.CH.Cli.Plugin.Scripting.CommandHandlers.DebugCommandHandler">
+            <summary>
+            The <see cref="T:System.CommandLine.Invocation.ICommandHandler"/> to process <see cref="T:Sitecore.CH.Cli.Plugin.Scripting.Commands.DebugCommand"/>.
+            </summary>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Scripting.CommandHandlers.DebugCommandHandler.#ctor(System.Lazy{Stylelabs.M.Sdk.WebClient.IWebMClient},Sitecore.CH.Cli.Core.Abstractions.Rendering.IOutputRenderer,Sitecore.CH.Cli.Scripting.Debugging.IDebugService,Microsoft.Extensions.Options.IOptions{Sitecore.CH.Cli.Plugin.Scripting.Models.DebugParameters})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.CH.Cli.Plugin.Scripting.CommandHandlers.DebugCommandHandler"/> class.
+            </summary>
+            <param name="client">The web sdk client.</param>
+            <param name="renderer">The <see cref="T:Sitecore.CH.Cli.Core.Abstractions.Rendering.IOutputRenderer"/> to output information to the user.</param>
+            <param name="debugService">The <see cref="T:Sitecore.CH.Cli.Scripting.Debugging.IDebugService"/> instance.</param>
+            <param name="parameters">The parameters.</param>
+            <exception cref="T:System.ArgumentNullException">
+                <paramref name="debugService"/>, <paramref name="client"/> or <paramref name="renderer"/> is <see langword="null"/>.
+            </exception>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Scripting.CommandHandlers.DebugCommandHandler.Parameters">
+            <summary>
+            Gets or sets the execute parameters.
+            </summary>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Scripting.CommandHandlers.DebugCommandHandler.InvokeAsync(System.CommandLine.Invocation.InvocationContext)">
+            <summary>
+            Asynchronously invokes handler.
+            </summary>
+            <param name="context">The context of current execution.</param>
+            <returns>The exit code of the command execution.</returns>
+        </member>
+        <member name="T:Sitecore.CH.Cli.Plugin.Scripting.CommandHandlers.DisableCommandHandler">
+            <summary>
+            The <see cref="T:System.CommandLine.Invocation.ICommandHandler"/> to process <see cref="T:Sitecore.CH.Cli.Plugin.Scripting.Commands.DisableCommand"/>.
+            </summary>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Scripting.CommandHandlers.DisableCommandHandler.#ctor(Sitecore.CH.Cli.Plugin.Scripting.Services.IScriptingService,System.Lazy{Stylelabs.M.Sdk.WebClient.IWebMClient},Sitecore.CH.Cli.Core.Abstractions.Rendering.IOutputRenderer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.CH.Cli.Plugin.Scripting.CommandHandlers.DisableCommandHandler"/> class.
+            </summary>
+            <param name="scriptingService">The <see cref="T:Sitecore.CH.Cli.Plugin.Scripting.Services.IScriptingService"/> instance.</param>
+            <param name="client">The web sdk client.</param>
+            <param name="renderer">The <see cref="T:Sitecore.CH.Cli.Core.Abstractions.Rendering.IOutputRenderer"/> to output information to the user.</param>
+            <exception cref="T:System.ArgumentNullException">
+                <paramref name="scriptingService"/>, <paramref name="client"/> or <paramref name="renderer"/> is <see langword="null"/>.
+            </exception>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Scripting.CommandHandlers.DisableCommandHandler.Name">
+            <summary>
+            Gets or sets the name of the script to enable.
+            </summary>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Scripting.CommandHandlers.DisableCommandHandler.InvokeAsync(System.CommandLine.Invocation.InvocationContext)">
+            <summary>
+            Asynchronously invokes handler.
+            </summary>
+            <param name="context">The context of current execution.</param>
+            <returns>The exit code of the command execution.</returns>
+        </member>
+        <member name="T:Sitecore.CH.Cli.Plugin.Scripting.CommandHandlers.EnableCommandHandler">
+            <summary>
+            The <see cref="T:System.CommandLine.Invocation.ICommandHandler"/> to process <see cref="T:Sitecore.CH.Cli.Plugin.Scripting.Commands.EnableCommand"/>.
+            </summary>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Scripting.CommandHandlers.EnableCommandHandler.#ctor(Sitecore.CH.Cli.Plugin.Scripting.Services.IScriptingService,System.Lazy{Stylelabs.M.Sdk.WebClient.IWebMClient},Sitecore.CH.Cli.Core.Abstractions.Rendering.IOutputRenderer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.CH.Cli.Plugin.Scripting.CommandHandlers.EnableCommandHandler"/> class.
+            </summary>
+            <param name="scriptingService">The <see cref="T:Sitecore.CH.Cli.Plugin.Scripting.Services.IScriptingService"/> instance.</param>
+            <param name="client">The web sdk client.</param>
+            <param name="renderer">The <see cref="T:Sitecore.CH.Cli.Core.Abstractions.Rendering.IOutputRenderer"/> to output information to the user.</param>
+            <exception cref="T:System.ArgumentNullException">
+                <paramref name="scriptingService"/>, <paramref name="client"/> or <paramref name="renderer"/> is <see langword="null"/>.
+            </exception>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Scripting.CommandHandlers.EnableCommandHandler.Name">
+            <summary>
+            Gets or sets the name of the script to enable.
+            </summary>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Scripting.CommandHandlers.EnableCommandHandler.InvokeAsync(System.CommandLine.Invocation.InvocationContext)">
+            <summary>
+            Asynchronously invokes handler.
+            </summary>
+            <param name="context">The context of current execution.</param>
+            <returns>The exit code of the command execution.</returns>
+        </member>
+        <member name="T:Sitecore.CH.Cli.Plugin.Scripting.CommandHandlers.ExecuteCommandHandler">
+            <summary>
+            The <see cref="T:System.CommandLine.Invocation.ICommandHandler"/> to process <see cref="T:Sitecore.CH.Cli.Plugin.Scripting.Commands.ExecuteCommand"/>.
+            </summary>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Scripting.CommandHandlers.ExecuteCommandHandler.#ctor(Sitecore.CH.Cli.Plugin.Scripting.Services.IScriptingService,System.Lazy{Stylelabs.M.Sdk.WebClient.IWebMClient},Sitecore.CH.Cli.Core.Abstractions.Rendering.IOutputRenderer,Sitecore.CH.Cli.Core.Abstractions.IO.IFileProvider,Microsoft.Extensions.Options.IOptions{Sitecore.CH.Cli.Plugin.Scripting.Models.ExecuteParameters})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.CH.Cli.Plugin.Scripting.CommandHandlers.ExecuteCommandHandler"/> class.
+            </summary>
+            <param name="scriptingService">The <see cref="T:Sitecore.CH.Cli.Plugin.Scripting.Services.IScriptingService"/> instance.</param>
+            <param name="client">The web sdk client.</param>
+            <param name="renderer">The <see cref="T:Sitecore.CH.Cli.Core.Abstractions.Rendering.IOutputRenderer"/> to output information to the user.</param>
+            <param name="fileProvider">The <see cref="T:Sitecore.CH.Cli.Core.Abstractions.IO.IFileProvider"/>.</param>
+            <param name="parameters">The parameters.</param>
+            <exception cref="T:System.ArgumentNullException">
+                <paramref name="scriptingService"/>, <paramref name="client"/> or <paramref name="renderer"/> is <see langword="null"/>.
+            </exception>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Scripting.CommandHandlers.ExecuteCommandHandler.Parameters">
+            <summary>
+            Gets or sets the execute parameters.
+            </summary>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Scripting.CommandHandlers.ExecuteCommandHandler.InvokeAsync(System.CommandLine.Invocation.InvocationContext)">
+            <summary>
+            Asynchronously invokes handler.
+            </summary>
+            <param name="context">The context of current execution.</param>
+            <returns>The exit code of the command execution.</returns>
+        </member>
+        <member name="T:Sitecore.CH.Cli.Plugin.Scripting.CommandHandlers.InitializeCommandHandler">
+            <summary>
+            The <see cref="T:System.CommandLine.Invocation.ICommandHandler"/> to process <see cref="T:Sitecore.CH.Cli.Plugin.Scripting.Commands.InitializeCommand"/>.
+            </summary>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Scripting.CommandHandlers.InitializeCommandHandler.#ctor(Sitecore.CH.Cli.Plugin.Scripting.Services.IScriptingService,System.Lazy{Stylelabs.M.Sdk.WebClient.IWebMClient},Sitecore.CH.Cli.Core.Abstractions.Rendering.IOutputRenderer,Microsoft.Extensions.Options.IOptions{Sitecore.CH.Cli.Plugin.Scripting.Models.ScriptingParameters})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.CH.Cli.Plugin.Scripting.CommandHandlers.InitializeCommandHandler"/> class.
+            </summary>
+            <param name="scriptingService">The <see cref="T:Sitecore.CH.Cli.Plugin.Scripting.Services.IScriptingService"/> instance.</param>
+            <param name="client">The web sdk client.</param>
+            <param name="renderer">The <see cref="T:Sitecore.CH.Cli.Core.Abstractions.Rendering.IOutputRenderer"/> to output information to the user.</param>
+            <param name="parameters">The parameters.</param>
+            <exception cref="T:System.ArgumentNullException">
+                <paramref name="scriptingService"/>, <paramref name="client"/> or <paramref name="renderer"/> is <see langword="null"/>.
+            </exception>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Scripting.CommandHandlers.InitializeCommandHandler.Parameters">
+            <summary>
+            Gets or sets the scripting parameters.
+            </summary>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Scripting.CommandHandlers.InitializeCommandHandler.InvokeAsync(System.CommandLine.Invocation.InvocationContext)">
+            <summary>
+            Asynchronously invokes handler.
+            </summary>
+            <param name="context">The context of current execution.</param>
+            <returns>The exit code of the command execution.</returns>
+        </member>
+        <member name="T:Sitecore.CH.Cli.Plugin.Scripting.CommandHandlers.IntegrationTestCommandHandler">
+            <summary>
+            The <see cref="T:System.CommandLine.Invocation.ICommandHandler"/> to process the <see cref="T:Sitecore.CH.Cli.Plugin.Scripting.Commands.IntegrationTestCommand"/>.
+            </summary>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Scripting.CommandHandlers.IntegrationTestCommandHandler.#ctor(System.Lazy{Stylelabs.M.Sdk.WebClient.IWebMClient},Sitecore.CH.Cli.Core.Abstractions.Rendering.IOutputRenderer,Sitecore.CH.Cli.Scripting.Testing.ITestRunner,Microsoft.Extensions.Options.IOptions{Sitecore.CH.Cli.Plugin.Scripting.Models.TestParameters})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.CH.Cli.Plugin.Scripting.CommandHandlers.IntegrationTestCommandHandler"/> class.
+            </summary>
+            <param name="client">The web sdk client.</param>
+            <param name="renderer">The <see cref="T:Sitecore.CH.Cli.Core.Abstractions.Rendering.IOutputRenderer"/> to output information to the user.</param>
+            <param name="testRunner">The <see cref="T:Sitecore.CH.Cli.Scripting.Testing.ITestRunner"/> instance.</param>
+            <param name="parameters">The parameters.</param>
+            <exception cref="T:System.ArgumentNullException">
+                <paramref name="client"/> or <paramref name="renderer"/> is <see langword="null"/>.
+            </exception>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Scripting.CommandHandlers.IntegrationTestCommandHandler.Parameters">
+            <summary>
+            Gets or sets the test parameters.
+            </summary>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Scripting.CommandHandlers.IntegrationTestCommandHandler.InvokeAsync(System.CommandLine.Invocation.InvocationContext)">
+            <summary>
+            Asynchronously invokes handler.
+            </summary>
+            <param name="context">The context of current execution.</param>
+            <returns>The exit code of the command execution.</returns>
+        </member>
+        <member name="T:Sitecore.CH.Cli.Plugin.Scripting.CommandHandlers.PullCommandHandler">
+            <summary>
+            The <see cref="T:System.CommandLine.Invocation.ICommandHandler"/> to process <see cref="T:Sitecore.CH.Cli.Plugin.Scripting.Commands.PullCommand"/>.
+            </summary>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Scripting.CommandHandlers.PullCommandHandler.#ctor(Sitecore.CH.Cli.Plugin.Scripting.Services.IScriptingService,System.Lazy{Stylelabs.M.Sdk.WebClient.IWebMClient},Sitecore.CH.Cli.Core.Abstractions.Rendering.IOutputRenderer,Microsoft.Extensions.Options.IOptions{Sitecore.CH.Cli.Plugin.Scripting.Models.PullParameters})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.CH.Cli.Plugin.Scripting.CommandHandlers.PullCommandHandler"/> class.
+            </summary>
+            <param name="scriptingService">The <see cref="T:Sitecore.CH.Cli.Plugin.Scripting.Services.IScriptingService"/> instance.</param>
+            <param name="client">The web sdk client.</param>
+            <param name="renderer">The <see cref="T:Sitecore.CH.Cli.Core.Abstractions.Rendering.IOutputRenderer"/> to output information to the user.</param>
+            <param name="parameters">The parameters.</param>
+            <exception cref="T:System.ArgumentNullException">
+                <paramref name="scriptingService"/>, <paramref name="client"/> or <paramref name="renderer"/> is <see langword="null"/>.
+            </exception>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Scripting.CommandHandlers.PullCommandHandler.Parameters">
+            <summary>
+            Gets or sets the scripting parameters.
+            </summary>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Scripting.CommandHandlers.PullCommandHandler.InvokeAsync(System.CommandLine.Invocation.InvocationContext)">
+            <summary>
+            Asynchronously invokes handler.
+            </summary>
+            <param name="context">The context of current execution.</param>
+            <returns>The exit code of the command execution.</returns>
+        </member>
+        <member name="T:Sitecore.CH.Cli.Plugin.Scripting.CommandHandlers.PushCommandHandler">
+            <summary>
+            The <see cref="T:System.CommandLine.Invocation.ICommandHandler"/> to process <see cref="T:Sitecore.CH.Cli.Plugin.Scripting.Commands.PushCommand"/>.
+            </summary>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Scripting.CommandHandlers.PushCommandHandler.#ctor(Sitecore.CH.Cli.Plugin.Scripting.Services.IScriptingService,System.Lazy{Stylelabs.M.Sdk.WebClient.IWebMClient},Sitecore.CH.Cli.Core.Abstractions.Rendering.IOutputRenderer,Microsoft.Extensions.Options.IOptions{Sitecore.CH.Cli.Plugin.Scripting.Models.PushParameters})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.CH.Cli.Plugin.Scripting.CommandHandlers.PushCommandHandler"/> class.
+            </summary>
+            <param name="scriptingService">The <see cref="T:Sitecore.CH.Cli.Plugin.Scripting.Services.IScriptingService"/> instance.</param>
+            <param name="client">The web sdk client.</param>
+            <param name="renderer">The <see cref="T:Sitecore.CH.Cli.Core.Abstractions.Rendering.IOutputRenderer"/> to output information to the user.</param>
+            <param name="parameters">The parameters.</param>
+            <exception cref="T:System.ArgumentNullException">
+                <paramref name="scriptingService"/>, <paramref name="client"/> or <paramref name="renderer"/> is <see langword="null"/>.
+            </exception>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Scripting.CommandHandlers.PushCommandHandler.Parameters">
+            <summary>
+            Gets or sets the scripting parameters.
+            </summary>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Scripting.CommandHandlers.PushCommandHandler.InvokeAsync(System.CommandLine.Invocation.InvocationContext)">
+            <summary>
+            Asynchronously invokes handler.
+            </summary>
+            <param name="context">The context of current execution.</param>
+            <returns>The exit code of the command execution.</returns>
+        </member>
+        <member name="T:Sitecore.CH.Cli.Plugin.Scripting.CommandHandlers.UnitTestCommandHandler">
+            <summary>
+            The <see cref="T:System.CommandLine.Invocation.ICommandHandler"/> to process the <see cref="T:Sitecore.CH.Cli.Plugin.Scripting.Commands.UnitTestCommand"/>.
+            </summary>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Scripting.CommandHandlers.UnitTestCommandHandler.#ctor(System.Lazy{Stylelabs.M.Sdk.WebClient.IWebMClient},Sitecore.CH.Cli.Core.Abstractions.Rendering.IOutputRenderer,Sitecore.CH.Cli.Scripting.Testing.ITestRunner,Microsoft.Extensions.Options.IOptions{Sitecore.CH.Cli.Plugin.Scripting.Models.TestParameters})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.CH.Cli.Plugin.Scripting.CommandHandlers.UnitTestCommandHandler"/> class.
+            </summary>
+            <param name="client">The web sdk client.</param>
+            <param name="renderer">The <see cref="T:Sitecore.CH.Cli.Core.Abstractions.Rendering.IOutputRenderer"/> to output information to the user.</param>
+            <param name="testRunner">The <see cref="T:Sitecore.CH.Cli.Scripting.Testing.ITestRunner"/> instance.</param>
+            <param name="parameters">The parameters.</param>
+            <exception cref="T:System.ArgumentNullException">
+                <paramref name="client"/> or <paramref name="renderer"/> is <see langword="null"/>.
+            </exception>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Scripting.CommandHandlers.UnitTestCommandHandler.Parameters">
+            <summary>
+            Gets or sets the scripting parameters.
+            </summary>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Scripting.CommandHandlers.UnitTestCommandHandler.InvokeAsync(System.CommandLine.Invocation.InvocationContext)">
+            <summary>
+            Asynchronously invokes handler.
+            </summary>
+            <param name="context">The context of current execution.</param>
+            <returns>The exit code of the command execution.</returns>
+        </member>
+        <member name="T:Sitecore.CH.Cli.Plugin.Scripting.CommandHandlers.WatchCommandHandler">
+            <summary>
+            The <see cref="T:System.CommandLine.Invocation.ICommandHandler"/> to process <see cref="T:Sitecore.CH.Cli.Plugin.Scripting.Commands.WatchCommand"/>.
+            </summary>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Scripting.CommandHandlers.WatchCommandHandler.#ctor(Sitecore.CH.Cli.Plugin.Scripting.Services.IScriptingService,System.Lazy{Stylelabs.M.Sdk.WebClient.IWebMClient},Sitecore.CH.Cli.Core.Abstractions.Rendering.IOutputRenderer,Microsoft.Extensions.Options.IOptions{Sitecore.CH.Cli.Plugin.Scripting.Models.WatchParameters})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.CH.Cli.Plugin.Scripting.CommandHandlers.WatchCommandHandler"/> class.
+            </summary>
+            <param name="scriptingService">The <see cref="T:Sitecore.CH.Cli.Plugin.Scripting.Services.IScriptingService"/> instance.</param>
+            <param name="client">The web sdk client.</param>
+            <param name="renderer">The <see cref="T:Sitecore.CH.Cli.Core.Abstractions.Rendering.IOutputRenderer"/> to output information to the user.</param>
+            <param name="parameters">The parameters.</param>
+            <exception cref="T:System.ArgumentNullException">
+                <paramref name="scriptingService"/>, <paramref name="client"/> or <paramref name="renderer"/> is <see langword="null"/>.
+            </exception>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Scripting.CommandHandlers.WatchCommandHandler.Parameters">
+            <summary>
+            Gets or sets the scripting parameters.
+            </summary>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Scripting.CommandHandlers.WatchCommandHandler.InvokeAsync(System.CommandLine.Invocation.InvocationContext)">
+            <summary>
+            Asynchronously invokes handler.
+            </summary>
+            <param name="context">The context of current execution.</param>
+            <returns>The exit code of the command execution.</returns>
+        </member>
+        <member name="T:Sitecore.CH.Cli.Plugin.Scripting.Commands.CancelDebugCommand">
+             <summary>
+             Cancels a script debugging session.
+             </summary>
+             <example>
+                 Cancels a script debugging session:
+                 <code>ch-cli scripting cancel-debug --name "&lt;*&gt;"</code>
+             </example>
+             <remarks>
+                 <strong>Required parameters</strong>
+                 <list type="bullet">
+                     <item>
+                         <term><c>--name -n</c></term>
+                         <description> Specified the name of the script.</description>
+                     </item>
+                 </list>
+            
+                 <strong>Optional parameters</strong>
+                 <list type="bullet">
+                     <item>
+                         <term><c>--endpoint -e</c></term>
+                         <description> Specifies an alternative endpoint name for the execution of this command.</description>
+                     </item>
+                     <item>
+                         <term><c>--folder -f</c></term>
+                         <description> Specifies the working directory that contains the script files. If the --folder option is not specified, the current folder is assumed to be the working directory.</description>
+                     </item>
+                 </list>
+            
+                 <strong>Global parameters</strong>
+                 <list type="bullet">
+                     <item>
+                         <term><c>-? --help -h</c></term>
+                         <description> Show this help message and exit.</description>
+                     </item>
+                     <item>
+                         <term><c>-v --verbosity</c></term>
+                         <description> Enables verbose logging.</description>
+                     </item>
+                 </list>
+             </remarks>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Scripting.Commands.CancelDebugCommand.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.CH.Cli.Plugin.Scripting.Commands.CancelDebugCommand"/> class.
+            </summary>
+        </member>
+        <member name="T:Sitecore.CH.Cli.Plugin.Scripting.Commands.DebugCommand">
+             <summary>
+             Debugs a script.
+             </summary>
+             <example>
+                 Debugs a script:
+                 <code>ch-cli scripting debug --name "&lt;*&gt;"</code>
+             </example>
+             <remarks>
+                 <strong>Required parameters</strong>
+                 <list type="bullet">
+                     <item>
+                         <term><c>--name -n</c></term>
+                         <description> Specified the name of the script to debug.</description>
+                     </item>
+                 </list>
+            
+                 <strong>Optional parameters</strong>
+                 <list type="bullet">
+                     <item>
+                         <term><c>--endpoint -e</c></term>
+                         <description> Specifies an alternative endpoint name for the execution of this command.</description>
+                     </item>
+                     <item>
+                         <term><c>--folder -f</c></term>
+                         <description> Specifies the working directory that contains the script files. If the --folder option is not specified, the current folder is assumed to be the working directory.</description>
+                     </item>
+                 </list>
+            
+                 <strong>Global parameters</strong>
+                 <list type="bullet">
+                     <item>
+                         <term><c>-? --help -h</c></term>
+                         <description> Show this help message and exit.</description>
+                     </item>
+                     <item>
+                         <term><c>-v --verbosity</c></term>
+                         <description> Enables verbose logging.</description>
+                     </item>
+                 </list>
+             </remarks>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Scripting.Commands.DebugCommand.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.CH.Cli.Plugin.Scripting.Commands.DebugCommand"/> class.
+            </summary>
+        </member>
+        <member name="T:Sitecore.CH.Cli.Plugin.Scripting.Commands.DisableCommand">
+             <summary>
+             Disables a script in the selected Content Hub instance.
+             </summary>
+             <example>
+                 Disables a script from the selected endpoint:
+                 <code>ch-cli scripting disable -n "&lt;*&gt;"</code>
+             </example>
+             <remarks>
+                 <strong>Required parameters</strong>
+                 <list type="bullet">
+                     <item>
+                         <term><c>--name -n</c></term>
+                         <description> Specified the name of the script to pull from the Content Hub instance.</description>
+                     </item>
+                 </list>
+            
+                 <strong>Optional parameters</strong>
+                 <list type="bullet">
+                     <item>
+                         <term><c>--endpoint -e</c></term>
+                         <description> Specifies an alternative endpoint name for the execution of this command.</description>
+                     </item>
+                 </list>
+            
+                 <strong>Global parameters</strong>
+                 <list type="bullet">
+                     <item>
+                         <term><c>-? --help -h</c></term>
+                         <description> Show this help message and exit.</description>
+                     </item>
+                     <item>
+                         <term><c>-v --verbosity</c></term>
+                         <description> Enables verbose logging.</description>
+                     </item>
+                 </list>
+             </remarks>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Scripting.Commands.DisableCommand.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.CH.Cli.Plugin.Scripting.Commands.DisableCommand"/> class.
+            </summary>
+        </member>
+        <member name="T:Sitecore.CH.Cli.Plugin.Scripting.Commands.EnableCommand">
+             <summary>
+             Enables a script in the selected Content Hub instance.
+             </summary>
+             <example>
+                 Enables a script from the selected endpoint:
+                 <code>ch-cli scripting enable -n "&lt;*&gt;"</code>
+             </example>
+             <remarks>
+                 <strong>Required parameters</strong>
+                 <list type="bullet">
+                     <item>
+                         <term><c>--name -n</c></term>
+                         <description> Specified the name of the script to pull from the Content Hub instance.</description>
+                     </item>
+                 </list>
+            
+                 <strong>Optional parameters</strong>
+                 <list type="bullet">
+                     <item>
+                         <term><c>--endpoint -e</c></term>
+                         <description> Specifies an alternative endpoint name for the execution of this command.</description>
+                     </item>
+                 </list>
+            
+                 <strong>Global parameters</strong>
+                 <list type="bullet">
+                     <item>
+                         <term><c>-? --help -h</c></term>
+                         <description> Show this help message and exit.</description>
+                     </item>
+                     <item>
+                         <term><c>-v --verbosity</c></term>
+                         <description> Enables verbose logging.</description>
+                     </item>
+                 </list>
+             </remarks>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Scripting.Commands.EnableCommand.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.CH.Cli.Plugin.Scripting.Commands.EnableCommand"/> class.
+            </summary>
+        </member>
+        <member name="T:Sitecore.CH.Cli.Plugin.Scripting.Commands.ExecuteCommand">
+             <summary>
+             Executes the specified script in the Content Hub instance.
+             </summary>
+             <example>
+                 Executing an script:
+                 <code>ch-cli scripting execute --name "&lt;script name&gt;"</code>
+                 Executing an script with arguments:
+                 <code>ch-cli scripting execute --name "&lt;script name&gt;" --args "&lt;local path&gt;"</code>
+             </example>
+             <remarks>
+                <strong>Required parameters</strong>
+                 <list type="bullet">
+                     <item>
+                         <term><c>--name -n</c></term>
+                         <description> Specifies the script name.</description>
+                     </item>
+                 </list>
+            
+                 <strong>Optional parameters</strong>
+                 <list type="bullet">
+                     <item>
+                         <term><c>--endpoint -e</c></term>
+                         <description> Specifies an alternative endpoint name for the execution of this command.</description>
+                     </item>
+                     <item>
+                         <term><c>--args -a</c></term>
+                         <description> Specifies a json file with arguments that are passed to the script.</description>
+                     </item>
+                 </list>
+            
+                 <strong>Global parameters</strong>
+                 <list type="bullet">
+                     <item>
+                         <term><c>-? --help -h</c></term>
+                         <description> Show this help message and exit.</description>
+                     </item>
+                     <item>
+                         <term><c>-v --verbosity</c></term>
+                         <description> Enables verbose logging.</description>
+                     </item>
+                 </list>
+             </remarks>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Scripting.Commands.ExecuteCommand.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.CH.Cli.Plugin.Scripting.Commands.ExecuteCommand"/> class.
+            </summary>
+        </member>
+        <member name="T:Sitecore.CH.Cli.Plugin.Scripting.Commands.InitializeCommand">
+             <summary>
+             Initializes the script working folder with the files needed to make intellisense work in VS Code.
+             </summary>
+             <example>
+                 Initialize scripts:
+                 <code>ch-cli scripting initialize</code>
+                 Initialize scripts to specific folder:
+                 <code>ch-cli scripting initialize --folder "&lt;local path&gt;"</code>
+             </example>
+             <remarks>
+                 <strong>Optional parameters</strong>
+                 <list type="bullet">
+                     <item>
+                         <term><c>--endpoint -e</c></term>
+                         <description> Specifies an alternative endpoint name for the execution of this command.</description>
+                     </item>
+                     <item>
+                         <term><c>--folder -f</c></term>
+                         <description> Specifies the script working folder where the script files are located. If the --folder option is not specified, the current folder is assumed to be the script working folder.</description>
+                     </item>
+                 </list>
+            
+                 <strong>Global parameters</strong>
+                 <list type="bullet">
+                     <item>
+                         <term><c>-? --help -h</c></term>
+                         <description> Show this help message and exit.</description>
+                     </item>
+                     <item>
+                         <term><c>-v --verbosity</c></term>
+                         <description> Enables verbose logging.</description>
+                     </item>
+                 </list>
+             </remarks>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Scripting.Commands.InitializeCommand.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.CH.Cli.Plugin.Scripting.Commands.InitializeCommand"/> class.
+            </summary>
+        </member>
+        <member name="T:Sitecore.CH.Cli.Plugin.Scripting.Commands.IntegrationTestCommand">
+             <summary>
+             Executes script integration tests.
+             </summary>
+             <example>
+                 Executes all tests:
+                 <code>ch-cli scripting integration-test</code>
+                 Executes one tests:
+                 <code>ch-cli scripting integration-test --name "&lt;script name&gt;"</code>
+             </example>
+             <remarks>
+                 <strong>Optional parameters</strong>
+                 <list type="bullet">
+                     <item>
+                         <term><c>--name -n</c></term>
+                         <description> Specified the name of the script to execute integration tests for.</description>
+                     </item>
+                     <item>
+                         <term><c>--folder -f</c></term>
+                         <description> Specifies the working directory that contains the script files. If the --folder option is not specified, the current folder is assumed to be the working directory.</description>
+                     </item>
+                 </list>
+            
+                 <strong>Global parameters</strong>
+                 <list type="bullet">
+                     <item>
+                         <term><c>-? --help -h</c></term>
+                         <description> Show this help message and exit.</description>
+                     </item>
+                     <item>
+                         <term><c>-v --verbosity</c></term>
+                         <description> Enables verbose logging.</description>
+                     </item>
+                 </list>
+             </remarks>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Scripting.Commands.IntegrationTestCommand.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.CH.Cli.Plugin.Scripting.Commands.IntegrationTestCommand"/> class.
+            </summary>
+        </member>
+        <member name="T:Sitecore.CH.Cli.Plugin.Scripting.Commands.PullCommand">
+             <summary>
+             Pulls the specified script(s) from content hub and stored it(them) in the script working folder.
+             </summary>
+             <example>
+                 Pull all scripts from the selected endpoint:
+                 <code>ch-cli scripting pull -n "&lt;*&gt;"</code>
+                 Pull a script from the selected endpoint:
+                 <code>ch-cli scripting pull -n "&lt;my-script&gt;"</code>
+             </example>
+             <remarks>
+                 <strong>Required parameters</strong>
+                 <list type="bullet">
+                     <item>
+                         <term><c>--name -n</c></term>
+                         <description> Specified the name of the script to pull from the Content Hub instance.</description>
+                     </item>
+                 </list>
+            
+                 <strong>Optional parameters</strong>
+                 <list type="bullet">
+                     <item>
+                         <term><c>--endpoint -e</c></term>
+                         <description> Specifies an alternative endpoint name for the execution of this command.</description>
+                     </item>
+                     <item>
+                         <term><c>--folder -f</c></term>
+                         <description> Specifies the script working folder where the script files are located. If the --folder option is not specified, the current folder is assumed to be the script working folder.</description>
+                     </item>
+                 </list>
+            
+                 <strong>Global parameters</strong>
+                 <list type="bullet">
+                     <item>
+                         <term><c>-? --help -h</c></term>
+                         <description> Show this help message and exit.</description>
+                     </item>
+                     <item>
+                         <term><c>-v --verbosity</c></term>
+                         <description> Enables verbose logging.</description>
+                     </item>
+                 </list>
+             </remarks>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Scripting.Commands.PullCommand.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.CH.Cli.Plugin.Scripting.Commands.PullCommand"/> class.
+            </summary>
+        </member>
+        <member name="T:Sitecore.CH.Cli.Plugin.Scripting.Commands.PushCommand">
+             <summary>
+             Pushes the specified script(s) to the selected Content Hub instance.
+             </summary>
+             <example>
+                 Push all scripts from the working directory:
+                 <code>ch-cli scripting push -n "&lt;*&gt;"</code>
+                 Push all scripts from the specified working directory:
+                 <code>ch-cli scripting push -n "&lt;*&gt;" -folder "&lt;working folder&gt;"</code>
+                 Push, enable all scripts from the specified working directory:
+                 <code>ch-cli scripting push -n "&lt;*&gt;" -folder "&lt;working folder&gt;" --enable</code>
+                 Push a script from the working directory:
+                 <code>ch-cli scripting push -n "&lt;my-script&gt;"</code>
+                 Push, publish and enable a script from the working directory:
+                 <code>ch-cli scripting push -n "&lt;my-script&gt;" --enable --publish</code>
+                 Push, publish and enable a script from the specified working directory:
+                 <code>ch-cli scripting push -n "&lt;my-script&gt;" --enable --publish --folder "&lt;working folder&gt;"</code>
+             </example>
+             <remarks>
+                 <strong>Required parameters</strong>
+                 <list type="bullet">
+                     <item>
+                         <term><c>--name -n</c></term>
+                         <description> Specified the name of the script to Push from the Content Hub instance.</description>
+                     </item>
+                 </list>
+            
+                 <strong>Optional parameters</strong>
+                 <list type="bullet">
+                     <item>
+                         <term><c>--endpoint -e</c></term>
+                         <description> Specifies an alternative endpoint name for the execution of this command.</description>
+                     </item>
+                     <item>
+                         <term><c>--publish -p</c></term>
+                         <description> Whether the script(s) should be publish after successfully compiling.</description>
+                     </item>
+                     <item>
+                         <term><c>--enable -b</c></term>
+                         <description> Whether the script(s) should be set to enable.</description>
+                     </item>
+                     <item>
+                         <term><c>--folder -f</c></term>
+                         <description> Specifies the script working folder where the script files are located. If the --folder option is not specified, the current folder is assumed to be the script working folder.</description>
+                     </item>
+                 </list>
+            
+                 <strong>Global parameters</strong>
+                 <list type="bullet">
+                     <item>
+                         <term><c>-? --help -h</c></term>
+                         <description> Show this help message and exit.</description>
+                     </item>
+                     <item>
+                         <term><c>-v --verbosity</c></term>
+                         <description> Enables verbose logging.</description>
+                     </item>
+                 </list>
+             </remarks>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Scripting.Commands.PushCommand.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.CH.Cli.Plugin.Scripting.Commands.PushCommand"/> class.
+            </summary>
+        </member>
+        <member name="T:Sitecore.CH.Cli.Plugin.Scripting.Commands.UnitTestCommand">
+             <summary>
+             Executes script unit tests.
+             </summary>
+             <example>
+                 Executes all unit tests:
+                 <code>ch-cli scripting test</code>
+             </example>
+             <remarks>
+                 <strong>Optional parameters</strong>
+                 <list type="bullet">
+                     <item>
+                         <term><c>--name -n</c></term>
+                         <description> Specified the name of the script to execute unit tests for.</description>
+                     </item>
+                     <item>
+                         <term><c>--folder -f</c></term>
+                         <description> Specifies the working directory that contains the script files. If the --folder option is not specified, the current folder is assumed to be the working directory.</description>
+                     </item>
+                 </list>
+            
+                 <strong>Global parameters</strong>
+                 <list type="bullet">
+                     <item>
+                         <term><c>-? --help -h</c></term>
+                         <description> Show this help message and exit.</description>
+                     </item>
+                     <item>
+                         <term><c>-v --verbosity</c></term>
+                         <description> Enables verbose logging.</description>
+                     </item>
+                 </list>
+             </remarks>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Scripting.Commands.UnitTestCommand.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.CH.Cli.Plugin.Scripting.Commands.UnitTestCommand"/> class.
+            </summary>
+        </member>
+        <member name="T:Sitecore.CH.Cli.Plugin.Scripting.Commands.WatchCommand">
+             <summary>
+             Watches the script working folder for changes and pushes those changes to the Content Hub instance.
+             </summary>
+             <example>
+                 Watching scripts:
+                 <code>ch-cli scripting watch</code>
+                 Watching scripts with specific polling interval:
+                 <code>ch-cli scripting watch --log-poll-interval "&lt;seconds&gt;"</code>
+             </example>
+             <remarks>
+                 <strong>Optional parameters</strong>
+                 <list type="bullet">
+                     <item>
+                         <term><c>--endpoint -e</c></term>
+                         <description> Specifies an alternative endpoint name for the execution of this command.</description>
+                     </item>
+                 </list>
+                 <list type="bullet">
+                     <item>
+                         <term><c>--folder -f</c></term>
+                         <description> Specifies the script working folder where the script files are located. If the --folder option is not specified, the current folder is assumed to be the script working folder.</description>
+                     </item>
+                     <item>
+                         <term><c>--log-poll-interval -l</c></term>
+                         <description> Specifies how often, in seconds, the scripts are polled for new log changes. Default value: 3 second</description>
+                     </item>
+                 </list>
+            
+                 <strong>Global parameters</strong>
+                 <list type="bullet">
+                     <item>
+                         <term><c>-? --help -h</c></term>
+                         <description> Show this help message and exit.</description>
+                     </item>
+                     <item>
+                         <term><c>-v --verbosity</c></term>
+                         <description> Enables verbose logging.</description>
+                     </item>
+                 </list>
+             </remarks>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Scripting.Commands.WatchCommand.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.CH.Cli.Plugin.Scripting.Commands.WatchCommand"/> class.
+            </summary>
+        </member>
+        <member name="T:Sitecore.CH.Cli.Plugin.Scripting.Models.DebugParameters">
+            <summary>
+            Parameters for the script debug command.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Scripting.Models.DebugParameters.Name">
+            <summary>
+            Gets or sets name of the script to debug.
+            </summary>
+        </member>
+        <member name="T:Sitecore.CH.Cli.Plugin.Scripting.Models.ExecuteParameters">
+            <summary>
+            Defines the execute parameters.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Scripting.Models.ExecuteParameters.Name">
+            <summary>
+            Gets or sets the name of the script to execute in the Content Hub instance.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Scripting.Models.ExecuteParameters.Args">
+            <summary>
+            Gets or sets a json file with arguments that are passed to the script.
+            </summary>
+        </member>
+        <member name="T:Sitecore.CH.Cli.Plugin.Scripting.Models.PullParameters">
+            <summary>
+            Defines the pull parameters.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Scripting.Models.PullParameters.Name">
+            <summary>
+            Gets or sets the name of the script to pull.
+            </summary>
+        </member>
+        <member name="T:Sitecore.CH.Cli.Plugin.Scripting.Models.PushParameters">
+            <summary>
+            Defines the pull parameters.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Scripting.Models.PushParameters.Name">
+            <summary>
+            Gets or sets the name of the script to pull.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Scripting.Models.PushParameters.Enable">
+            <summary>
+            Gets or sets a value indicating whether gets or sets whether the script(s) should be publish after successfully compiling.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Scripting.Models.PushParameters.Publish">
+            <summary>
+            Gets or sets a value indicating whether the script(s) should be set to enable.
+            </summary>
+        </member>
+        <member name="T:Sitecore.CH.Cli.Plugin.Scripting.Models.ScriptingParameters">
+            <summary>
+            Defines the scripting parameters.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Scripting.Models.ScriptingParameters.Folder">
+            <summary>
+            Gets or sets an alternative working directory.
+            </summary>
+        </member>
+        <member name="T:Sitecore.CH.Cli.Plugin.Scripting.Models.TestParameters">
+            <summary>
+            Parameters for the script test command.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Scripting.Models.TestParameters.Name">
+            <summary>
+            Gets or sets name of the script to debug.
+            </summary>
+        </member>
+        <member name="T:Sitecore.CH.Cli.Plugin.Scripting.Models.WatchParameters">
+            <summary>
+            Defines the watch parameters.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Scripting.Models.WatchParameters.LogPollInterval">
+            <summary>
+            Gets or sets the log poll interval.
+            </summary>
+        </member>
+        <member name="T:Sitecore.CH.Cli.Plugin.Scripting.ScriptingMessages">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Scripting.ScriptingMessages.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Scripting.ScriptingMessages.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Scripting.ScriptingMessages.AttachToProcess">
+            <summary>
+              Looks up a localized string similar to Please attach to the process:.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Scripting.ScriptingMessages.CancellingDebuggingSession">
+            <summary>
+              Looks up a localized string similar to Cancelling debug session..
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Scripting.ScriptingMessages.CommandDescriptionCancelDebug">
+            <summary>
+              Looks up a localized string similar to Cancels a script debug session..
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Scripting.ScriptingMessages.CommandDescriptionDebug">
+            <summary>
+              Looks up a localized string similar to Debugs a script..
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Scripting.ScriptingMessages.CommandDescriptionDisable">
+            <summary>
+              Looks up a localized string similar to Disables a script in the selected Content Hub instance..
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Scripting.ScriptingMessages.CommandDescriptionEnable">
+            <summary>
+              Looks up a localized string similar to Enables a script in the selected Content Hub instance..
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Scripting.ScriptingMessages.CommandDescriptionExecute">
+            <summary>
+              Looks up a localized string similar to Executes the specified script on the Content Hub instance..
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Scripting.ScriptingMessages.CommandDescriptionInitialize">
+            <summary>
+              Looks up a localized string similar to Initializes the specified folder with the files needed to enable IntelliSense in VS Code..
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Scripting.ScriptingMessages.CommandDescriptionIntegrationTest">
+            <summary>
+              Looks up a localized string similar to Executes script integration tests..
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Scripting.ScriptingMessages.CommandDescriptionPull">
+            <summary>
+              Looks up a localized string similar to Pulls the specified script(s) from content hub and stored it(them) in the script working folder..
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Scripting.ScriptingMessages.CommandDescriptionPush">
+            <summary>
+              Looks up a localized string similar to Pushes the specified script(s) to the selected Content Hub instance..
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Scripting.ScriptingMessages.CommandDescriptionTest">
+            <summary>
+              Looks up a localized string similar to Executes script unit tests..
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Scripting.ScriptingMessages.CommandDescriptionWatch">
+            <summary>
+              Looks up a localized string similar to Watches the script working folder for changes and pushes those changes to the Content Hub instance..
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Scripting.ScriptingMessages.CommandGroupScripting">
+            <summary>
+              Looks up a localized string similar to Scripting commands facilitates editing, executing, compilation and publishing scripts in Content Hub..
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Scripting.ScriptingMessages.CommandOptionArgs">
+            <summary>
+              Looks up a localized string similar to Path to json file with arguments that are passed to the script..
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Scripting.ScriptingMessages.CommandOptionEnable">
+            <summary>
+              Looks up a localized string similar to Whether the script(s) should be set to enable..
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Scripting.ScriptingMessages.CommandOptionLogPollInterval">
+             <summary>
+               Looks up a localized string similar to 
+            How often, in seconds, the scripts are polled for new log changes..
+             </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Scripting.ScriptingMessages.CommandOptionName">
+            <summary>
+              Looks up a localized string similar to Name of the script..
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Scripting.ScriptingMessages.CommandOptionPublish">
+            <summary>
+              Looks up a localized string similar to Whether the script(s) should be publish after successfully compiling..
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Scripting.ScriptingMessages.Compiled">
+            <summary>
+              Looks up a localized string similar to Compilation done.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Scripting.ScriptingMessages.FormatCompilingScript">
+            <summary>
+              Looks up a localized string similar to Compiling &apos;{0}&apos; ....
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Scripting.ScriptingMessages.FormatCompletedDebuggingSession">
+            <summary>
+              Looks up a localized string similar to Completed execution of &apos;{0}&apos;..
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Scripting.ScriptingMessages.FormatCouldNotCreateDraftScript">
+            <summary>
+              Looks up a localized string similar to Could not create draft script for &apos;{0}&apos;..
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Scripting.ScriptingMessages.FormatCouldNotUpdateScript">
+            <summary>
+              Looks up a localized string similar to Could not update script &apos;{0}&apos;..
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Scripting.ScriptingMessages.FormatCreatingDraftScript">
+            <summary>
+              Looks up a localized string similar to Creating draft script for &apos;{0}&apos;..
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Scripting.ScriptingMessages.FormatDetectedVersion">
+            <summary>
+              Looks up a localized string similar to Detected Content Hub version &apos;{0}..
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Scripting.ScriptingMessages.FormatErrorBuildingScript">
+            <summary>
+              Looks up a localized string similar to Error compiling {0}. {1}({2}): {3}.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Scripting.ScriptingMessages.FormatErrorPublishingScript">
+            <summary>
+              Looks up a localized string similar to Error publishing {0}. {1}({2}): {3}.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Scripting.ScriptingMessages.FormatErrorScriptDuplicateNames">
+            <summary>
+              Looks up a localized string similar to Scripts with duplicate names &apos;{0}&apos; were found. Please make sure your script names are unique before running --pull or --watch..
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Scripting.ScriptingMessages.FormatErrorScriptsWorkingFolderNotInitialized">
+            <summary>
+              Looks up a localized string similar to Scripts working directory &apos;{0}&apos; has not been initialized. Please call &apos;--initialize&apos; and / or &apos;--pull&apos;..
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Scripting.ScriptingMessages.FormatExecutingScript">
+            <summary>
+              Looks up a localized string similar to Executing &apos;{0}&apos;.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Scripting.ScriptingMessages.FormatGettingScripts">
+            <summary>
+              Looks up a localized string similar to Getting scripts that match &apos;{0}&apos;..
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Scripting.ScriptingMessages.FormatNoScriptsToWatch">
+            <summary>
+              Looks up a localized string similar to There are no scripts to watch in &apos;{0}&apos; directory..
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Scripting.ScriptingMessages.FormatProcessId">
+            <summary>
+              Looks up a localized string similar to   Process ID: {0}.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Scripting.ScriptingMessages.FormatProcessName">
+            <summary>
+              Looks up a localized string similar to   Process name: {0}.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Scripting.ScriptingMessages.FormatPublishingScript">
+            <summary>
+              Looks up a localized string similar to Publishing &apos;{0}&apos; ....
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Scripting.ScriptingMessages.FormatSavingScripts">
+            <summary>
+              Looks up a localized string similar to Saving scripts to working directory &apos;{0}&apos;..
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Scripting.ScriptingMessages.FormatScriptAlreadyDisabled">
+            <summary>
+              Looks up a localized string similar to Script &apos;{0}&apos; is already disabled..
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Scripting.ScriptingMessages.FormatScriptAlreadyEnabled">
+            <summary>
+              Looks up a localized string similar to Script &apos;{0}&apos; is already enabled..
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Scripting.ScriptingMessages.FormatScriptDisabled">
+            <summary>
+              Looks up a localized string similar to Script &apos;{0}&apos; has been disabled..
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Scripting.ScriptingMessages.FormatScriptDisabling">
+            <summary>
+              Looks up a localized string similar to Disabling &apos;{0}&apos;.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Scripting.ScriptingMessages.FormatScriptEnabled">
+            <summary>
+              Looks up a localized string similar to Script &apos;{0}&apos; has been enabled..
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Scripting.ScriptingMessages.FormatScriptEnabling">
+            <summary>
+              Looks up a localized string similar to Enabling &apos;{0}&apos;.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Scripting.ScriptingMessages.FormatScriptingDirectoryAlreadyInitialized">
+            <summary>
+              Looks up a localized string similar to Directory appears to be already initialized. Initializing again!.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Scripting.ScriptingMessages.FormatScriptingInitializingDirectory">
+            <summary>
+              Looks up a localized string similar to Initializing directory &apos;{0}&apos; for scripting.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Scripting.ScriptingMessages.FormatScriptMissingHeader">
+            <summary>
+              Looks up a localized string similar to Script &apos;{0}&apos; is missing header..
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Scripting.ScriptingMessages.FormatScriptNotFound">
+            <summary>
+              Looks up a localized string similar to Script with name &apos;{0}&apos; doesn&apos;t exist or there is more than one script with that name..
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Scripting.ScriptingMessages.FormatScriptsDownloaded">
+            <summary>
+              Looks up a localized string similar to Scripts with name matching &apos;{0}&apos; were downloaded..
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Scripting.ScriptingMessages.FormatScriptsNotFound">
+            <summary>
+              Looks up a localized string similar to Scripts with name matching &apos;{0}&apos; were not found..
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Scripting.ScriptingMessages.FormatScriptsPushed">
+            <summary>
+              Looks up a localized string similar to Script(s) matching name &apos;{0}&apos; were pushed..
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Scripting.ScriptingMessages.FormatWaitingToStartDebuggingSession">
+            <summary>
+              Looks up a localized string similar to Waiting for execution of &apos;{0}&apos;..
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Scripting.ScriptingMessages.FormatWatchingScriptsInFolder">
+            <summary>
+              Looks up a localized string similar to Watching scripts in &apos;{0}&apos; folder..
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Scripting.ScriptingMessages.InvalidScriptExecuteArgumentsFile">
+            <summary>
+              Looks up a localized string similar to The execute arguments does not appear to be a valid local json file..
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Scripting.ScriptingMessages.NotAllScriptsWerePushed">
+            <summary>
+              Looks up a localized string similar to Not all the scripts were pushed due to compilation errors..
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Scripting.ScriptingMessages.Published">
+            <summary>
+              Looks up a localized string similar to Publishing done.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Scripting.ScriptingMessages.PushingScripts">
+            <summary>
+              Looks up a localized string similar to Pushing scripts..
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Scripting.ScriptingMessages.RunningTests">
+            <summary>
+              Looks up a localized string similar to Running tests..
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Scripting.ScriptingMessages.ScriptExecuted">
+            <summary>
+              Looks up a localized string similar to Script executed..
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Scripting.ScriptingMessages.StartingDebugSession">
+            <summary>
+              Looks up a localized string similar to Starting debugging session..
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Scripting.ScriptingMessages.WaitingForDebugger">
+            <summary>
+              Looks up a localized string similar to Waiting for debugger..
+            </summary>
+        </member>
+        <member name="T:Sitecore.CH.Cli.Plugin.Scripting.ScriptingPlugin">
+            <inheritdoc />
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Scripting.ScriptingPlugin.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <inheritdoc />
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Scripting.ScriptingPlugin.RegisterCommands(Sitecore.CH.Cli.Core.Abstractions.Infrastructure.ICommandRegistry)">
+            <inheritdoc />
+        </member>
+        <member name="T:Sitecore.CH.Cli.Plugin.Scripting.Services.IScriptingService">
+            <summary>
+            Defines the scripting services to enable script watching and related functionality.
+            </summary>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Scripting.Services.IScriptingService.Initialize(System.String)">
+            <summary>
+            Initializes the specified directory with the required files to enable scripting.
+            </summary>
+            <param name="workingDirectory">The current scripting working folder.</param>
+            <returns>A instance of a <see cref="T:System.Threading.Tasks.Task"/>.</returns>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Scripting.Services.IScriptingService.Pull(System.String,System.String)">
+            <summary>
+            Pulls the specified script(s) from Content Hub and stored it in the script working folder.
+            </summary>
+            <param name="workingDirectory">The current scripting working folder.</param>
+            <param name="scriptName">The name of the script or matching pattern.</param>
+            <returns>A instance of <see cref="T:System.Threading.Tasks.Task"/>.</returns>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Scripting.Services.IScriptingService.Watch(System.String,System.TimeSpan,System.Threading.CancellationToken)">
+            <summary>
+            Watch for changes to the scripts in the script working folder.
+            </summary>
+            <param name="workingDirectory">The current scripting working folder.</param>
+            <param name="logPollInterval">How often, in seconds, the scripts are polled for new log changes.</param>
+            <param name="token">Teh cancellation token.</param>
+            <returns>A instance of <see cref="T:System.Threading.Tasks.Task"/>.</returns>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Scripting.Services.IScriptingService.Execute(System.String,Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            Watch for changes to the scripts in the script working folder.
+            </summary>
+            <param name="scriptName">The name of the script.</param>
+            <param name="arguments">The arguments that are passed to the script.</param>
+            <returns>A instance of <see cref="T:System.Threading.Tasks.Task"/>.</returns>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Scripting.Services.IScriptingService.ToggleEnableTo(System.String,System.Boolean,Sitecore.CH.Cli.Scripting.Models.ScriptData)">
+            <summary>
+            Enables or disables an script.
+            </summary>
+            <param name="scriptName">The name of the script.</param>
+            <param name="enable">Indicates whether the script is to be enable or disable.</param>
+            <param name="scriptData">The <see cref="T:Sitecore.CH.Cli.Scripting.Models.ScriptData"/>.</param>
+            <returns>A instance of <see cref="T:System.Threading.Tasks.Task"/>.</returns>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Scripting.Services.IScriptingService.Push(System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Pushes the specified script(s) to the connected Content Hub instance.
+            </summary>
+            <param name="workingDirectory">The current scripting working folder.</param>
+            <param name="scriptName">The name of the script or matching pattern.</param>
+            <param name="publish">Whether the script(s) should be publish after successfully compiling.</param>
+            <param name="enable">Whether the script(s) should be set to enable.</param>
+            <returns>A instance of <see cref="T:System.Threading.Tasks.Task"/>.</returns>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Scripting.Services.ScriptingService.#ctor(Sitecore.CH.Cli.Core.Abstractions.IO.IFileProvider,System.Lazy{Stylelabs.M.Sdk.WebClient.IWebMClient},Sitecore.CH.Cli.Core.Abstractions.Rendering.IOutputRenderer,Sitecore.CH.Cli.Core.Abstractions.Services.IResourceService,Sitecore.CH.Cli.Core.Abstractions.IO.IDirectoryProvider)">
+            <inheritdoc cref="T:Sitecore.CH.Cli.Plugin.Scripting.Services.IScriptingService" />
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Scripting.Services.ScriptingService.Initialize(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Scripting.Services.ScriptingService.Pull(System.String,System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Scripting.Services.ScriptingService.Watch(System.String,System.TimeSpan,System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Scripting.Services.ScriptingService.Execute(System.String,Newtonsoft.Json.Linq.JObject)">
+            <inheritdoc />
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Scripting.Services.ScriptingService.ToggleEnableTo(System.String,System.Boolean,Sitecore.CH.Cli.Scripting.Models.ScriptData)">
+            <inheritdoc />
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Scripting.Services.ScriptingService.Push(System.String,System.String,System.Boolean,System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Scripting.Services.ScriptingService.Dispose">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>

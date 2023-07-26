@@ -1,0 +1,392 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Sitecore.CH.Cli.Plugin.System</name>
+    </assembly>
+    <members>
+        <member name="T:Sitecore.CH.Cli.Plugin.System.CommandHandlers.ExportPackageCommandHandler">
+            <summary>
+            The <see cref="T:System.CommandLine.Invocation.ICommandHandler"/> to process <see cref="T:Sitecore.CH.Cli.Plugin.System.Commands.ExportPackageCommand"/>.
+            </summary>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.System.CommandHandlers.ExportPackageCommandHandler.#ctor(System.Lazy{Stylelabs.M.Sdk.WebClient.IWebMClient},Sitecore.CH.Cli.Core.Abstractions.IO.IFileProvider,Sitecore.CH.Cli.Core.Abstractions.Rendering.IOutputRenderer,Microsoft.Extensions.Options.IOptions{Sitecore.CH.Cli.Plugin.System.Models.ExportPackageParameters})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.CH.Cli.Plugin.System.CommandHandlers.ExportPackageCommandHandler"/> class.
+            </summary>
+            <param name="client">The <see cref="T:Stylelabs.M.Sdk.WebClient.IWebMClient"/> instance.</param>
+            <param name="fileProvider">The <see cref="T:Sitecore.CH.Cli.Core.Abstractions.IO.IFileProvider"/> instance.</param>
+            <param name="outputRenderer">The <see cref="T:Sitecore.CH.Cli.Core.Abstractions.Rendering.IOutputRenderer"/> instance.</param>
+            <param name="parameters">The parameters.</param>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.System.CommandHandlers.ExportPackageCommandHandler.Parameters">
+            <summary>
+            Gets or sets the export package parameters.
+            </summary>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.System.CommandHandlers.ExportPackageCommandHandler.InvokeAsync(System.CommandLine.Invocation.InvocationContext)">
+            <inheritdoc />
+        </member>
+        <member name="T:Sitecore.CH.Cli.Plugin.System.CommandHandlers.ImportPackageCommandHandler">
+            <summary>
+            The <see cref="T:System.CommandLine.Invocation.ICommandHandler"/> to process <see cref="T:Sitecore.CH.Cli.Plugin.System.Commands.ImportPackageCommand"/>.
+            </summary>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.System.CommandHandlers.ImportPackageCommandHandler.#ctor(System.Lazy{Stylelabs.M.Sdk.WebClient.IWebMClient},Sitecore.CH.Cli.Core.Abstractions.Services.IUploadService,Sitecore.CH.Cli.Core.Abstractions.Rendering.IOutputRenderer,Microsoft.Extensions.Options.IOptions{Sitecore.CH.Cli.Plugin.System.Models.ImportPackageParameters})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.CH.Cli.Plugin.System.CommandHandlers.ImportPackageCommandHandler"/> class.
+            </summary>
+            <param name="client">The <see cref="T:Stylelabs.M.Sdk.WebClient.IWebMClient"/> instance.</param>
+            <param name="uploadService">The <see cref="T:Sitecore.CH.Cli.Core.Abstractions.Services.IUploadService"/> instance.</param>
+            <param name="renderer">The <see cref="T:Sitecore.CH.Cli.Core.Abstractions.Rendering.IOutputRenderer"/> instance.</param>
+            <param name="parameters">The parameters.</param>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.System.CommandHandlers.ImportPackageCommandHandler.Parameters">
+            <summary>
+            Gets or sets the import package parameters.
+            </summary>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.System.CommandHandlers.ImportPackageCommandHandler.InvokeAsync(System.CommandLine.Invocation.InvocationContext)">
+            <inheritdoc />
+        </member>
+        <member name="T:Sitecore.CH.Cli.Plugin.System.Commands.ExportPackageCommand">
+             <summary>
+             Exports a package from the selected Content Hub instance.
+             </summary>
+             <example>
+                 Export a single type:
+                 <code>ch-cli system export --type EntityDefinitions</code>
+                 Export multiple types and save the resulting package:
+                 <code>ch-cli system export --type EntityDefinitions --type Settings --out "&lt;local path&gt;"</code>
+             </example>
+             <remarks>
+                 <strong>Required parameters</strong>
+                 <list type="bullet">
+                     <item>
+                         <term><c>--type -t</c></term>
+                         <description> Specifies the entity type for the export. Multiple selections are possible.</description>
+                     </item>
+                 </list>
+            
+                 <strong>Optional parameters</strong>
+                 <list type="bullet">
+                     <item>
+                         <term><c>--modified-since -m</c></term>
+                         <description> If set, only entities modified after the specified date will be included in the export.</description>
+                     </item>
+                     <item>
+                         <term><c>--include-system-owned -i</c></term>
+                         <description> Indicates whether system-owned entities will be exported.</description>
+                     </item>
+                     <item>
+                         <term><c>--wait -w</c></term>
+                         <description> Determines whether to wait for the export to complete or not.</description>
+                     </item>
+                     <item>
+                         <term><c>--out -o</c></term>
+                         <description> Specifies the output file name.</description>
+                     </item>
+                     <item>
+                         <term><c>--order-id</c></term>
+                         <description> Specifies whether the order ID is returned or not.</description>
+                     </item>
+                 </list>
+            
+                 <strong>Global parameters</strong>
+                 <list type="bullet">
+                     <item>
+                         <term><c>-? --help -h</c></term>
+                         <description> Show this help message and exit.</description>
+                     </item>
+                     <item>
+                         <term><c>-v --verbosity</c></term>
+                         <description> Enables verbose logging.</description>
+                     </item>
+                 </list>
+             </remarks>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.System.Commands.ExportPackageCommand.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.CH.Cli.Plugin.System.Commands.ExportPackageCommand"/> class.
+            </summary>
+        </member>
+        <member name="T:Sitecore.CH.Cli.Plugin.System.Commands.ImportPackageCommand">
+             <summary>
+             Imports a package into the selected Content Hub instance.
+             </summary>
+             <example>
+                 Queue an import without waiting:
+                 <code>ch-cli system import --source "&lt;local file path or HTTP/HTTPS URL&gt;"</code>
+                 Queue an import without waiting and retrieve the job ID:
+                 <code>ch-cli system import --source "&lt;local file path or HTTP/HTTPS URL&gt;" --job-id</code>
+                 Perform an import with waiting:
+                 <code>ch-cli system import --source "&lt;local file path or HTTP/HTTPS URL&gt;" --wait</code>
+             </example>
+             <remarks>
+                 <strong>Required parameters</strong>
+                 <list type="bullet">
+                     <item>
+                         <term><c>--source -s</c></term>
+                         <description> Specifies the path to the import package. Can be either a local file path or a HTTP/HTTPS URL</description>
+                     </item>
+                 </list>
+            
+                 <strong>Optional parameters</strong>
+                 <list type="bullet">
+                     <item>
+                         <term><c>--wait -w</c></term>
+                         <description> Determines whether to wait for the import to complete or not.</description>
+                     </item>
+                     <item>
+                         <term><c>--job-id</c></term>
+                         <description> Specifies whether the job ID is returned or not.</description>
+                     </item>
+                 </list>
+            
+                 <strong>Global parameters</strong>
+                 <list type="bullet">
+                     <item>
+                         <term><c>-? --help -h</c></term>
+                         <description> Show this help message and exit.</description>
+                     </item>
+                     <item>
+                         <term><c>-v --verbosity</c></term>
+                         <description> Enables verbose logging.</description>
+                     </item>
+                 </list>
+             </remarks>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.System.Commands.ImportPackageCommand.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.CH.Cli.Plugin.System.Commands.ImportPackageCommand"/> class.
+            </summary>
+        </member>
+        <member name="T:Sitecore.CH.Cli.Plugin.System.Models.ExportEntityType">
+            <summary>
+            Export entity type.
+            </summary>
+        </member>
+        <member name="F:Sitecore.CH.Cli.Plugin.System.Models.ExportEntityType.AutomationTemplates">
+            <summary>
+            Automation templates
+            </summary>
+        </member>
+        <member name="F:Sitecore.CH.Cli.Plugin.System.Models.ExportEntityType.EntityDefinitions">
+            <summary>
+            Entity definitions
+            </summary>
+        </member>
+        <member name="F:Sitecore.CH.Cli.Plugin.System.Models.ExportEntityType.ExportProfiles">
+            <summary>
+            Export profiles
+            </summary>
+        </member>
+        <member name="F:Sitecore.CH.Cli.Plugin.System.Models.ExportEntityType.MediaProcessing">
+            <summary>
+            Media processing
+            </summary>
+        </member>
+        <member name="F:Sitecore.CH.Cli.Plugin.System.Models.ExportEntityType.OptionLists">
+            <summary>
+            Option lists
+            </summary>
+        </member>
+        <member name="F:Sitecore.CH.Cli.Plugin.System.Models.ExportEntityType.Policies">
+            <summary>
+            Policies
+            </summary>
+        </member>
+        <member name="F:Sitecore.CH.Cli.Plugin.System.Models.ExportEntityType.PortalPages">
+            <summary>
+            Portal pages
+            </summary>
+        </member>
+        <member name="F:Sitecore.CH.Cli.Plugin.System.Models.ExportEntityType.RenditionLinks">
+            <summary>
+            Rendition links
+            </summary>
+        </member>
+        <member name="F:Sitecore.CH.Cli.Plugin.System.Models.ExportEntityType.Scripts">
+            <summary>
+            Scripts
+            </summary>
+        </member>
+        <member name="F:Sitecore.CH.Cli.Plugin.System.Models.ExportEntityType.Settings">
+            <summary>
+            Settings
+            </summary>
+        </member>
+        <member name="F:Sitecore.CH.Cli.Plugin.System.Models.ExportEntityType.StateFlows">
+            <summary>
+            State flows
+            </summary>
+        </member>
+        <member name="F:Sitecore.CH.Cli.Plugin.System.Models.ExportEntityType.Taxonomies">
+            <summary>
+            Taxonomies
+            </summary>
+        </member>
+        <member name="F:Sitecore.CH.Cli.Plugin.System.Models.ExportEntityType.Transformations">
+            <summary>
+            Transformations
+            </summary>
+        </member>
+        <member name="F:Sitecore.CH.Cli.Plugin.System.Models.ExportEntityType.Triggers">
+            <summary>
+            Triggers
+            </summary>
+        </member>
+        <member name="T:Sitecore.CH.Cli.Plugin.System.Models.ExportPackageParameters">
+            <summary>
+            Defines the export package parameters.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.System.Models.ExportPackageParameters.Type">
+            <summary>
+            Gets or sets the export types.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.System.Models.ExportPackageParameters.ModifiedSince">
+            <summary>
+            Gets or sets the modified time.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.System.Models.ExportPackageParameters.IncludeSystemOwned">
+            <summary>
+            Gets or sets a value indicating whether to include system-owned objects or not.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.System.Models.ExportPackageParameters.Wait">
+            <summary>
+             Gets or sets a value indicating whether to wait or not.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.System.Models.ExportPackageParameters.Out">
+            <summary>
+            Gets or sets the output file.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.System.Models.ExportPackageParameters.OrderId">
+            <summary>
+            Gets or sets a value indicating whether the plain order ID will be returned.
+            </summary>
+        </member>
+        <member name="T:Sitecore.CH.Cli.Plugin.System.Models.ImportPackageParameters">
+            <summary>
+            Defines the import package parameters.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.System.Models.ImportPackageParameters.Source">
+            <summary>
+            Gets or sets the package source file.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.System.Models.ImportPackageParameters.Wait">
+            <summary>
+             Gets or sets a value indicating whether to wait for completion of the import job or not.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.System.Models.ImportPackageParameters.JobId">
+            <summary>
+            Gets or sets a value indicating whether the plain job ID will be returned.
+            </summary>
+        </member>
+        <member name="T:Sitecore.CH.Cli.Plugin.System.PackageUploadConfiguration">
+            <inheritdoc />
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.System.PackageUploadConfiguration.ConfigurationName">
+            <inheritdoc />
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.System.PackageUploadConfiguration.ActionName">
+            <inheritdoc />
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.System.PackageUploadConfiguration.ConfigurationParameters">
+            <inheritdoc />
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.System.PackageUploadConfiguration.ActionParameters">
+            <inheritdoc />
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.System.PackageUploadConfiguration.EnsureExtension">
+            <inheritdoc />
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.System.PackageUploadConfiguration.ValidationPolicy">
+            <inheritdoc />
+        </member>
+        <member name="T:Sitecore.CH.Cli.Plugin.System.PackageUploadValidationPolicy">
+            <inheritdoc />
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.System.PackageUploadValidationPolicy.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.CH.Cli.Plugin.System.PackageUploadValidationPolicy"/> class.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.System.PackageUploadValidationPolicy.AllowedFileExtensions">
+            <inheritdoc />
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.System.PackageUploadValidationPolicy.AllowedDirectoryFileExtensions">
+            <inheritdoc />
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.System.PackageUploadValidationPolicy.AllowedDirectoryFileNames">
+            <inheritdoc />
+        </member>
+        <member name="T:Sitecore.CH.Cli.Plugin.System.SystemMessages">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.System.SystemMessages.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.System.SystemMessages.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.System.SystemMessages.CommandDescriptionExport">
+            <summary>
+              Looks up a localized string similar to Exports a package from the Content Hub instance.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.System.SystemMessages.CommandDescriptionImport">
+            <summary>
+              Looks up a localized string similar to Imports a package into the Content Hub instance.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.System.SystemMessages.CommandGroupSystem">
+            <summary>
+              Looks up a localized string similar to System commands allow the user to perform operations like package export/import..
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.System.SystemMessages.CommandOptionExportType">
+            <summary>
+              Looks up a localized string similar to Specifies the export types.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.System.SystemMessages.CommandOptionIncludeSystemOwned">
+            <summary>
+              Looks up a localized string similar to If set, system-owned entities are included in the export.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.System.SystemMessages.ErrorMissingExportTypes">
+            <summary>
+              Looks up a localized string similar to No export types were provided..
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.System.SystemMessages.FormatImportPackageUploaded">
+            <summary>
+              Looks up a localized string similar to Your import package has been uploaded and assigned &apos;{0}&apos; asset id..
+            </summary>
+        </member>
+        <member name="T:Sitecore.CH.Cli.Plugin.System.SystemPlugin">
+            <inheritdoc />
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.System.SystemPlugin.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <inheritdoc />
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.System.SystemPlugin.RegisterCommands(Sitecore.CH.Cli.Core.Abstractions.Infrastructure.ICommandRegistry)">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>

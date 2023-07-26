@@ -1,0 +1,745 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Sitecore.CH.Cli.Scripting</name>
+    </assembly>
+    <members>
+        <member name="T:Sitecore.CH.Cli.Scripting.Compilation.CompilationOptions">
+            <summary>
+            Describes the compilation context.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Scripting.Compilation.CompilationOptions.GlobalsType">
+            <summary>
+            Gets or sets the globally exposed type for the script.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Scripting.Compilation.CompilationOptions.References">
+            <summary>
+            Gets the references.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Scripting.Compilation.CompilationOptions.Namespaces">
+            <summary>
+            Gets the namespaces.
+            </summary>
+        </member>
+        <member name="T:Sitecore.CH.Cli.Scripting.Compilation.ICSharpScriptCompiler">
+            <summary>
+            Describes the script compiler.
+            </summary>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Scripting.Compilation.ICSharpScriptCompiler.ResolveReferencesAndNamespacesAsync(System.String,System.Reflection.Assembly[],System.String[])">
+            <summary>
+            Resolves the required references and namespaces from the given script directory.
+            </summary>
+            <param name="workingDirectory">The working directory.</param>
+            <param name="additionalReferences">The additional to references to include.</param>
+            <param name="additionalNamespaces">The additional namespaces to include.</param>
+            <returns>Lists of assemblies and namespaces.</returns>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Scripting.Compilation.ICSharpScriptCompiler.CompileScriptAsync(System.String,Sitecore.CH.Cli.Scripting.Compilation.CompilationOptions)">
+            <summary>
+            Compiles the script.
+            </summary>
+            <param name="path">The script path.</param>
+            <param name="compilationOptions">The compilation options.</param>
+            <returns>The raw assembly containing the compiled script.</returns>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Scripting.Compilation.ICSharpScriptCompiler.GetEntryPoint(System.Reflection.Assembly)">
+            <summary>
+            Gets the script entry point.
+            </summary>
+            <param name="assembly">The compiled assembly.</param>
+            <returns>The class for the script entry point.</returns>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Scripting.Compilation.ICSharpScriptCompiler.RunScriptAsync(System.Reflection.Assembly,System.Object)">
+            <summary>
+            Executes the script.
+            </summary>
+            <param name="assembly">The compiled assembly.</param>
+            <param name="globals">The global context object that will be passed to the script.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/> representing the asynchronous operation.</returns>
+        </member>
+        <member name="T:Sitecore.CH.Cli.Scripting.Compilation.LocalScriptReferenceResolver">
+            <summary>
+            The local script reference resolver.
+            </summary>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Scripting.Compilation.LocalScriptReferenceResolver.#ctor(Sitecore.CH.Cli.Core.Abstractions.IO.IFileProvider)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.CH.Cli.Scripting.Compilation.LocalScriptReferenceResolver"/> class.
+            </summary>
+            <param name="fileProvider">The <see cref="T:Sitecore.CH.Cli.Core.Abstractions.IO.IFileProvider"/> instance.</param>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Scripting.Compilation.LocalScriptReferenceResolver.Equals(System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:Sitecore.CH.Cli.Scripting.Compilation.LocalScriptReferenceResolver.GetHashCode">
+            <inheritdoc />
+        </member>
+        <member name="M:Sitecore.CH.Cli.Scripting.Compilation.LocalScriptReferenceResolver.NormalizePath(System.String,System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Sitecore.CH.Cli.Scripting.Compilation.LocalScriptReferenceResolver.ResolveReference(System.String,System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Sitecore.CH.Cli.Scripting.Compilation.LocalScriptReferenceResolver.OpenRead(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Sitecore.CH.Cli.Scripting.Contexts.BaseRemoteContext.InitializeAsync">
+            <summary>
+            Initializes the context instance for further processing.
+            </summary>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/> representing the asynchronous operation.</returns>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Scripting.Contexts.RemoteActionScriptContext.ChangeTracker">
+            <inheritdoc />
+        </member>
+        <member name="P:Sitecore.CH.Cli.Scripting.Contexts.RemoteActionScriptContext.ExecutionType">
+            <inheritdoc />
+        </member>
+        <member name="P:Sitecore.CH.Cli.Scripting.Contexts.RemoteActionScriptContext.ExecutionPhase">
+            <inheritdoc />
+        </member>
+        <member name="P:Sitecore.CH.Cli.Scripting.Contexts.RemoteActionScriptContext.ExecutionSource">
+            <inheritdoc />
+        </member>
+        <member name="P:Sitecore.CH.Cli.Scripting.Contexts.RemoteActionScriptContext.ExecutionEvent">
+            <inheritdoc />
+        </member>
+        <member name="P:Sitecore.CH.Cli.Scripting.Contexts.RemoteActionScriptContext.TargetType">
+            <inheritdoc />
+        </member>
+        <member name="P:Sitecore.CH.Cli.Scripting.Contexts.RemoteActionScriptContext.TargetId">
+            <inheritdoc />
+        </member>
+        <member name="P:Sitecore.CH.Cli.Scripting.Contexts.RemoteActionScriptContext.TriggeringUserId">
+            <inheritdoc />
+        </member>
+        <member name="P:Sitecore.CH.Cli.Scripting.Contexts.RemoteActionScriptContext.Target">
+            <inheritdoc />
+        </member>
+        <member name="P:Sitecore.CH.Cli.Scripting.Contexts.RemoteActionScriptContext.PropertyBag">
+            <inheritdoc />
+        </member>
+        <member name="P:Sitecore.CH.Cli.Scripting.Contexts.RemoteActionScriptContext.Data">
+            <inheritdoc />
+        </member>
+        <member name="P:Sitecore.CH.Cli.Scripting.Contexts.RemoteActionScriptContext.Result">
+            <inheritdoc />
+        </member>
+        <member name="P:Sitecore.CH.Cli.Scripting.Contexts.RemoteActionScriptContext.StatusCode">
+            <inheritdoc />
+        </member>
+        <member name="M:Sitecore.CH.Cli.Scripting.Contexts.RemoteActionScriptContext.InitializeAsync">
+            <inheritdoc />
+        </member>
+        <member name="P:Sitecore.CH.Cli.Scripting.Contexts.RemoteMetadataProcessingScriptContext.File">
+            <inheritdoc />
+        </member>
+        <member name="P:Sitecore.CH.Cli.Scripting.Contexts.RemoteMetadataProcessingScriptContext.Asset">
+            <inheritdoc />
+        </member>
+        <member name="P:Sitecore.CH.Cli.Scripting.Contexts.RemoteMetadataProcessingScriptContext.MetadataProperties">
+            <inheritdoc />
+        </member>
+        <member name="M:Sitecore.CH.Cli.Scripting.Contexts.RemoteMetadataProcessingScriptContext.InitializeAsync">
+            <inheritdoc />
+        </member>
+        <member name="P:Sitecore.CH.Cli.Scripting.Contexts.RemoteUserPostRegistrationContext.User">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Scripting.Contexts.RemoteUserPostRegistrationContext.AuthenticationSource">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Scripting.Contexts.RemoteUserPostRegistrationContext.ExternalUserInfo">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Scripting.Contexts.RemoteUserPostRegistrationContext.InitializeAsync">
+            <inheritdoc />
+        </member>
+        <member name="P:Sitecore.CH.Cli.Scripting.Contexts.RemoteUserPreRegistrationContext.AuthenticationSource">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Scripting.Contexts.RemoteUserPreRegistrationContext.InternalUserInfo">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Scripting.Contexts.RemoteUserPreRegistrationContext.ExternalUserInfo">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Scripting.Contexts.RemoteUserPreRegistrationContext.InitializeAsync">
+            <inheritdoc />
+        </member>
+        <member name="P:Sitecore.CH.Cli.Scripting.Contexts.RemoteUserSignInScriptContext.AuthenticationSource">
+            <inheritdoc />
+        </member>
+        <member name="P:Sitecore.CH.Cli.Scripting.Contexts.RemoteUserSignInScriptContext.ExternalUserInfo">
+            <inheritdoc />
+        </member>
+        <member name="P:Sitecore.CH.Cli.Scripting.Contexts.RemoteUserSignInScriptContext.User">
+            <inheritdoc />
+        </member>
+        <member name="M:Sitecore.CH.Cli.Scripting.Contexts.RemoteUserSignInScriptContext.InitializeAsync">
+            <inheritdoc />
+        </member>
+        <member name="M:Sitecore.CH.Cli.Scripting.Debugging.DebugService.#ctor(System.Lazy{Stylelabs.M.Sdk.WebClient.IWebMClient},Sitecore.CH.Cli.Core.Abstractions.IO.IDirectoryProvider,Sitecore.CH.Cli.Core.Abstractions.Rendering.IOutputRenderer,Sitecore.CH.Cli.Scripting.Compilation.ICSharpScriptCompiler)">
+            <inheritdoc cref="T:Sitecore.CH.Cli.Scripting.Debugging.IDebugService" />
+        </member>
+        <member name="P:Sitecore.CH.Cli.Scripting.Debugging.DebugService.IsDebuggerAttached">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Scripting.Debugging.DebugService.GetScriptDebugMetadata(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Sitecore.CH.Cli.Scripting.Debugging.DebugService.WaitForScriptToStart(System.String,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Scripting.Debugging.DebugService.RunScript(System.String,System.String,System.String,System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:Sitecore.CH.Cli.Scripting.Debugging.DebugService.FinishDebugging(System.String,System.Object,System.Exception)">
+            <inheritdoc />
+        </member>
+        <member name="M:Sitecore.CH.Cli.Scripting.Debugging.DebugService.CancelDebugging(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sitecore.CH.Cli.Scripting.Debugging.IDebugService">
+            <summary>
+            Defines the scripting services to enable script debug and related functionality.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Scripting.Debugging.IDebugService.IsDebuggerAttached">
+            <summary>
+            Gets a value indicating whether a debugger is attached to the current process or not.
+            </summary>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Scripting.Debugging.IDebugService.GetScriptDebugMetadata(System.String)">
+            <summary>
+            Loads script debug metadata.
+            </summary>
+            <param name="scriptName">The name of the script.</param>
+            <returns>An instance of <see cref="T:Sitecore.CH.Cli.Scripting.Models.ScriptDebugMetadataResponse"/>.</returns>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Scripting.Debugging.IDebugService.WaitForScriptToStart(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Waits for the script to start.
+            </summary>
+            <param name="scriptName">The name of the script.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>The remote debug context.</returns>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Scripting.Debugging.IDebugService.RunScript(System.String,System.String,System.String,System.Object)">
+            <summary>
+            Runs and compiles a script locally.
+            </summary>
+            <param name="scriptName">The name of the script.</param>
+            <param name="workingDirectory">The working directory.</param>
+            <param name="scriptType">The type of the script.</param>
+            <param name="remoteDebugContext">The remote debug context.</param>
+            <returns>An instance of <see cref="T:System.Threading.Tasks.Task"/>.</returns>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Scripting.Debugging.IDebugService.FinishDebugging(System.String,System.Object,System.Exception)">
+            <summary>
+            Finishes a debugging session.
+            </summary>
+            <param name="scriptName">The name of the script.</param>
+            <param name="remoteDebugContext">The remote debug context.</param>
+            <param name="ex">The exception thrown during script execution, if any.</param>
+            <returns>An instance of <see cref="T:System.Threading.Tasks.Task"/>.</returns>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Scripting.Debugging.IDebugService.CancelDebugging(System.String)">
+            <summary>
+            Cancels a debugging session.
+            </summary>
+            <param name="scriptName">The name of the script.</param>
+            <returns>An instance of <see cref="T:System.Threading.Tasks.Task"/>.</returns>
+        </member>
+        <member name="T:Sitecore.CH.Cli.Scripting.Extensions.StringExtensions">
+            <summary>
+            Extensions for <see cref="T:System.String"/>.
+            </summary>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Scripting.Extensions.StringExtensions.ToLines(System.String)">
+            <summary>
+            Splits the given input at line breaks.
+            </summary>
+            <param name="input">The input.</param>
+            <returns>A list of lines.</returns>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Scripting.Extensions.StringExtensions.CommentScriptHeader(System.String)">
+            <summary>
+            Comments the script header.
+            </summary>
+            <param name="input">The input.</param>
+            <returns>The input with the script header commented out.</returns>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Scripting.Extensions.StringExtensions.UnCommentScriptHeader(System.String,System.String)">
+            <summary>
+            Uncomment the script header.
+            </summary>
+            <param name="input">The input.</param>
+            <param name="headerLine">The header line.</param>
+            <returns>The input with the header uncommented.</returns>
+        </member>
+        <member name="T:Sitecore.CH.Cli.Scripting.Models.CompilationError">
+            <summary>
+            Defines a compilation error.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Scripting.Models.CompilationError.Column">
+            <summary>
+            Gets or sets the error column.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Scripting.Models.CompilationError.ErrorCode">
+            <summary>
+            Gets or sets the error code.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Scripting.Models.CompilationError.Line">
+            <summary>
+            Gets or sets the error line.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Scripting.Models.CompilationError.Message">
+            <summary>
+            Gets or sets the error message.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Scripting.Models.CompilationError.Severity">
+            <summary>
+            Gets or sets the error severity.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Scripting.Models.CompilationError.SeverityLevel">
+            <summary>
+            Gets or sets the error severity level.
+            </summary>
+        </member>
+        <member name="T:Sitecore.CH.Cli.Scripting.Models.ScriptData">
+            <summary>
+            Defines teh script data.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Scripting.Models.ScriptData.Id">
+            <summary>
+            Gets the id of the script entity.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Scripting.Models.ScriptData.Name">
+            <summary>
+            Gets the name of the script entity.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Scripting.Models.ScriptData.Type">
+            <summary>
+            Gets the type of the script entity.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Scripting.Models.ScriptData.HasDraft">
+            <summary>
+            Gets a value indicating whether the script entity has a draft or not.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Scripting.Models.ScriptData.Enabled">
+            <summary>
+            Gets a value indicating whether the script entity is enabled or not.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Scripting.Models.ScriptData.DraftScriptId">
+            <summary>
+            Gets the entity's id of the draft script content entity.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Scripting.Models.ScriptData.ActiveScriptId">
+            <summary>
+            Gets the entity's id of the active script content entity.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Scripting.Models.ScriptData.Content">
+            <summary>
+            Gets the script on the script content entity.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Scripting.Models.ScriptData.CompileStatus">
+            <summary>
+            Gets the compile status for the script content.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Scripting.Models.ScriptData.CompilationErrors">
+            <summary>
+            Gets the compilation errors for the script content.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Scripting.Models.ScriptData.Script">
+            <summary>
+            Gets or sets the script entity.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Scripting.Models.ScriptData.ScriptContent">
+            <summary>
+            Gets or sets the script content entity.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Scripting.Models.ScriptData.Path">
+            <summary>
+            Gets or sets the path for the script in the current working directory.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Scripting.Models.ScriptData.LastUpdated">
+            <summary>
+            Gets or sets last time the script content was updated.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Scripting.Models.ScriptData.LastCompiled">
+            <summary>
+            Gets or sets last time the script was compiled.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Scripting.Models.ScriptData.LastLogPosition">
+            <summary>
+            Gets or sets last log position.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Scripting.Models.ScriptData.LastLogTimestamp">
+            <summary>
+            Gets or sets last log timestamp.
+            </summary>
+        </member>
+        <member name="T:Sitecore.CH.Cli.Scripting.Models.ScriptDebugMetadataResponse">
+            <summary>
+            Defines the high-level script meta data.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Scripting.Models.ScriptDebugMetadataResponse.Name">
+            <summary>
+            Gets or sets the script name.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Scripting.Models.ScriptDebugMetadataResponse.Type">
+            <summary>
+            Gets or sets the script type.
+            </summary>
+        </member>
+        <member name="T:Sitecore.CH.Cli.Scripting.Models.ScriptDebugRegisterResponse">
+            <summary>
+            Defines the script debug registration response.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Scripting.Models.ScriptDebugRegisterResponse.Identifier">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+        </member>
+        <member name="T:Sitecore.CH.Cli.Scripting.Models.TestGlobals">
+            <summary>
+            Defines the globally exposed variables that are exposed to test scripts.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Scripting.Models.TestGlobals.ScriptRunner">
+            <summary>
+            Gets or sets the script runner.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Scripting.Models.TestGlobals.MClient">
+            <summary>
+            Gets or sets the MClient instance.
+            </summary>
+        </member>
+        <member name="T:Sitecore.CH.Cli.Scripting.Runners.IScriptRunner">
+            <summary>
+            Defines the script runner.
+            </summary>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Scripting.Runners.IScriptRunner.Initialize(Sitecore.CH.Cli.Scripting.Compilation.CompilationOptions,System.Threading.CancellationToken)">
+            <summary>
+            Initializes the script runner.
+            </summary>
+            <param name="compilationOptions">The compilation options.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Scripting.Runners.IScriptRunner.ExecuteAsync(Stylelabs.M.Sdk.IMClient,System.Object,System.String)">
+            <summary>
+            Executes the script.
+            </summary>
+            <param name="client">The <see cref="T:Stylelabs.M.Sdk.IMClient"/> instance.</param>
+            <param name="context">The script context.</param>
+            <param name="callerFilePath">The caller file path.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/> representing the asynchronous operation.</returns>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Scripting.Runners.LocalScriptRunner.#ctor(Sitecore.CH.Cli.Scripting.Compilation.ICSharpScriptCompiler,System.Lazy{Stylelabs.M.Sdk.WebClient.IWebMClient},Sitecore.CH.Cli.Scripting.Debugging.IDebugService,Sitecore.CH.Cli.Scripting.Testing.ITestScriptDiscoverer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.CH.Cli.Scripting.Runners.LocalScriptRunner"/> class.
+            </summary>
+            <param name="cSharpScriptCompiler">The script compiler.</param>
+            <param name="client">The <see cref="T:Stylelabs.M.Sdk.WebClient.IWebMClient"/> instance.</param>
+            <param name="debugService">The <see cref="T:Sitecore.CH.Cli.Scripting.Debugging.IDebugService"/> instance.</param>
+            <param name="testScriptDiscoverer">The <see cref="T:Sitecore.CH.Cli.Scripting.Testing.ITestScriptDiscoverer"/> instance.</param>
+            <exception cref="T:System.ArgumentNullException">
+             <paramref name="cSharpScriptCompiler"/>, <paramref name="client"/>, <paramref name="debugService"/> or <paramref name="testScriptDiscoverer"/> is <see langword="null"/>.
+            </exception>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Scripting.Runners.LocalScriptRunner.Initialize(Sitecore.CH.Cli.Scripting.Compilation.CompilationOptions,System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:Sitecore.CH.Cli.Scripting.Runners.LocalScriptRunner.ExecuteAsync(Stylelabs.M.Sdk.IMClient,System.Object,System.String)">
+            <inheritdoc />
+        </member>
+        <member name="T:Sitecore.CH.Cli.Scripting.TestEntity">
+            <inheritdoc />
+        </member>
+        <member name="M:Sitecore.CH.Cli.Scripting.TestEntity.#ctor(Stylelabs.M.Sdk.IMClient,Sitecore.CH.Cli.Scripting.TestEntityConstructionArgs,System.Nullable{System.Int64})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.CH.Cli.Scripting.TestEntity"/> class.
+            </summary>
+            <param name="client">The <see cref="T:Stylelabs.M.Sdk.IMClient"/> instance.</param>
+            <param name="args">The entity construction arguments.</param>
+            <param name="id">The entity id.</param>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Scripting.TestEntity.#ctor(Sitecore.CH.Cli.Scripting.TestEntityConstructionArgs,System.Nullable{System.Int64})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.CH.Cli.Scripting.TestEntity"/> class.
+            </summary>
+            <param name="args">The entity construction arguments.</param>
+            <param name="id">The entity id.</param>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Scripting.TestEntity.Renditions">
+            <inheritdoc />
+        </member>
+        <member name="P:Sitecore.CH.Cli.Scripting.TestEntity.RelatedPaths">
+            <inheritdoc />
+        </member>
+        <member name="M:Sitecore.CH.Cli.Scripting.TestEntity.GetRendition(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Sitecore.CH.Cli.Scripting.TestEntity.GetPermissionsAsync">
+            <inheritdoc />
+        </member>
+        <member name="T:Sitecore.CH.Cli.Scripting.TestEntityConstructionArgs">
+            <inheritdoc />
+        </member>
+        <member name="M:Sitecore.CH.Cli.Scripting.TestEntityConstructionArgs.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.CH.Cli.Scripting.TestEntityConstructionArgs"/> class.
+            </summary>
+            <param name="definitionName">The name of the definition.</param>
+        </member>
+        <member name="T:Sitecore.CH.Cli.Scripting.Testing.ITestRunner">
+            <summary>
+            Defines the test runner.
+            </summary>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Scripting.Testing.ITestRunner.RunAsync(System.String,Sitecore.CH.Cli.Scripting.Testing.TestRunnerOptions)">
+            <summary>
+            Starts the test execution.
+            </summary>
+            <param name="workingDirectory">The script working directory.</param>
+            <param name="options">The test runner options.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/> representing the asynchronous operation.</returns>
+        </member>
+        <member name="T:Sitecore.CH.Cli.Scripting.Testing.ITestScriptDiscoverer">
+            <summary>
+            The test script discoverer.
+            </summary>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Scripting.Testing.ITestScriptDiscoverer.FindTestScripts(System.String,Sitecore.CH.Cli.Scripting.Testing.TestRunnerOptions)">
+            <summary>
+            Finds the test scripts in the given working directory.
+            </summary>
+            <param name="workingDirectory">The working directory.</param>
+            <param name="options">The test runner options.</param>
+            <returns>A list of test scripts.</returns>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Scripting.Testing.ITestScriptDiscoverer.FindScriptForTestScript(System.String)">
+            <summary>
+            Finds the matching script for the given test script.
+            </summary>
+            <param name="testScriptPath">The test script path.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/> representing the asynchronous operation.</returns>
+        </member>
+        <member name="T:Sitecore.CH.Cli.Scripting.Testing.ScriptFileInfo">
+            <summary>
+            Describes the script file info.
+            </summary>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Scripting.Testing.ScriptFileInfo.#ctor(System.String,System.String,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.CH.Cli.Scripting.Testing.ScriptFileInfo"/> class.
+            </summary>
+            <param name="name">The script name.</param>
+            <param name="path">The script path.</param>
+            <param name="type">The script type.</param>
+            <param name="workingDirectory">The working directory.</param>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Scripting.Testing.ScriptFileInfo.Name">
+            <summary>
+            Gets the script name.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Scripting.Testing.ScriptFileInfo.Path">
+            <summary>
+            Gets the script path.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Scripting.Testing.ScriptFileInfo.Type">
+            <summary>
+            Gets the script type.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Scripting.Testing.ScriptFileInfo.WorkingDirectory">
+            <summary>
+            Gets the working directory.
+            </summary>
+        </member>
+        <member name="T:Sitecore.CH.Cli.Scripting.Testing.TestRunnerOptions">
+            <summary>
+            The test runner options.
+            </summary>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Scripting.Testing.TestRunnerOptions.#ctor(Sitecore.CH.Cli.Scripting.Testing.TestRunnerType)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.CH.Cli.Scripting.Testing.TestRunnerOptions"/> class.
+            </summary>
+            <param name="testRunnerType">The test runner type.</param>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Scripting.Testing.TestRunnerOptions.TestRunnerType">
+            <summary>
+            Gets the test runner type.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Scripting.Testing.TestRunnerOptions.MClientFactory">
+            <summary>
+            Gets or sets the <see cref="T:Stylelabs.M.Sdk.IMClient"/> factory.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Scripting.Testing.TestRunnerOptions.TestScriptName">
+            <summary>
+            Gets or sets the test script name.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Scripting.Testing.TestRunnerOptions.ExecuteTestsInParallel">
+            <summary>
+            Gets or sets a value indicating whether to execute tests in parallel or not.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Scripting.Testing.TestRunnerOptions.CancellationToken">
+            <summary>
+            Gets or sets the cancellation token.
+            </summary>
+        </member>
+        <member name="T:Sitecore.CH.Cli.Scripting.Testing.TestRunnerResult">
+            <summary>
+            The test runner result.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Scripting.Testing.TestRunnerResult.ExecutionTime">
+            <summary>
+            Gets the execution time.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Scripting.Testing.TestRunnerResult.TotalTests">
+            <summary>
+            Gets the number of total tests.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Scripting.Testing.TestRunnerResult.SkippedTests">
+            <summary>
+            Gets the number of skipped tests.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Scripting.Testing.TestRunnerResult.PassedTests">
+            <summary>
+            Gets the number of passed tests.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Scripting.Testing.TestRunnerResult.FailedTests">
+            <summary>
+            Gets the number of failed tests.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Scripting.Testing.TestRunnerResult.Success">
+            <summary>
+            Gets a value indicating whether the test run was successful or not.
+            </summary>
+        </member>
+        <member name="T:Sitecore.CH.Cli.Scripting.Testing.TestRunnerType">
+            <summary>
+            Defines the test runner type.
+            </summary>
+        </member>
+        <member name="F:Sitecore.CH.Cli.Scripting.Testing.TestRunnerType.UnitTests">
+            <summary>
+            Unit tests,
+            </summary>
+        </member>
+        <member name="F:Sitecore.CH.Cli.Scripting.Testing.TestRunnerType.IntegrationTests">
+            <summary>
+            Integration tests.
+            </summary>
+        </member>
+        <member name="T:Sitecore.CH.Cli.Scripting.Testing.XunitTestRunner">
+            <inheritdoc />
+        </member>
+        <member name="M:Sitecore.CH.Cli.Scripting.Testing.XunitTestRunner.#ctor(Sitecore.CH.Cli.Scripting.Testing.ITestScriptDiscoverer,Sitecore.CH.Cli.Scripting.Compilation.ICSharpScriptCompiler,Sitecore.CH.Cli.Scripting.Runners.IScriptRunner,Sitecore.CH.Cli.Core.Abstractions.Rendering.IOutputRenderer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.CH.Cli.Scripting.Testing.XunitTestRunner"/> class.
+            </summary>
+            <param name="testClassDiscoverer">The <see cref="T:Sitecore.CH.Cli.Scripting.Testing.ITestScriptDiscoverer"/> instance.</param>
+            <param name="cSharpScriptCompiler">The <see cref="T:Sitecore.CH.Cli.Scripting.Compilation.ICSharpScriptCompiler"/> instance.</param>
+            <param name="scriptRunner">The <see cref="T:Sitecore.CH.Cli.Scripting.Runners.IScriptRunner"/> instance.</param>
+            <param name="outputRenderer">The <see cref="T:Sitecore.CH.Cli.Core.Abstractions.Rendering.IOutputRenderer"/> instance.</param>
+        </member>
+        <member name="T:Sitecore.CH.Cli.Plugin.Scripting.ScriptMessages">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Scripting.ScriptMessages.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Scripting.ScriptMessages.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Scripting.ScriptMessages.FormatErrorsCompilingScript">
+            <summary>
+              Looks up a localized string similar to ***** Errors compiling script &apos;{0}&apos;:.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Scripting.ScriptMessages.FormatFinishDebuggingScript">
+            <summary>
+              Looks up a localized string similar to Finishing debugging &apos;{0}&apos; script..
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Scripting.ScriptMessages.FormatLoadingScriptDetails">
+            <summary>
+              Looks up a localized string similar to Loading details for &apos;{0}&apos; script..
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Scripting.ScriptMessages.FormatRegisterScriptForDebugging">
+            <summary>
+              Looks up a localized string similar to Registering script &apos;{0}&apos; for debugging..
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Scripting.ScriptMessages.FormatStartingScript">
+            <summary>
+              Looks up a localized string similar to Starting script &apos;{0}&apos;..
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Scripting.ScriptMessages.FormatWaitingForScriptToExecute">
+            <summary>
+              Looks up a localized string similar to Waiting for script &apos;{0}&apos; to be executed on Content Hub..
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Scripting.ScriptMessages.TestDiscoverer_NoTestsFound">
+            <summary>
+              Looks up a localized string similar to No tests found..
+            </summary>
+        </member>
+    </members>
+</doc>

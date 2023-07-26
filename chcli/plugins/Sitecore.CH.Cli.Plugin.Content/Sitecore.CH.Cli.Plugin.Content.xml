@@ -1,0 +1,821 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Sitecore.CH.Cli.Plugin.Content</name>
+    </assembly>
+    <members>
+        <member name="T:Sitecore.CH.Cli.Plugin.Content.CommandHandlers.Content.Delivery.PublishCommandHandler">
+            <summary>
+            The <see cref="T:System.CommandLine.Invocation.ICommandHandler"/> to process <see>
+                <cref>PublishCommand</cref>
+            </see>.
+            </summary>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Content.CommandHandlers.Content.Delivery.PublishCommandHandler.#ctor(System.Lazy{Stylelabs.M.Sdk.WebClient.IWebMClient},Sitecore.CH.Cli.Core.Abstractions.Services.IUploadService,Sitecore.CH.Cli.Core.Abstractions.Rendering.IOutputRenderer,Sitecore.CH.Cli.Plugin.Content.Services.IDeliveryService,Microsoft.Extensions.Options.IOptions{Sitecore.CH.Cli.Plugin.Content.Models.Delivery.PublishParameters})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.CH.Cli.Plugin.Content.CommandHandlers.Content.Delivery.PublishCommandHandler"/> class.
+            </summary>
+            <param name="client">The <see cref="T:Stylelabs.M.Sdk.WebClient.IWebMClient"/> instance.</param>
+            <param name="uploadService">The <see cref="T:Sitecore.CH.Cli.Core.Abstractions.Services.IUploadService"/> instance.</param>
+            <param name="renderer">The <see cref="T:Sitecore.CH.Cli.Core.Abstractions.Rendering.IOutputRenderer"/> instance.</param>
+            <param name="deliveryService">The <see cref="T:Sitecore.CH.Cli.Plugin.Content.Services.IDeliveryService"/> instance.</param>
+            <param name="parameters">The command parameters.</param>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Content.CommandHandlers.Content.Delivery.PublishCommandHandler.Parameters">
+            <summary>
+            Gets or sets the publish parameters.
+            </summary>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Content.CommandHandlers.Content.Delivery.PublishCommandHandler.InvokeAsync(System.CommandLine.Invocation.InvocationContext)">
+            <inheritdoc />
+        </member>
+        <member name="T:Sitecore.CH.Cli.Plugin.Content.CommandHandlers.Content.ImportDataCommandHandler">
+            <summary>
+            The <see cref="T:System.CommandLine.Invocation.ICommandHandler"/> to process <see>
+                <cref>ImportDataCommand</cref>
+            </see>.
+            </summary>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Content.CommandHandlers.Content.ImportDataCommandHandler.#ctor(System.Lazy{Stylelabs.M.Sdk.WebClient.IWebMClient},Sitecore.CH.Cli.Core.Abstractions.Services.IUploadService,Sitecore.CH.Cli.Core.Abstractions.Rendering.IOutputRenderer,Sitecore.CH.Cli.Core.Abstractions.IO.IFileProvider,Microsoft.Extensions.Options.IOptions{Sitecore.CH.Cli.Plugin.Content.Models.ImportDataParameters})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.CH.Cli.Plugin.Content.CommandHandlers.Content.ImportDataCommandHandler"/> class.
+            </summary>
+            <param name="client">The <see cref="T:Stylelabs.M.Sdk.WebClient.IWebMClient"/> instance.</param>
+            <param name="uploadService">The <see cref="T:Sitecore.CH.Cli.Core.Abstractions.Services.IUploadService"/> instance.</param>
+            <param name="renderer">The <see cref="T:Sitecore.CH.Cli.Core.Abstractions.Rendering.IOutputRenderer"/> instance.</param>
+            <param name="fileProvider">The <see cref="T:Sitecore.CH.Cli.Core.Abstractions.IO.IFileProvider"/> instance.</param>
+            <param name="parameters">The command parameters.</param>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Content.CommandHandlers.Content.ImportDataCommandHandler.Parameters">
+            <summary>
+            Gets or sets the import data parameters.
+            </summary>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Content.CommandHandlers.Content.ImportDataCommandHandler.InvokeAsync(System.CommandLine.Invocation.InvocationContext)">
+            <inheritdoc />
+        </member>
+        <member name="T:Sitecore.CH.Cli.Plugin.Content.CommandHandlers.Print.GenerateCommandHandler">
+            <summary>
+            The <see cref="T:System.CommandLine.Invocation.ICommandHandler"/> to process <see cref="T:Sitecore.CH.Cli.Plugin.Content.Commands.Print.GenerateCommand"/>.
+            </summary>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Content.CommandHandlers.Print.GenerateCommandHandler.#ctor(Sitecore.CH.Cli.Plugin.Content.Services.IPrintService,System.Lazy{Stylelabs.M.Sdk.WebClient.IWebMClient},Sitecore.CH.Cli.Core.Abstractions.Rendering.IOutputRenderer,Microsoft.Extensions.Options.IOptions{Sitecore.CH.Cli.Plugin.Content.Models.EntityPrintExecuteParameters})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.CH.Cli.Plugin.Content.CommandHandlers.Print.GenerateCommandHandler"/> class.
+            </summary>
+            <param name="printService">The <see cref="T:Sitecore.CH.Cli.Plugin.Content.Services.IPrintService"/>.</param>
+            <param name="client">The web sdk client.</param>
+            <param name="renderer">The <see cref="T:Sitecore.CH.Cli.Core.Abstractions.Rendering.IOutputRenderer"/> to output information to the user.</param>
+            <param name="parameters">The command parameters.</param>
+            <exception cref="T:System.ArgumentNullException">
+                <paramref name="client"/> or <paramref name="renderer"/> is <see langword="null"/>.
+            </exception>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Content.CommandHandlers.Print.GenerateCommandHandler.Parameters">
+            <summary>
+            Gets or sets the parameters.
+            </summary>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Content.CommandHandlers.Print.GenerateCommandHandler.InvokeAsync(System.CommandLine.Invocation.InvocationContext)">
+            <inheritdoc />
+        </member>
+        <member name="T:Sitecore.CH.Cli.Plugin.Content.CommandHandlers.Print.InitializeCommandHandler">
+            <summary>
+            The <see cref="T:System.CommandLine.Invocation.ICommandHandler"/> to process <see cref="T:Sitecore.CH.Cli.Plugin.Content.Commands.Print.InitializeCommand"/>.
+            </summary>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Content.CommandHandlers.Print.InitializeCommandHandler.#ctor(Sitecore.CH.Cli.Plugin.Content.Services.IPrintService,System.Lazy{Stylelabs.M.Sdk.WebClient.IWebMClient},Sitecore.CH.Cli.Core.Abstractions.Rendering.IOutputRenderer,Microsoft.Extensions.Options.IOptions{Sitecore.CH.Cli.Plugin.Content.Models.EntityPrintPushParameters})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.CH.Cli.Plugin.Content.CommandHandlers.Print.InitializeCommandHandler"/> class.
+            </summary>
+            <param name="printService">The <see cref="T:Sitecore.CH.Cli.Plugin.Content.Services.IPrintService"/> implementation.</param>
+            <param name="client">The web sdk client.</param>
+            <param name="renderer">The <see cref="T:Sitecore.CH.Cli.Core.Abstractions.Rendering.IOutputRenderer"/> to output information to the user.</param>
+            <param name="parameters">The command parameters.</param>
+            <exception cref="T:System.ArgumentNullException">
+                <paramref name="client"/> or <paramref name="renderer"/> is <see langword="null"/>.
+            </exception>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Content.CommandHandlers.Print.InitializeCommandHandler.Parameters">
+            <summary>
+            Gets or sets the parameters.
+            </summary>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Content.CommandHandlers.Print.InitializeCommandHandler.InvokeAsync(System.CommandLine.Invocation.InvocationContext)">
+            <inheritdoc />
+        </member>
+        <member name="T:Sitecore.CH.Cli.Plugin.Content.CommandHandlers.Print.PullCommandHandler">
+            <summary>
+            The <see cref="T:System.CommandLine.Invocation.ICommandHandler"/> to process <see cref="T:Sitecore.CH.Cli.Plugin.Content.Commands.Print.PullCommand"/>.
+            </summary>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Content.CommandHandlers.Print.PullCommandHandler.#ctor(Sitecore.CH.Cli.Plugin.Content.Services.IPrintService,System.Lazy{Stylelabs.M.Sdk.WebClient.IWebMClient},Sitecore.CH.Cli.Core.Abstractions.Rendering.IOutputRenderer,Microsoft.Extensions.Options.IOptions{Sitecore.CH.Cli.Plugin.Content.Models.EntityPrintPullParameters})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.CH.Cli.Plugin.Content.CommandHandlers.Print.PullCommandHandler"/> class.
+            </summary>
+            <param name="printService">The <see cref="T:Sitecore.CH.Cli.Plugin.Content.Services.IPrintService"/>.</param>
+            <param name="client">The web sdk client.</param>
+            <param name="renderer">The <see cref="T:Sitecore.CH.Cli.Core.Abstractions.Rendering.IOutputRenderer"/> to output information to the user.</param>
+            <param name="parameters">The command parameters.</param>
+            <exception cref="T:System.ArgumentNullException">
+                <paramref name="client"/> or <paramref name="renderer"/> is <see langword="null"/>.
+            </exception>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Content.CommandHandlers.Print.PullCommandHandler.Parameters">
+            <summary>
+            Gets or sets the parameters.
+            </summary>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Content.CommandHandlers.Print.PullCommandHandler.InvokeAsync(System.CommandLine.Invocation.InvocationContext)">
+            <inheritdoc />
+        </member>
+        <member name="T:Sitecore.CH.Cli.Plugin.Content.CommandHandlers.Print.PushCommandHandler">
+            <summary>
+            The <see cref="T:System.CommandLine.Invocation.ICommandHandler"/> to process <see cref="T:Sitecore.CH.Cli.Plugin.Content.Commands.Print.PushCommand"/>.
+            </summary>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Content.CommandHandlers.Print.PushCommandHandler.#ctor(Sitecore.CH.Cli.Plugin.Content.Services.IPrintService,System.Lazy{Stylelabs.M.Sdk.WebClient.IWebMClient},Sitecore.CH.Cli.Core.Abstractions.Rendering.IOutputRenderer,Microsoft.Extensions.Options.IOptions{Sitecore.CH.Cli.Plugin.Content.Models.EntityPrintPushParameters})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.CH.Cli.Plugin.Content.CommandHandlers.Print.PushCommandHandler"/> class.
+            </summary>
+            <param name="printService">The <see cref="T:Sitecore.CH.Cli.Plugin.Content.Services.IPrintService"/>.</param>
+            <param name="client">The web sdk client.</param>
+            <param name="renderer">The <see cref="T:Sitecore.CH.Cli.Core.Abstractions.Rendering.IOutputRenderer"/> to output information to the user.</param>
+            <param name="parameters">The command parameters.</param>
+            <exception cref="T:System.ArgumentNullException">
+                <paramref name="client"/> or <paramref name="renderer"/> is <see langword="null"/>.
+            </exception>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Content.CommandHandlers.Print.PushCommandHandler.Parameters">
+            <summary>
+            Gets or sets the parameters.
+            </summary>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Content.CommandHandlers.Print.PushCommandHandler.InvokeAsync(System.CommandLine.Invocation.InvocationContext)">
+            <inheritdoc />
+        </member>
+        <member name="T:Sitecore.CH.Cli.Plugin.Content.CommandHandlers.Print.ValidateCommandHandler">
+            <summary>
+            The <see cref="T:System.CommandLine.Invocation.ICommandHandler"/> to process <see cref="T:Sitecore.CH.Cli.Plugin.Content.Commands.Print.ValidateCommand"/>.
+            </summary>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Content.CommandHandlers.Print.ValidateCommandHandler.#ctor(Sitecore.CH.Cli.Plugin.Content.Services.IPrintService,System.Lazy{Stylelabs.M.Sdk.WebClient.IWebMClient},Sitecore.CH.Cli.Core.Abstractions.Rendering.IOutputRenderer,Microsoft.Extensions.Options.IOptions{Sitecore.CH.Cli.Plugin.Content.Models.EntityPrintParameters})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.CH.Cli.Plugin.Content.CommandHandlers.Print.ValidateCommandHandler"/> class.
+            </summary>
+            <param name="printService">The <see cref="T:Sitecore.CH.Cli.Plugin.Content.Services.IPrintService"/>.</param>
+            <param name="client">The web sdk client.</param>
+            <param name="renderer">The <see cref="T:Sitecore.CH.Cli.Core.Abstractions.Rendering.IOutputRenderer"/> to output information to the user.</param>
+            <param name="parameters">The command parameters.</param>
+            <exception cref="T:System.ArgumentNullException">
+                <paramref name="client"/> or <paramref name="renderer"/> is <see langword="null"/>.
+            </exception>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Content.CommandHandlers.Print.ValidateCommandHandler.Parameters">
+            <summary>
+            Gets or sets the parameters.
+            </summary>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Content.CommandHandlers.Print.ValidateCommandHandler.InvokeAsync(System.CommandLine.Invocation.InvocationContext)">
+            <inheritdoc />
+        </member>
+        <member name="T:Sitecore.CH.Cli.Plugin.Content.Commands.Content.Delivery.DeliveryCommand">
+            <inheritdoc />
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Content.Commands.Content.Delivery.DeliveryCommand.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.CH.Cli.Plugin.Content.Commands.Content.Delivery.DeliveryCommand"/> class.
+            </summary>
+        </member>
+        <member name="T:Sitecore.CH.Cli.Plugin.Content.Commands.Content.Delivery.PublishCommand">
+             <summary>
+             Publishes content from the selected Content Hub instance to the delivery platform.
+             </summary>
+             <example>
+                 Publish entities to delivery platform:
+                 <code>ch-cli content delivery publish --start-date "2022-08-01 12:00:00"</code>
+             </example>
+             <remarks>
+                 <strong>Required parameters</strong>
+                 <list type="bullet">
+                     <item>
+                         <term><c>--start-date -s</c></term>
+                         <description> Publishes entities that have been modified after the specified date.</description>
+                     </item>
+                 </list>
+            
+                 <strong>Global parameters</strong>
+                 <list type="bullet">
+                     <item>
+                         <term><c>--end-date -e</c></term>
+                         <description> Defines the end of the range for entities to be considered for publishing.</description>
+                     </item>
+                     <item>
+                         <term><c>--publish-failed -p</c></term>
+                         <description> If set, only failed entities are re-published.</description>
+                     </item>
+                     <item>
+                         <term><c>-? --help -h</c></term>
+                         <description> Show this help message and exit.</description>
+                     </item>
+                     <item>
+                         <term><c>-v --verbose</c></term>
+                         <description> Enables verbose logging.</description>
+                     </item>
+                 </list>
+             </remarks>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Content.Commands.Content.Delivery.PublishCommand.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.CH.Cli.Plugin.Content.Commands.Content.Delivery.PublishCommand"/> class.
+            </summary>
+        </member>
+        <member name="T:Sitecore.CH.Cli.Plugin.Content.Commands.Content.ImportDataCommand">
+             <summary>
+             Imports a package into the selected Content Hub instance.
+             </summary>
+             <example>
+                 Queue an import without waiting:
+                 <code>ch-cli content import --source "&lt;local file path or HTTP/HTTPS URL&gt;"</code>
+                 Queue an content without waiting and retrieve the job ID:
+                 <code>ch-cli content import --source "&lt;local file path or HTTP/HTTPS URL&gt;" --job-id</code>
+                 Perform an content with waiting:
+                 <code>ch-cli content import --source "&lt;local file path or HTTP/HTTPS URL&gt;" --wait</code>
+             </example>
+             <remarks>
+                 <strong>Required parameters</strong>
+                 <list type="bullet">
+                     <item>
+                         <term><c>--source -s</c></term>
+                         <description> Specifies the path to the import package. Can be either a local file path or a HTTP/HTTPS URL</description>
+                     </item>
+                 </list>
+            
+                 <strong>Optional parameters</strong>
+                 <list type="bullet">
+                     <item>
+                         <term><c>--upload-configuration-name -n</c></term>
+                         <description> Specifies the name of the import data configuration.</description>
+                     </item>
+                     <item>
+                         <term><c>--import-configuration -c</c></term>
+                         <description> Specifies the path to the import configuration. Can only be a local Json file path</description>
+                     </item>
+                     <item>
+                         <term><c>--wait -w</c></term>
+                         <description> Determines whether to wait for the import to complete or not.</description>
+                     </item>
+                     <item>
+                         <term><c>--job-id</c></term>
+                         <description> Specifies whether the job ID is returned or not.</description>
+                     </item>
+                 </list>
+            
+                 <strong>Global parameters</strong>
+                 <list type="bullet">
+                     <item>
+                         <term><c>-? --help -h</c></term>
+                         <description> Show this help message and exit.</description>
+                     </item>
+                     <item>
+                         <term><c>-v --verbosity</c></term>
+                         <description> Enables verbose logging.</description>
+                     </item>
+                 </list>
+             </remarks>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Content.Commands.Content.ImportDataCommand.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.CH.Cli.Plugin.Content.Commands.Content.ImportDataCommand"/> class.
+            </summary>
+        </member>
+        <member name="T:Sitecore.CH.Cli.Plugin.Content.Commands.Print.GenerateCommand">
+             <summary>
+             Generates the specified entity print template against the specified entity and shows the final PDF.
+             </summary>
+             <example>
+                 Generates the entity print template:
+                 <code>ch-cli print execute --name "&lt;template name&gt;" --entityId "&lt;entity id&gt;" --culture "&lt;culture&gt;"</code>
+             </example>
+             <remarks>
+                 <strong>Required parameters</strong>
+                 <list type="bullet">
+                     <item>
+                         <term><c>--name -n</c></term>
+                         <description> Specifies the template name.</description>
+                     </item>
+                     <item>
+                         <term><c>--entityId -i</c></term>
+                         <description> Specifies the entity id.</description>
+                     </item>
+                 </list>
+            
+                 <strong>Optional parameters</strong>
+                 <list type="bullet">
+                     <item>
+                         <term><c>--endpoint -e</c></term>
+                         <description> Specifies an alternative endpoint name for the execution of this command.</description>
+                     </item>
+                      <item>
+                         <term><c>--culture -c</c></term>
+                         <description> Specifies the culture.</description>
+                     </item>
+                 </list>
+            
+                 <strong>Global parameters</strong>
+                 <list type="bullet">
+                     <item>
+                         <term><c>-? --help -h</c></term>
+                         <description> Show this help message and exit.</description>
+                     </item>
+                     <item>
+                         <term><c>-v --verbosity</c></term>
+                         <description> Enables verbose logging.</description>
+                     </item>
+                 </list>
+             </remarks>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Content.Commands.Print.GenerateCommand.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.CH.Cli.Plugin.Content.Commands.Print.GenerateCommand"/> class.
+            </summary>
+        </member>
+        <member name="T:Sitecore.CH.Cli.Plugin.Content.Commands.Print.InitializeCommand">
+             <summary>
+             Initializes a working folder with the files needed to generate a entity print template.
+             </summary>
+             <example>
+                 Initialize an entity print template:
+                 <code>ch-cli print initialize --name "&lt;template name&gt;"</code>
+                 Initialize an entity print template to specific folder:
+                 <code>ch-cli scripting initialize --name "&lt;template name&gt;" --folder "&lt;local path&gt;"</code>
+             </example>
+             <remarks>
+                 <strong>Required parameters</strong>
+                 <list type="bullet">
+                     <item>
+                         <term><c>--name -dn</c></term>
+                         <description> Specifies the name of the entity print template.</description>
+                     </item>
+                 </list>
+            
+                 <strong>Optional parameters</strong>
+                 <list type="bullet">
+                     <item>
+                         <term><c>--endpoint -e</c></term>
+                         <description> Specifies an alternative endpoint name for the execution of this command.</description>
+                     </item>
+                     <item>
+                         <term><c>--folder -f</c></term>
+                         <description> Specifies the a working directory other than the current folder.</description>
+                     </item>
+                 </list>
+            
+                 <strong>Global parameters</strong>
+                 <list type="bullet">
+                     <item>
+                         <term><c>-? --help -h</c></term>
+                         <description> Show this help message and exit.</description>
+                     </item>
+                     <item>
+                         <term><c>-v --verbosity</c></term>
+                         <description> Enables verbose logging.</description>
+                     </item>
+                 </list>
+             </remarks>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Content.Commands.Print.InitializeCommand.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.CH.Cli.Plugin.Content.Commands.Print.InitializeCommand"/> class.
+            </summary>
+        </member>
+        <member name="T:Sitecore.CH.Cli.Plugin.Content.Commands.Print.PullCommand">
+             <summary>
+             Pulls an entity print template from the connected Content Hub instance into the specified working directory.
+             </summary>
+             <example>
+                 Pull an entity print template:
+                 <code>ch-cli print pull --name "&lt;template name&gt;"</code>
+                 Initialize an entity print template to specific folder:
+                 <code>ch-cli scripting pull --name "&lt;template name&gt;" --folder "&lt;local path&gt;"</code>
+             </example>
+             <remarks>
+                 <strong>Required parameters</strong>
+                 <list type="bullet">
+                     <item>
+                         <term><c>--name -dn</c></term>
+                         <description> Specifies the name of the entity print template.</description>
+                     </item>
+                 </list>
+            
+                 <strong>Optional parameters</strong>
+                 <list type="bullet">
+                     <item>
+                         <term><c>--endpoint -e</c></term>
+                         <description> Specifies an alternative endpoint name for the execution of this command.</description>
+                     </item>
+                     <item>
+                         <term><c>--folder -f</c></term>
+                         <description> Specifies the a working directory other than the current folder.</description>
+                     </item>
+                 </list>
+            
+                 <strong>Global parameters</strong>
+                 <list type="bullet">
+                     <item>
+                         <term><c>-? --help -h</c></term>
+                         <description> Show this help message and exit.</description>
+                     </item>
+                     <item>
+                         <term><c>-v --verbosity</c></term>
+                         <description> Enables verbose logging.</description>
+                     </item>
+                 </list>
+             </remarks>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Content.Commands.Print.PullCommand.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.CH.Cli.Plugin.Content.Commands.Print.PullCommand"/> class.
+            </summary>
+        </member>
+        <member name="T:Sitecore.CH.Cli.Plugin.Content.Commands.Print.PushCommand">
+             <summary>
+             Pushes the print template from the specified working directory to the connected Content Hub instance.
+             </summary>
+             <example>
+                 Pushes an entity print template:
+                 <code>ch-cli print push --definition "&lt;entity definition&gt;" --name "&lt;template name&gt;"</code>
+                 Pushes an entity print template in specific folder:
+                 <code>ch-cli print push --definition "&lt;entity definition&gt;" --name "&lt;template name&gt;" --folder "&lt;local path&gt;"</code>
+             </example>
+             <remarks>
+                 <strong>Required parameters</strong>
+                 <list type="bullet">
+                     <item>
+                         <term><c>--definition -d</c></term>
+                         <description> Specifies the entity definition.</description>
+                     </item>
+                 </list>
+                 <list type="bullet">
+                     <item>
+                         <term><c>--name -n</c></term>
+                         <description> Specifies the name of the template.</description>
+                     </item>
+                 </list>
+            
+                 <strong>Optional parameters</strong>
+                 <list type="bullet">
+                     <item>
+                         <term><c>--endpoint -e</c></term>
+                         <description> Specifies an alternative endpoint name for the execution of this command.</description>
+                     </item>
+                 </list>
+                 <list type="bullet">
+                     <item>
+                         <term><c>--folder -f</c></term>
+                         <description> Specifies the a working directory other than the current folder.</description>
+                     </item>
+                 </list>
+            
+                 <strong>Global parameters</strong>
+                 <list type="bullet">
+                     <item>
+                         <term><c>-? --help -h</c></term>
+                         <description> Show this help message and exit.</description>
+                     </item>
+                     <item>
+                         <term><c>-v --verbosity</c></term>
+                         <description> Enables verbose logging.</description>
+                     </item>
+                 </list>
+             </remarks>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Content.Commands.Print.PushCommand.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.CH.Cli.Plugin.Content.Commands.Print.PushCommand"/> class.
+            </summary>
+        </member>
+        <member name="T:Sitecore.CH.Cli.Plugin.Content.Commands.Print.ValidateCommand">
+             <summary>
+             Validates an entity print template working folder against an entity definition.
+             </summary>
+             <example>
+                 Validates an entity print template:
+                 <code>ch-cli print initialize --definition "&lt;entity definition&gt;"</code>
+                 Validates an entity print template in specific folder:
+                 <code>ch-cli scripting initialize --definition "&lt;entity definition&gt;" --folder "&lt;local path&gt;"</code>
+             </example>
+             <remarks>
+                 <strong>Required parameters</strong>
+                 <list type="bullet">
+                     <item>
+                         <term><c>--definition -d</c></term>
+                         <description> Specifies the entity definition.</description>
+                     </item>
+                 </list>
+            
+                 <strong>Optional parameters</strong>
+                 <list type="bullet">
+                     <item>
+                         <term><c>--endpoint -e</c></term>
+                         <description> Specifies an alternative endpoint name for the execution of this command.</description>
+                     </item>
+                     <item>
+                         <term><c>--folder -f</c></term>
+                         <description> Specifies the a working directory other than the current folder.</description>
+                     </item>
+                 </list>
+            
+                 <strong>Global parameters</strong>
+                 <list type="bullet">
+                     <item>
+                         <term><c>-? --help -h</c></term>
+                         <description> Show this help message and exit.</description>
+                     </item>
+                     <item>
+                         <term><c>-v --verbosity</c></term>
+                         <description> Enables verbose logging.</description>
+                     </item>
+                 </list>
+             </remarks>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Content.Commands.Print.ValidateCommand.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.CH.Cli.Plugin.Content.Commands.Print.ValidateCommand"/> class.
+            </summary>
+        </member>
+        <member name="T:Sitecore.CH.Cli.Plugin.Content.ContentPlugin">
+            <inheritdoc />
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Content.ContentPlugin.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <inheritdoc />
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Content.ContentPlugin.RegisterCommands(Sitecore.CH.Cli.Core.Abstractions.Infrastructure.ICommandRegistry)">
+            <inheritdoc />
+        </member>
+        <member name="T:Sitecore.CH.Cli.Plugin.Content.DataUploadConfiguration">
+            <inheritdoc />
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Content.DataUploadConfiguration.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.CH.Cli.Plugin.Content.DataUploadConfiguration"/> class.
+            </summary>
+            <param name="configurationName">Name of the configuration.</param>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Content.DataUploadConfiguration.ConfigurationName">
+            <inheritdoc />
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Content.DataUploadConfiguration.ActionName">
+            <inheritdoc />
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Content.DataUploadConfiguration.ConfigurationParameters">
+            <inheritdoc />
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Content.DataUploadConfiguration.ActionParameters">
+            <inheritdoc />
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Content.DataUploadConfiguration.EnsureExtension">
+            <inheritdoc />
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Content.DataUploadConfiguration.ValidationPolicy">
+            <inheritdoc />
+        </member>
+        <member name="T:Sitecore.CH.Cli.Plugin.Content.DataUploadValidationPolicy">
+            <inheritdoc />
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Content.DataUploadValidationPolicy.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.CH.Cli.Plugin.Content.DataUploadValidationPolicy"/> class.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Content.DataUploadValidationPolicy.AllowedFileExtensions">
+            <inheritdoc />
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Content.DataUploadValidationPolicy.AllowedDirectoryFileExtensions">
+            <inheritdoc />
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Content.DataUploadValidationPolicy.AllowedDirectoryFileNames">
+            <inheritdoc />
+        </member>
+        <member name="T:Sitecore.CH.Cli.Plugin.Content.Models.Delivery.PublishParameters">
+            <summary>
+            Describes the publish parameters.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Content.Models.Delivery.PublishParameters.StartDate">
+            <summary>
+            Gets or sets the start date.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Content.Models.Delivery.PublishParameters.EndDate">
+            <summary>
+            Gets or sets the end date.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Content.Models.Delivery.PublishParameters.DateTimeProperty">
+            <summary>
+            Gets or sets the date time property.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Content.Models.Delivery.PublishParameters.OnlyFailed">
+            <summary>
+            Gets or sets a value indicating whether only failed entities should be re-published.
+            </summary>
+        </member>
+        <member name="T:Sitecore.CH.Cli.Plugin.Content.Models.Delivery.RangeDateTimeProperty">
+            <summary>
+            Defines the possible date properties.
+            </summary>
+        </member>
+        <member name="F:Sitecore.CH.Cli.Plugin.Content.Models.Delivery.RangeDateTimeProperty.CreatedOn">
+            <summary>
+            CreatedOn system property is selected for range date query.
+            </summary>
+        </member>
+        <member name="F:Sitecore.CH.Cli.Plugin.Content.Models.Delivery.RangeDateTimeProperty.ModifiedOn">
+            <summary>
+            ModifiedOn system property is selected for range date query.
+            </summary>
+        </member>
+        <member name="T:Sitecore.CH.Cli.Plugin.Content.Models.EntityPrintExecuteParameters">
+            <summary>
+            Defines the entity print template pull parameters.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Content.Models.EntityPrintExecuteParameters.Name">
+            <summary>
+            Gets or sets the name of the entity print template.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Content.Models.EntityPrintExecuteParameters.EntityId">
+            <summary>
+            Gets or sets the id of the entity.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Content.Models.EntityPrintExecuteParameters.Culture">
+            <summary>
+            Gets or sets the culture.
+            </summary>
+        </member>
+        <member name="T:Sitecore.CH.Cli.Plugin.Content.Models.EntityPrintParameters">
+            <summary>
+            Defines the entity print parameters.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Content.Models.EntityPrintParameters.Folder">
+            <summary>
+            Gets or sets an alternative working directory.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Content.Models.EntityPrintParameters.Definition">
+            <summary>
+            Gets or sets the entity definition name.
+            </summary>
+        </member>
+        <member name="T:Sitecore.CH.Cli.Plugin.Content.Models.EntityPrintPullParameters">
+            <summary>
+            Defines the entity print template pull parameters.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Content.Models.EntityPrintPullParameters.Folder">
+            <summary>
+            Gets or sets an alternative working directory.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Content.Models.EntityPrintPullParameters.Name">
+            <summary>
+            Gets or sets the name of the entity print template.
+            </summary>
+        </member>
+        <member name="T:Sitecore.CH.Cli.Plugin.Content.Models.EntityPrintPushParameters">
+            <summary>
+            Defines the entity print push parameters.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Content.Models.EntityPrintPushParameters.Name">
+            <summary>
+            Gets or sets the print template name.
+            </summary>
+        </member>
+        <member name="T:Sitecore.CH.Cli.Plugin.Content.Models.ImportDataParameters">
+            <summary>
+            Defines an import data parameters.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Content.Models.ImportDataParameters.UploadConfigurationName">
+            <summary>
+            Gets or sets the name of the upload configuration.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Content.Models.ImportDataParameters.Source">
+            <summary>
+            Gets or sets the package source file.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Content.Models.ImportDataParameters.ImportConfiguration">
+            <summary>
+            Gets or sets the configuration for the data to be imported.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Content.Models.ImportDataParameters.Wait">
+            <summary>
+             Gets or sets a value indicating whether to wait for completion of the import job or not.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Content.Models.ImportDataParameters.JobId">
+            <summary>
+            Gets or sets a value indicating whether the plain job ID will be returned.
+            </summary>
+        </member>
+        <member name="T:Sitecore.CH.Cli.Plugin.Content.Models.Print.IPrintTemplateVariable">
+            <summary>
+            Defines a print template variable.
+            </summary>
+        </member>
+        <member name="P:Sitecore.CH.Cli.Plugin.Content.Models.Print.IPrintTemplateVariable.Name">
+            <summary>
+            Gets or sets the variable name.
+            </summary>
+        </member>
+        <member name="T:Sitecore.CH.Cli.Plugin.Content.Services.IDeliveryService">
+            <summary>
+            Describes the Edge service.
+            </summary>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Content.Services.IDeliveryService.IsPublishingEnabledAsync">
+            <summary>
+            Determines whether publishing is enabled on the connected instance.
+            </summary>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/> representing the asynchronous operation.</returns>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Content.Services.IDeliveryService.PublishAsync(Sitecore.CH.Cli.Plugin.Content.Models.Delivery.PublishParameters)">
+            <summary>
+            Publishes the given entities.
+            </summary>
+            <param name="parameters">The request parameters.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/> representing the asynchronous operation.</returns>
+        </member>
+        <member name="T:Sitecore.CH.Cli.Plugin.Content.Services.IPrintService">
+            <summary>
+            Defines the print service.
+            </summary>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Content.Services.IPrintService.Initialize(System.String,System.String)">
+            <summary>
+            Initializes the specified directory with the required files start print template development.
+            </summary>
+            <param name="workingDirectory">The working directory.</param>
+            <param name="templateName">The name of the template.</param>
+            <returns>A instance of a <see cref="T:System.Threading.Tasks.Task"/>.</returns>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Content.Services.IPrintService.Validate(System.String,System.String)">
+            <summary>
+            Validates the print template against an entity definition.
+            </summary>
+            <param name="workingDirectory">The working directory.</param>
+            <param name="definitionName">The entity definition name.</param>
+            <returns>An awaitable <see cref="T:System.Threading.Tasks.Task"/>.</returns>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Content.Services.IPrintService.Push(System.String,System.String,System.String)">
+            <summary>
+            Pushes the print template from the specified working directory to the connected Content Hub instance.
+            </summary>
+            <param name="workingDirectory">The working directory.</param>
+            <param name="templateName">The entity print template name.</param>
+            <param name="definitionName">The entity definition name.</param>
+            <returns>An awaitable <see cref="T:System.Threading.Tasks.Task"/>.</returns>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Content.Services.IPrintService.Pull(System.String,System.String)">
+            <summary>
+            Pulls an entity print template from the connected Content Hub instance into the specified working directory.
+            </summary>
+            <param name="workingDirectory">The working directory.</param>
+            <param name="templateName">The entity print template name.</param>
+            <returns>An awaitable <see cref="T:System.Threading.Tasks.Task"/>.</returns>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Content.Services.IPrintService.Generate(System.String,System.Int64,System.String)">
+            <summary>
+            Generates the specified entity print template against the specified entity and shows the final PDF.
+            </summary>
+            <param name="templateName">The name of the entity print template.</param>
+            <param name="entityId">The id of the entity.</param>
+            <param name="culture">The culture.</param>
+            <returns>An awaitable <see cref="T:System.Threading.Tasks.Task"/>.</returns>
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Content.Services.PrintService.Initialize(System.String,System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Content.Services.PrintService.Validate(System.String,System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Content.Services.PrintService.Push(System.String,System.String,System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Content.Services.PrintService.Pull(System.String,System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Sitecore.CH.Cli.Plugin.Content.Services.PrintService.Generate(System.String,System.Int64,System.String)">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>
