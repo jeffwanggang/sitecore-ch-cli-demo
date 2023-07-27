@@ -1,0 +1,182 @@
+﻿Name: M.Asset
+DisplayTemplate: '{FileName}'
+IsSystemOwned: false
+Labels:
+- en-US: Asset
+MemberGroups:
+- Name: Content
+  IsSystemOwned: false
+  Labels:
+  - en-US: Overview
+  MemberDefinitions:
+  - Role: Child
+    Cardinality: OneToMany
+    Name: AssetTypeToAsset
+    AllowNavigation: true
+    AllowUpdates: true
+    AssociatedLabels:
+    - en-US: Assets
+    AssociatedEntityDefinition: M.AssetType
+    CompletionIsCopied: true
+    ContentIsCopied: true
+    InheritsSecurity: true
+    IsNested: true
+    IsPathRelation: true
+    IsSystemOwned: false
+    IsTaxonomyRelation: true
+    NestedProperties:
+    - Label
+- Name: General
+  IsSystemOwned: false
+  Labels:
+  - en-US: General
+  MemberDefinitions:
+  - Role: Parent
+    Cardinality: OneToMany
+    Name: AssetToPageComponent
+    AllowNavigation: true
+    AllowUpdates: true
+    AssociatedLabels:
+    - en-US: JS bundle
+    AssociatedEntityDefinition: Portal.PageComponent
+    HelpText:
+    - en-US: This is a relation between an external component and a portal asset that should be taken as JavaScript bundle.
+    IsSystemOwned: false
+- Name: Options
+  IsSystemOwned: false
+  Labels:
+  - en-US: Options
+  MemberDefinitions: []
+- Name: DRM
+  IsSystemOwned: false
+  Labels:
+  - en-US: DRM
+  MemberDefinitions: []
+- Name: DRMProfiles
+  IsSystemOwned: false
+  Labels:
+  - en-US: DRM Profiles
+  MemberDefinitions: []
+- Name: Project
+  IsSystemOwned: false
+  Labels:
+  - en-US: Project
+  MemberDefinitions: []
+- Name: Cognitive
+  IsSystemOwned: false
+  Labels:
+  - en-US: Image analysis
+  Conditions:
+  - Type: MemberValueCondition
+    Member: AssetMediaToAsset
+    Identifier: M.AssetMedia.Images
+  - Type: MemberValueCondition
+    Member: AssetMediaToAsset
+    Identifier: M.AssetMedia.Vectors
+  - Type: MemberValueCondition
+    Member: AssetMediaToAsset
+    Identifier: M.AssetMedia.Videos
+  MemberDefinitions:
+  - PropertyDataType: String
+    Name: SitecoreMLStatus
+    AllowUpdates: true
+    DataSource: SitecoreML.Status
+    Indexed: true
+    IsSystemOwned: false
+    Labels:
+    - en-US: Sitecore ML status
+  - PropertyDataType: Json
+    Name: ImageSimilarityTags
+    AllowUpdates: true
+    IgnoreOnExport: true
+    IsSystemOwned: false
+    Labels:
+    - en-US: Image similarity tags
+- Name: KPI
+  IsSystemOwned: false
+  Labels:
+  - en-US: KPI
+- Name: System
+  IsSystemOwned: false
+  Labels:
+  - en-US: System
+  MemberDefinitions:
+  - Role: Child
+    Cardinality: ManyToMany
+    Name: ContentCollectionToMasterAsset
+    AllowNavigation: true
+    AllowUpdates: true
+    AssociatedLabels:
+    - en-US: Master asset
+    AssociatedEntityDefinition: M.ContentCollection
+    IsSystemOwned: false
+- Name: BPM
+  IsSystemOwned: false
+  Labels:
+  - en-US: BPM
+- Name: CMP
+  IsSystemOwned: false
+  Labels:
+  - en-US: CMP
+  MemberDefinitions: []
+- Name: PCM
+  IsSystemOwned: false
+  Labels:
+  - en-US: PCM
+  MemberDefinitions: []
+- Name: ConferenceOverview
+  IsSystemOwned: false
+  Labels:
+  - en-US: Conference overview
+  MemberDefinitions:
+  - Role: Child
+    Cardinality: ManyToMany
+    Name: ConferenceSpeakerToAsset
+    AllowNavigation: true
+    AllowUpdates: true
+    AssociatedLabels:
+    - en-US: Speaker photo
+    AssociatedEntityDefinition: Demo.ConferenceSpeaker
+    ContentIsCopied: true
+    IsPathRelation: true
+    IsSystemOwned: false
+    IsTaxonomyRelation: true
+  - Role: Child
+    Cardinality: ManyToMany
+    Name: ConferenceSpeakerToMasterAsset
+    AllowNavigation: true
+    AllowUpdates: true
+    AssociatedLabels:
+    - en-US: Speaker photo (cover)
+    AssociatedEntityDefinition: Demo.ConferenceSpeaker
+    IsSystemOwned: false
+- Name: VideoAnalysis
+  IsSystemOwned: false
+  Labels:
+  - en-US: Video analysis
+  Conditions:
+  - Type: MemberValueCondition
+    Member: AssetMediaToAsset
+    Identifier: M.AssetMedia.Videos
+  MemberDefinitions: []
+- Name: Subtitles
+  IsSystemOwned: false
+  Labels:
+  - en-US: Subtitles
+  MemberDefinitions: []
+- Name: Publishing
+  IsSystemOwned: false
+  Labels:
+  - en-US: Publishing
+  MemberDefinitions:
+  - PropertyDataType: String
+    Name: PublishStatus
+    DataSource: M.PublishStatus
+    IsSystemOwned: false
+    Labels:
+    - en-US: Publish status
+  - PropertyDataType: String
+    Name: PublishStatusDetails
+    IsSystemOwned: false
+    Labels:
+    - en-US: Publish status details

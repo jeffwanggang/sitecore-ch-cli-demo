@@ -1,0 +1,35 @@
+﻿Definition: Demo.CatalogStatus
+Identifier: CatalogStatus.Published
+InheritsSecurity: true
+IsPathRoot: true
+IsRootTaxonomyItem: true
+Properties:
+- Name: Entity.Visualization
+  PropertyDataType: Json
+  AllowUpdates: true
+  MultiLanguage: false
+  Value: >-
+    {
+      "color": "green",
+      "icon": "m-icon-check"
+    }
+- Name: TaxonomyLabel
+  PropertyDataType: String
+  AllowUpdates: true
+  MultiLanguage: true
+  Value:
+  - en-US: Approved
+- Name: TaxonomyName
+  PropertyDataType: String
+  AllowUpdates: true
+  MultiLanguage: false
+  Value: Approved
+Relations:
+- Name: CatalogStatusToCatalog
+  AllowUpdates: true
+  Children:
+  - Catalog.FruitfulCatalog2019
+- Name: Catalog.CatalogStatusToCatalog
+  AllowUpdates: true
+  Children:
+  - M.Automation.State.M.PCM.Catalog.CatalogProduction.Published

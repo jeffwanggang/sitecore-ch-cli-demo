@@ -1,0 +1,102 @@
+﻿Name: Demo.CatalogStatus
+DisplayTemplate: '{TaxonomyLabel}'
+IsSystemOwned: false
+IsManualSortingAllowed: true
+IsPathEnabledDefinition: true
+IsTaxonomyItemDefinition: true
+Labels:
+- en-US: Catalog status
+MemberGroups:
+- Name: Main
+  IsSystemOwned: false
+  Labels:
+  - en-US: Main
+  MemberDefinitions:
+  - PropertyDataType: String
+    Name: TaxonomyName
+    AllowUpdates: true
+    Indexed: true
+    IsMandatory: true
+    IsSystemOwned: false
+    Labels:
+    - en-US: Name
+  - PropertyDataType: String
+    Name: TaxonomyLabel
+    AllowUpdates: true
+    IncludedInContent: true
+    IsSystemOwned: false
+    Labels:
+    - en-US: Label
+    MultiLanguage: true
+  - PropertyDataType: String
+    Name: TaxonomySynonyms
+    AllowUpdates: true
+    IncludedInContent: true
+    IsSystemOwned: false
+    Labels:
+    - en-US: Synonyms
+    MultiLanguage: true
+  - PropertyDataType: String
+    Name: TaxonomyDescription
+    AllowUpdates: true
+    ContentType: Html
+    IncludedInContent: true
+    IsSystemOwned: false
+    Labels:
+    - en-US: Description
+    MultiLanguage: true
+  - PropertyDataType: Integer
+    Name: SortOrder
+    AllowUpdates: true
+    IsSystemOwned: false
+    Labels:
+    - en-US: Sort Order
+  - Role: Parent
+    Cardinality: OneToMany
+    Name: Demo_CatalogStatusToSelf
+    AllowNavigation: true
+    AllowUpdates: true
+    AssociatedEntityDefinition: Demo.CatalogStatus
+    CompletionIsCopied: true
+    ContentIsCopied: true
+    InheritsSecurity: true
+    IsPathHierarchyRelation: true
+    IsSystemOwned: false
+    IsTaxonomyHierarchyRelation: true
+  - Role: Child
+    Cardinality: OneToMany
+    Name: Demo_CatalogStatusToSelf
+    AllowNavigation: true
+    AllowUpdates: true
+    AssociatedLabels:
+    - en-US: Self items
+    AssociatedEntityDefinition: Demo.CatalogStatus
+    CompletionIsCopied: true
+    ContentIsCopied: true
+    InheritsSecurity: true
+    IsPathHierarchyRelation: true
+    IsSystemOwned: false
+    IsTaxonomyHierarchyRelation: true
+  - Role: Parent
+    Cardinality: OneToMany
+    Name: CatalogStatusToCatalog
+    AllowNavigation: true
+    AllowUpdates: true
+    AssociatedLabels:
+    - en-US: Catalog status
+    AssociatedEntityDefinition: M.PCM.Catalog
+    IsPathRelation: true
+    IsSystemOwned: false
+    IsTaxonomyRelation: true
+- Name: Visualization
+  IsSystemOwned: false
+  Labels:
+  - en-US: Visualization
+  MemberDefinitions:
+  - PropertyDataType: Json
+    Name: Entity.Visualization
+    AllowUpdates: true
+    IgnoreOnExport: true
+    IsSystemOwned: false
+    Labels:
+    - en-US: Visualization

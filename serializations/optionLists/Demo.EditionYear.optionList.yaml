@@ -1,0 +1,15 @@
+﻿Name: Demo.EditionYear
+Values:
+- Identifier: Demo.EditionYear.2020
+  Labels:
+  - en-US: 2020
+- Identifier: Demo.EditionYear.2021
+  Labels:
+  - en-US: 2021
+- Identifier: Demo.EditionYear.2022
+  Labels:
+  - en-US: 2022
+- Identifier: Demo.EditionYear.2023
+  Labels:
+  - en-US: 2023
+IsSystemOwned: false

@@ -1,0 +1,17 @@
+﻿Definition: Demo.ProjectCategory
+Identifier: Demo.ProjectCategory.Campaignadvertising
+InheritsSecurity: true
+IsRootTaxonomyItem: true
+Properties:
+- Name: TaxonomyLabel
+  PropertyDataType: String
+  AllowUpdates: true
+  MultiLanguage: true
+  Value:
+  - en-US: Campaign advertising
+- Name: TaxonomyName
+  PropertyDataType: String
+  AllowUpdates: true
+  MultiLanguage: false
+  Value: Campaign advertising
+Relations: []

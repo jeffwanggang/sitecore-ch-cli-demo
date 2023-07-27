@@ -1,0 +1,108 @@
+﻿Name: Demo.ConferenceTopicOfInterest
+DisplayTemplate: '{ConferenceTopicOfInterestLabel}'
+IsSystemOwned: false
+IsPathEnabledDefinition: true
+IsTaxonomyItemDefinition: true
+Labels:
+- en-US: Topic of interest
+MemberGroups:
+- Name: Main
+  IsSystemOwned: false
+  Labels:
+  - en-US: Main
+  MemberDefinitions:
+  - PropertyDataType: String
+    Name: ConferenceTopicOfInterestName
+    AllowUpdates: true
+    Indexed: true
+    IsMandatory: true
+    IsSystemOwned: false
+    Labels:
+    - en-US: Name
+  - PropertyDataType: String
+    Name: ConferenceTopicOfInterestLabel
+    AllowUpdates: true
+    IncludedInContent: true
+    IsSystemOwned: false
+    Labels:
+    - en-US: Label
+    MultiLanguage: true
+  - PropertyDataType: String
+    Name: ConferenceTopicOfInterestDescription
+    AllowUpdates: true
+    ContentType: Html
+    IncludedInContent: true
+    IsSystemOwned: false
+    Labels:
+    - en-US: Description
+    MultiLanguage: true
+  - Role: Parent
+    Cardinality: OneToMany
+    Name: Demo_ConferenceTopicOfInterestToSelf
+    AllowNavigation: true
+    AllowUpdates: true
+    AssociatedEntityDefinition: Demo.ConferenceTopicOfInterest
+    CompletionIsCopied: true
+    ContentIsCopied: true
+    InheritsSecurity: true
+    IsPathHierarchyRelation: true
+    IsSystemOwned: false
+    IsTaxonomyHierarchyRelation: true
+  - Role: Child
+    Cardinality: OneToMany
+    Name: Demo_ConferenceTopicOfInterestToSelf
+    AllowNavigation: true
+    AllowUpdates: true
+    AssociatedLabels:
+    - en-US: Self items
+    AssociatedEntityDefinition: Demo.ConferenceTopicOfInterest
+    CompletionIsCopied: true
+    ContentIsCopied: true
+    InheritsSecurity: true
+    IsPathHierarchyRelation: true
+    IsSystemOwned: false
+    IsTaxonomyHierarchyRelation: true
+  - Role: Parent
+    Cardinality: ManyToMany
+    Name: ConferenceTopicOfInterestToConferenceSession
+    AllowUpdates: true
+    AssociatedLabels:
+    - en-US: Topic of interest
+    AssociatedEntityDefinition: Demo.ConferenceSession
+    IsPathRelation: true
+    IsSystemOwned: false
+    IsTaxonomyRelation: true
+- Name: Publishing
+  IsSystemOwned: false
+  Labels:
+  - en-US: Publishing
+  MemberDefinitions:
+  - PropertyDataType: Boolean
+    Name: PreventPublish
+    AllowUpdates: true
+    IsSystemOwned: false
+    Labels:
+    - en-US: Don't publish to delivery platform
+  - PropertyDataType: String
+    Name: PublishStatus
+    DataSource: M.PublishStatus
+    IsSystemOwned: false
+    Labels:
+    - en-US: Publish status
+  - PropertyDataType: String
+    Name: PublishStatusDetails
+    IsSystemOwned: false
+    Labels:
+    - en-US: Publish status details
+- Name: Visualization
+  IsSystemOwned: false
+  Labels:
+  - en-US: Visualization
+  MemberDefinitions:
+  - PropertyDataType: Json
+    Name: Entity.Visualization
+    AllowUpdates: true
+    IgnoreOnExport: true
+    IsSystemOwned: false
+    Labels:
+    - en-US: Visualization

@@ -1,0 +1,35 @@
+﻿Definition: Demo.CatalogStatus
+Identifier: CatalogStatus.UnderReview
+InheritsSecurity: true
+IsPathRoot: true
+IsRootTaxonomyItem: true
+Properties:
+- Name: Entity.Visualization
+  PropertyDataType: Json
+  AllowUpdates: true
+  MultiLanguage: false
+  Value: >-
+    {
+      "color": "amber",
+      "icon": "m-icon-glasses"
+    }
+- Name: TaxonomyLabel
+  PropertyDataType: String
+  AllowUpdates: true
+  MultiLanguage: true
+  Value:
+  - en-US: Under review
+- Name: TaxonomyName
+  PropertyDataType: String
+  AllowUpdates: true
+  MultiLanguage: false
+  Value: Under review
+Relations:
+- Name: CatalogStatusToCatalog
+  AllowUpdates: true
+  Children:
+  - Catalog.PowerfulCatalog2020
+- Name: Catalog.CatalogStatusToCatalog
+  AllowUpdates: true
+  Children:
+  - M.Automation.State.M.PCM.Catalog.CatalogProduction.Review

@@ -1,0 +1,67 @@
+﻿Name: Demo.ConferenceSessionBundle
+DisplayTemplate: '{ConferenceSessionBundleName}'
+IsSystemOwned: false
+IsTaxonomyItemDefinition: true
+Labels:
+- en-US: Session bundle
+MemberGroups:
+- Name: Main
+  IsSystemOwned: false
+  Labels:
+  - en-US: Main
+  MemberDefinitions:
+  - PropertyDataType: String
+    Name: ConferenceSessionBundleName
+    AllowUpdates: true
+    Indexed: true
+    IsMandatory: true
+    IsSystemOwned: false
+    Labels:
+    - en-US: Session bundle name
+  - PropertyDataType: String
+    Name: ConferenceSessionBundleDescription
+    AllowUpdates: true
+    ContentType: Html
+    IncludedInContent: true
+    IsSystemOwned: false
+    Labels:
+    - en-US: Session bundle description
+    MultiLanguage: true
+- Name: Publishing
+  IsSystemOwned: false
+  Labels:
+  - en-US: Publishing
+  MemberDefinitions:
+  - PropertyDataType: Boolean
+    Name: PreventPublish
+    AllowUpdates: true
+    IsSystemOwned: false
+    Labels:
+    - en-US: Don't publish to delivery platform
+  - PropertyDataType: String
+    Name: PublishStatus
+    DataSource: M.PublishStatus
+    IsSystemOwned: false
+    Labels:
+    - en-US: Publish status
+  - PropertyDataType: String
+    Name: PublishStatusDetails
+    IsSystemOwned: false
+    Labels:
+    - en-US: Publish status details
+- Name: Relations
+  IsSystemOwned: false
+  Labels:
+  - en-US: Relations
+  MemberDefinitions:
+  - Role: Parent
+    Cardinality: ManyToMany
+    Name: ConferenceBundleToConferenceSession
+    AllowUpdates: true
+    AssociatedLabels:
+    - en-US: Bundle
+    AssociatedEntityDefinition: Demo.ConferenceSession
+    InheritsSecurity: true
+    IsPathRelation: true
+    IsSystemOwned: false
+    IsTaxonomyRelation: true

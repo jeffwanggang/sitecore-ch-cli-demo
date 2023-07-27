@@ -1,0 +1,93 @@
+﻿Name: Demo.ConferenceEvent
+DisplayTemplate: '{ConferenceEventName}'
+IsSystemOwned: false
+IsTaxonomyItemDefinition: true
+Labels:
+- en-US: Event
+MemberGroups:
+- Name: Main
+  IsSystemOwned: false
+  Labels:
+  - en-US: Main
+  MemberDefinitions:
+  - PropertyDataType: String
+    Name: ConferenceEventName
+    AllowUpdates: true
+    IncludedInCompletion: true
+    IncludedInContent: true
+    IsMandatory: true
+    IsSystemOwned: false
+    Labels:
+    - en-US: Event name
+  - PropertyDataType: String
+    Name: ConferenceEventTagline
+    AllowUpdates: true
+    ContentType: MultiLine
+    IncludedInContent: true
+    IsSystemOwned: false
+    Labels:
+    - en-US: Tagline
+    MultiLanguage: true
+  - PropertyDataType: String
+    Name: ConferenceEventLocation
+    AllowUpdates: true
+    ContentType: MultiLine
+    HelpText:
+    - en-US: Location and address of the conference / event
+    IncludedInContent: true
+    IsSystemOwned: false
+    Labels:
+    - en-US: Location
+  - PropertyDataType: String
+    Name: ConferenceEventEditionYear
+    AllowUpdates: true
+    DataSource: Demo.EditionYear
+    IsSystemOwned: false
+    Labels:
+    - en-US: Edition year
+  - PropertyDataType: DateTime
+    Name: ConferenceEventStartDate
+    AllowUpdates: true
+    IsSystemOwned: false
+    Labels:
+    - en-US: Start date
+  - PropertyDataType: DateTime
+    Name: ConferenceEventEndDate
+    AllowUpdates: true
+    IsSystemOwned: false
+    Labels:
+    - en-US: End date
+  - Role: Parent
+    Cardinality: OneToMany
+    Name: ConferenceEventToConferenceSession
+    AllowUpdates: true
+    AssociatedLabels:
+    - en-US: Event
+    AssociatedEntityDefinition: Demo.ConferenceSession
+    ContentIsCopied: true
+    InheritsSecurity: true
+    IsPathRelation: true
+    IsSystemOwned: false
+    IsTaxonomyRelation: true
+- Name: Publishing
+  IsSystemOwned: false
+  Labels:
+  - en-US: Publishing
+  MemberDefinitions:
+  - PropertyDataType: Boolean
+    Name: PreventPublish
+    AllowUpdates: true
+    IsSystemOwned: false
+    Labels:
+    - en-US: Don't publish to delivery platform
+  - PropertyDataType: String
+    Name: PublishStatus
+    DataSource: M.PublishStatus
+    IsSystemOwned: false
+    Labels:
+    - en-US: Publish status
+  - PropertyDataType: String
+    Name: PublishStatusDetails
+    IsSystemOwned: false
+    Labels:
+    - en-US: Publish status details

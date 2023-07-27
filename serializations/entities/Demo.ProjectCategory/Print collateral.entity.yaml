@@ -1,0 +1,17 @@
+﻿Definition: Demo.ProjectCategory
+Identifier: Demo.ProjectCategory.Printcollateral
+InheritsSecurity: true
+IsRootTaxonomyItem: true
+Properties:
+- Name: TaxonomyLabel
+  PropertyDataType: String
+  AllowUpdates: true
+  MultiLanguage: true
+  Value:
+  - en-US: Print collateral
+- Name: TaxonomyName
+  PropertyDataType: String
+  AllowUpdates: true
+  MultiLanguage: false
+  Value: Print collateral
+Relations: []

@@ -1,0 +1,17 @@
+﻿Definition: Demo.ProjectCategory
+Identifier: Demo.ProjectCategory.Email
+InheritsSecurity: true
+IsRootTaxonomyItem: true
+Properties:
+- Name: TaxonomyLabel
+  PropertyDataType: String
+  AllowUpdates: true
+  MultiLanguage: true
+  Value:
+  - en-US: Email
+- Name: TaxonomyName
+  PropertyDataType: String
+  AllowUpdates: true
+  MultiLanguage: false
+  Value: Email
+Relations: []

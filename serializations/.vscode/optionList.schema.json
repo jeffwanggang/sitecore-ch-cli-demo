@@ -1,0 +1,98 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "https://sitecore.com/option-list.serialization.schema.json",
+  "type": "object",
+  "title": "The option list schema",
+  "$defs": {
+    "isSystemOwned": {
+      "title": "IsSystemOwned",
+      "type": "boolean",
+      "default": false,
+      "enum": [false]
+    },
+    "values": {
+      "title": "Values",
+      "type": "array",
+      "items": {
+        "anyOf": [
+          {
+            "type": "object",
+            "properties": {
+              "Identifier": {
+                "type": "string",
+                "title": "The value identifier."
+              },
+              "Labels": {
+                "type": "array"
+              },
+              "Values": {
+                "$ref": "#/$defs/values"
+              }
+            },
+            "required": ["Identifier", "Labels"],
+            "defaultSnippets": [
+              {
+                "label": "Flat Value",
+                "prefix": "fv",
+                "body": {
+                  "Identifier": "${1:Identifier}",
+                  "Labels": []
+                }
+              },
+              {
+                "label": "Hierarchical Value",
+                "prefix": "hv",
+                "body": {
+                  "Identifier": "${1:Identifier}",
+                  "Labels": [],
+                  "Values": []
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "properties": {
+    "Name": {
+      "type": "string",
+      "title": "The option list name."
+    },
+    "Type": {
+      "type": "string",
+      "title": "The option list type.",
+      "enum": ["Flat", "Hierarchical"],
+      "default": "Flat"
+    },
+    "IsSystemOwned": {
+      "$ref": "#/$defs/isSystemOwned"
+    },
+    "Values": {
+      "$ref": "#/$defs/values"
+    }
+  },
+  "required": ["Name", "IsSystemOwned"],
+  "defaultSnippets": [
+    {
+      "label": "Flat Option List",
+      "prefix": "fo",
+      "body": {
+        "Name": "${1:Name}",
+        "Type": "Flat",
+        "IsSystemOwned": false,
+        "Values": []
+      }
+    },
+    {
+      "label": "Hierarchical Option List",
+      "prefix": "ho",
+      "body": {
+        "Name": "${1:Name}",
+        "Type": "Hierarchical",
+        "IsSystemOwned": false,
+        "Values": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,192 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "https://sitecore.com/entity.serialization.schema.json",
+  "type": "object",
+  "title": "The entity schema",
+  "properties": {
+    "Definition": {
+      "type": "string",
+      "title": "The entity definition that this entity is based on."
+    },
+    "Identifier": {
+      "type": "string",
+      "title": "The entity identifier"
+    },
+    "Properties": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "anyOf": [
+          {
+            "properties": {
+              "Name": { "type": "string" },
+              "PropertyDataType": {
+                "type": "string",
+                "enum": [
+                  "Boolean",
+                  "BooleanArray",
+                  "Date",
+                  "DateArray",
+                  "DateTime",
+                  "DateTimeArray",
+                  "Decimal",
+                  "DecimalArray",
+                  "Integer",
+                  "IntegerArray",
+                  "Long",
+                  "LongArray",
+                  "String",
+                  "StringArray",
+                  "Json",
+                  "JsonArray"
+                ]
+              },
+              "AllowUpdates": {
+                "type": "boolean",
+                "default": true
+              },
+              "MultiLanguage": {
+                "type": "boolean",
+                "default": false
+              },
+              "Value": {}
+            },
+            "allOf": [
+              {
+                "if": {
+                  "not": {
+                    "properties": {
+                      "MultiLanguage": {
+                        "enum": [false]
+                      }
+                    }
+                  }
+                },
+                "then": {
+                  "properties": {
+                    "Value": {
+                      "type": "array"
+                    }
+                  }
+                }
+              },
+              {
+                "if": {
+                  "properties": { "PropertyDataType": { "pattern": ".+Array$" } }
+                },
+                "then": {
+                  "properties": {
+                    "Value": {
+                      "type": "array"
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "required": ["Name", "PropertyDataType", "AllowUpdates", "MultiLanguage", "Value"],
+        "defaultSnippets": [
+          {
+            "label": "Property",
+            "prefix": "prop",
+            "body": {
+              "Name": "${1:Name}",
+              "PropertyDataType": "${2:DataType}",
+              "AllowUpdates": true,
+              "MultiLanguage": false,
+              "Value": {}
+            }
+          }
+        ]
+      }
+    },
+    "Relations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "anyOf": [
+          {
+            "properties": {
+              "Name": { "type": "string" },
+              "AllowUpdates": {
+                "type": "boolean",
+                "default": true
+              },
+              "Child": { "type": "string" },
+              "Children": { "type": "array" },
+              "Parent": { "type": "string" },
+              "Parents": { "type": "array" }
+            }
+          }
+        ],
+        "oneOf": [
+          {
+            "required": ["Child"]
+          },
+          {
+            "required": ["Children"]
+          },
+          {
+            "required": ["Parent"]
+          },
+          {
+            "required": ["Parents"]
+          }
+        ],
+        "required": ["Name", "AllowUpdates"],
+        "defaultSnippets": [
+          {
+            "label": "Child Relation",
+            "prefix": "child",
+            "body": {
+              "Name": "${1:Name}",
+              "AllowUpdates": true,
+              "Parent": "${2:ParentIdentifier}"
+            }
+          },
+          {
+            "label": "Parent Relation",
+            "prefix": "parent",
+            "body": {
+              "Name": "${1:Name}",
+              "AllowUpdates": true,
+              "Child": "${2:ChildIdentifier}"
+            }
+          },
+          {
+            "label": "Children Relation",
+            "prefix": "children",
+            "body": {
+              "Name": "${1:Name}",
+              "AllowUpdates": true,
+              "Parents": []
+            }
+          },
+          {
+            "label": "Parents Relation",
+            "prefix": "parents",
+            "body": {
+              "Name": "${1:Name}",
+              "AllowUpdates": true,
+              "Children": []
+            }
+          }
+        ]
+      }
+    }
+  },
+  "required": ["Definition", "Identifier"],
+  "defaultSnippets": [
+    {
+      "label": "Entity",
+      "prefix": "ent",
+      "body": {
+        "Definition": "${1:EntityDefinitionName}",
+        "Identifier": "${2:Identifier}",
+        "Properties": [],
+        "Relations": []
+      }
+    }
+  ]
+}

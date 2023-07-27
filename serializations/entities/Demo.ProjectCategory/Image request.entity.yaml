@@ -1,0 +1,17 @@
+﻿Definition: Demo.ProjectCategory
+Identifier: Demo.ProjectCategory.Imagerequest
+InheritsSecurity: true
+IsRootTaxonomyItem: true
+Properties:
+- Name: TaxonomyLabel
+  PropertyDataType: String
+  AllowUpdates: true
+  MultiLanguage: true
+  Value:
+  - en-US: Image request
+- Name: TaxonomyName
+  PropertyDataType: String
+  AllowUpdates: true
+  MultiLanguage: false
+  Value: Image request
+Relations: []

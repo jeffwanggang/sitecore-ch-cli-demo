@@ -1,0 +1,9 @@
+﻿Name: Demo.SessionLocationType
+Values:
+- Identifier: Demo.SessionLocationType.Onpremises
+  Labels:
+  - en-US: On-premises
+- Identifier: Demo.SessionLocationType.Virtual
+  Labels:
+  - en-US: Virtual
+IsSystemOwned: false

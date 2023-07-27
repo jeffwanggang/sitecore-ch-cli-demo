@@ -1,0 +1,543 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "https://sitecore.com/entity-definition.serialization.schema.json",
+  "type": "object",
+  "title": "The entity definition schema",
+  "$defs": {
+    "isSystemOwned": {
+      "title": "IsSystemOwned",
+      "type": "boolean",
+      "default": false,
+      "enum": [false]
+    },
+    "role": {
+      "title": "Role",
+      "description": "The role of the relation.",
+      "enum": [
+        "Parent",
+        "Child"
+      ]
+    },
+    "cardinality": {
+      "title": "Cardinality",
+      "description": "The cardinality of the relation.",
+      "enum": [
+        "OneToOne",
+        "OneToMany",
+        "ManyToOne",
+        "ManyToMany"
+      ]
+    },
+    "condition": {
+      "type": "object",
+      "title": "Condition",
+      "properties": {
+        "Type": {
+          "type": "string",
+          "enum": [
+            "MemberValueCondition",
+            "NoAncestorCondition"
+          ]
+        },
+        "Member": {
+          "type": "string"
+        },
+        "Identifier": {
+          "type": "string"
+        },
+        "Value": {
+          "type": {}
+        },
+        "DefinitionName": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "Type": {
+                "const": "MemberValueCondition"
+              }
+            }
+          },
+          "then": {
+            "anyOf": [
+              {
+                "required": [
+                  "Type",
+                  "Member",
+                  "Value"
+                ]
+              },
+              {
+                "required": [
+                  "Type",
+                  "Member",
+                  "Identifier"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "Type": {
+                "const": "NoAncestorCondition"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "Type",
+              "Member",
+              "DefinitionName"
+            ]
+          }
+        }
+      ],
+      "defaultSnippets": [
+        {
+          "label": "Value Identifier Condition",
+          "prefix": "vic",
+          "body": {
+            "Type": "MemberValueCondition",
+            "Member": "${1:Member}",
+            "Identifier": "${2:Identifier}"
+          }
+        },
+        {
+          "label": "Value Condition",
+          "prefix": "vc",
+          "body": {
+            "Type": "MemberValueCondition",
+            "Member": "${1:Member}",
+            "Value": "${2:Value}"
+          }
+        },
+        {
+          "label": "NoAncestor Condition",
+          "prefix": "nac",
+          "body": {
+            "Type": "NoAncestorCondition",
+            "Member": "${1:Member}",
+            "DefinitionName": "${2:DefinitionName}"
+          }
+        }
+      ]
+    },
+    "memberDefinitionProperty": {
+      "type": "object",
+      "title": "Property",
+      "properties": {
+        "PropertyDataType": {
+          "type": "string",
+          "enum": [
+            "Boolean",
+            "BooleanArray",
+            "Date",
+            "DateArray",
+            "DateTime",
+            "DateTimeArray",
+            "Decimal",
+            "DecimalArray",
+            "Integer",
+            "IntegerArray",
+            "Long",
+            "LongArray",
+            "String",
+            "StringArray",
+            "Json",
+            "JsonArray"
+          ]
+        },
+        "Name": {
+          "type": "string",
+          "title": "The name of the property."
+        },
+        "IsSystemOwned": {
+          "$ref": "#/$defs/isSystemOwned"
+        },
+        "AllowUpdates": {
+          "type": "boolean",
+          "default": false
+        },
+        "Conditions": {
+          "type": "array",
+          "title": "The member group conditions.",
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/condition"
+              }
+            ]
+          }
+        },
+        "Boost": {
+          "type": "boolean",
+          "default": false
+        },
+        "HelpText": {
+          "type": "array"
+        },
+        "Labels": {
+          "type": "array"
+        },
+        "IgnoreOnExport": {
+          "type": "boolean",
+          "default": false
+        },
+        "IncludedInCompletion": {
+          "type": "boolean",
+          "default": false
+        },
+        "IncludedInContent": {
+          "type": "boolean",
+          "default": false
+        },
+        "Indexed": {
+          "type": "boolean",
+          "default": false
+        },
+        "IsMandatory": {
+          "type": "boolean",
+          "default": false
+        },
+        "IsSecured": {
+          "type": "boolean",
+          "default": false
+        },
+        "MultiLanguage": {
+          "type": "boolean",
+          "default": false
+        },
+        "Unique": {
+          "type": "boolean",
+          "default": false
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "PropertyDataType": {
+                "const": "String"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "DataSource": {
+                "type": "string"
+              },
+              "ContentType": {
+                "type": "string"
+              },
+              "ValidationExpression": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "PropertyDataType": {
+                "const": "Json"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "ContentType": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "PropertyDataType": {
+                "pattern": ".+Array$"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "MultiValue": {
+                "type": "boolean",
+                "default": false
+              }
+            }
+          }
+        }
+      ],
+      "required": [
+        "PropertyDataType",
+        "Name",
+        "IsSystemOwned"
+      ],
+      "defaultSnippets": [
+        {
+          "label": "Property Definition",
+          "prefix": "prop",
+          "body": {
+            "PropertyDataType": "${1:DataType}",
+            "Name": "${2:Name}",
+            "IsSystemOwned": false,
+            "Conditions": [],
+            "AllowUpdates": true,
+            "Boost": false,
+            "HelpText": [],
+            "Labels": [],
+            "IgnoreOnExport": false,
+            "IncludedInCompletion": false,
+            "IncludedInContent": false,
+            "Indexed": false,
+            "IsMandatory": false,
+            "IsSecured": false,
+            "MultiLanguage": false,
+            "Unique": false
+          }
+        }
+      ]
+    },
+    "memberDefinitionRelation": {
+      "type": "object",
+      "title": "Relation",
+      "properties": {
+        "Role": {
+          "$ref": "#/$defs/role"
+        },
+        "Cardinality": {
+          "$ref": "#/$defs/cardinality"
+        },
+        "Name": {
+          "type": "string",
+          "title": "The name of the relation."
+        },
+        "AssociatedEntityDefinition": {
+          "type": "string"
+        },
+        "IsSystemOwned": {
+          "$ref": "#/$defs/isSystemOwned"
+        },
+        "Conditions": {
+          "type": "array",
+          "title": "The member group conditions.",
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/condition"
+              }
+            ]
+          }
+        },
+        "AllowUpdates": {
+          "type": "boolean",
+          "default": true
+        },
+        "AllowNavigation": {
+          "type": "boolean",
+          "default": false
+        },
+        "AssociatedLabels": {
+          "type": "array"
+        },
+        "ChildIsMandatory": {
+          "type": "boolean",
+          "default": false
+        },
+        "CompletionIsCopied": {
+          "type": "boolean",
+          "default": false
+        },
+        "ContentIsCopied": {
+          "type": "boolean",
+          "default": false
+        },
+        "HelpText": {
+          "type": "array"
+        },
+        "InheritsSecurity": {
+          "type": "boolean",
+          "default": false
+        },
+        "IsNested": {
+          "type": "boolean",
+          "default": false
+        },
+        "IsPathHierarchyRelation": {
+          "type": "boolean",
+          "default": false
+        },
+        "IsPathRelation": {
+          "type": "boolean",
+          "default": false
+        },
+        "IsRenditionRelation": {
+          "type": "boolean",
+          "default": false
+        },
+        "IsSecured": {
+          "type": "boolean",
+          "default": false
+        },
+        "IsTaxonomyHierarchyRelation": {
+          "type": "boolean",
+          "default": false
+        },
+        "IsTaxonomyRelation": {
+          "type": "boolean",
+          "default": false
+        },
+        "NestedPermissions": {
+          "type": "boolean",
+          "default": false
+        },
+        "NestedProperties": {
+          "type": "array"
+        },
+        "ParentIsMandatory": {
+          "type": "boolean",
+          "default": false
+        }
+      },
+      "required": [
+        "Role",
+        "Cardinality",
+        "Name",
+        "AssociatedEntityDefinition",
+        "IsSystemOwned"
+      ],
+      "defaultSnippets": [
+        {
+          "label": "Relation Definition",
+          "prefix": "rel",
+          "body": {
+            "Role": "${1:Role}",
+            "Cardinality": "${2:Cardinality}",
+            "Name": "${3:Name}",
+            "AssociatedEntityDefinition": "${4:EntityDefinition}",
+            "IsSystemOwned": false,
+            "Conditions": [],
+            "AllowUpdates": true,
+            "AllowNavigation": false,
+            "AssociatedLabels": [],
+            "ChildIsMandatory": false,
+            "CompletionIsCopied": false,
+            "ContentIsCopied": false,
+            "HelpText": [],
+            "InheritsSecurity": false,
+            "IsNested": false,
+            "IsPathHierarchyRelation": false,
+            "IsPathRelation": false,
+            "IsRenditionRelation": false,
+            "IsSecured": false,
+            "IsTaxonomyHierarchyRelation": false,
+            "IsTaxonomyRelation": false,
+            "NestedPermissions": false,
+            "NestedProperties": [],
+            "ParentIsMandatory": false
+          }
+        }
+      ]
+    }
+  },
+  "properties": {
+    "Name": {
+      "type": "string",
+      "title": "The entity definition name."
+    },
+    "DisplayTemplate": {
+      "type": "string",
+      "title": "The entity definition display template."
+    },
+    "IsSystemOwned": {
+      "$ref": "#/$defs/isSystemOwned"
+    },
+    "Labels": {
+      "type": "array"
+    },
+    "MemberGroups": {
+      "type": "array",
+      "title": "The member groups.",
+      "items": {
+        "anyOf": [
+          {
+            "type": "object",
+            "properties": {
+              "Name": {
+                "type": "string",
+                "title": "The member group name."
+              },
+              "IsSystemOwned": {
+                "$ref": "#/$defs/isSystemOwned"
+              },
+              "Conditions": {
+                "type": "array",
+                "title": "The member group conditions.",
+                "items": {
+                  "anyOf": [
+                    {
+                      "$ref": "#/$defs/condition"
+                    }
+                  ]
+                }
+              },
+              "MemberDefinitions": {
+                "type": "array",
+                "title": "The member definitions.",
+                "items": {
+                  "anyOf": [
+                    {
+                      "$ref": "#/$defs/memberDefinitionProperty"
+                    },
+                    {
+                      "$ref": "#/$defs/memberDefinitionRelation"
+                    }
+                  ]
+                }
+              }
+            },
+            "required": [
+              "Name",
+              "IsSystemOwned"
+            ],
+            "defaultSnippets": [
+              {
+                "label": "Member Group",
+                "prefix": "mg",
+                "body": {
+                  "Name": "${1:Name}",
+                  "IsSystemOwned": false,
+                  "Conditions": [],
+                  "MemberDefinitions": []
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "required": [
+    "Name",
+    "IsSystemOwned"
+  ],
+  "defaultSnippets": [
+    {
+      "label": "Entity Definition",
+      "prefix": "ed",
+      "body": {
+        "Name": "${1:Name}",
+        "DisplayName": "${2:DisplayName}",
+        "IsSystemOwned": false,
+        "Labels": [],
+        "MemberGroups": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+﻿Definition: Demo.ProjectCategory
+Identifier: Demo.ProjectCategory.Events
+InheritsSecurity: true
+IsRootTaxonomyItem: true
+Properties:
+- Name: TaxonomyLabel
+  PropertyDataType: String
+  AllowUpdates: true
+  MultiLanguage: true
+  Value:
+  - en-US: Events
+- Name: TaxonomyName
+  PropertyDataType: String
+  AllowUpdates: true
+  MultiLanguage: false
+  Value: Events
+Relations:
+- Name: ProjectCategoryToProject
+  AllowUpdates: true
+  Children:
+  - ajAtXl4cL02BKeMHedZrCA
+  - id-PNZwmC0SENzWeUInlKw
+  - MULTISTAGEPROJECT-1

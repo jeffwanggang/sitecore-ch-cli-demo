@@ -1,0 +1,12 @@
+﻿Name: Demo.ProductFlavor
+Values:
+- Identifier: Demo.ProductFlavor.Lemon
+  Labels:
+  - en-US: Lemon
+- Identifier: Demo.ProductFlavor.Lime
+  Labels:
+  - en-US: Lime
+- Identifier: Demo.ProductFlavor.Orange
+  Labels:
+  - en-US: Orange
+IsSystemOwned: false

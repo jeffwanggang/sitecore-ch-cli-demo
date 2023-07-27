@@ -1,0 +1,122 @@
+﻿Name: Demo.ProjectCategory
+DisplayTemplate: '{TaxonomyLabel}'
+IsSystemOwned: false
+IsPathEnabledDefinition: true
+IsTaxonomyItemDefinition: true
+Labels:
+- en-US: Project category
+MemberGroups:
+- Name: Main
+  IsSystemOwned: false
+  Labels:
+  - en-US: Main
+  MemberDefinitions:
+  - PropertyDataType: String
+    Name: TaxonomyName
+    AllowUpdates: true
+    Indexed: true
+    IsMandatory: true
+    IsSystemOwned: false
+    Labels:
+    - en-US: Name
+  - PropertyDataType: String
+    Name: TaxonomyLabel
+    AllowUpdates: true
+    IncludedInContent: true
+    IsSystemOwned: false
+    Labels:
+    - en-US: Label
+    MultiLanguage: true
+  - PropertyDataType: String
+    Name: TaxonomySynonyms
+    AllowUpdates: true
+    IncludedInContent: true
+    IsSystemOwned: false
+    Labels:
+    - en-US: Synonyms
+    MultiLanguage: true
+  - PropertyDataType: String
+    Name: TaxonomyDescription
+    AllowUpdates: true
+    ContentType: Html
+    IncludedInContent: true
+    IsSystemOwned: false
+    Labels:
+    - en-US: Description
+    MultiLanguage: true
+  - Role: Parent
+    Cardinality: OneToMany
+    Name: Demo_ProjectCategoryToSelf
+    AllowNavigation: true
+    AllowUpdates: true
+    AssociatedEntityDefinition: Demo.ProjectCategory
+    CompletionIsCopied: true
+    ContentIsCopied: true
+    InheritsSecurity: true
+    IsPathHierarchyRelation: true
+    IsSystemOwned: false
+    IsTaxonomyHierarchyRelation: true
+  - Role: Child
+    Cardinality: OneToMany
+    Name: Demo_ProjectCategoryToSelf
+    AllowNavigation: true
+    AllowUpdates: true
+    AssociatedLabels:
+    - en-US: Self items
+    AssociatedEntityDefinition: Demo.ProjectCategory
+    CompletionIsCopied: true
+    ContentIsCopied: true
+    InheritsSecurity: true
+    IsPathHierarchyRelation: true
+    IsSystemOwned: false
+    IsTaxonomyHierarchyRelation: true
+- Name: Publishing
+  IsSystemOwned: false
+  Labels:
+  - en-US: Publishing
+  MemberDefinitions:
+  - PropertyDataType: Boolean
+    Name: PreventPublish
+    AllowUpdates: true
+    IsSystemOwned: false
+    Labels:
+    - en-US: Don't publish to delivery platform
+  - PropertyDataType: String
+    Name: PublishStatus
+    DataSource: M.PublishStatus
+    IsSystemOwned: false
+    Labels:
+    - en-US: Publish status
+  - PropertyDataType: String
+    Name: PublishStatusDetails
+    IsSystemOwned: false
+    Labels:
+    - en-US: Publish status details
+- Name: Visualization
+  IsSystemOwned: false
+  Labels:
+  - en-US: Visualization
+  MemberDefinitions:
+  - PropertyDataType: Json
+    Name: Entity.Visualization
+    AllowUpdates: true
+    IgnoreOnExport: true
+    IsSystemOwned: false
+    Labels:
+    - en-US: Visualization
+- Name: Brief
+  IsSystemOwned: false
+  Labels:
+  - en-US: Brief
+  MemberDefinitions:
+  - Role: Parent
+    Cardinality: OneToMany
+    Name: ProjectCategoryToProject
+    AllowUpdates: true
+    AssociatedLabels:
+    - en-US: Category
+    AssociatedEntityDefinition: M.Project.Block
+    InheritsSecurity: true
+    IsPathRelation: true
+    IsSystemOwned: false
+    IsTaxonomyRelation: true

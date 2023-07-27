@@ -1,0 +1,10 @@
+{
+  "yaml.schemas": {
+    "./.vscode/definition.schema.json": "*.definition.yaml",
+    "./.vscode/entity.schema.json": "*.entity.yaml",
+    "./.vscode/optionList.schema.json": "*.optionList.yaml"
+  },
+  "files.exclude": {
+    ".vscode": true
+  }
+}
